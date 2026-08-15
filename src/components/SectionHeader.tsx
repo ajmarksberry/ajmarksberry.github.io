@@ -2,6 +2,7 @@ type SectionHeaderProps = {
   overline: string;
   title: string;
   subtitle?: string;
+  description?: string;
   className?: string;
   inverse?: boolean;
 };
@@ -10,6 +11,7 @@ export function SectionHeader({
   overline,
   title,
   subtitle,
+  description,
   className = "",
   inverse = false,
 }: SectionHeaderProps) {
@@ -31,6 +33,14 @@ export function SectionHeader({
             style={{ fontFeatureSettings: '"liga" 0' }}
           >
             {subtitle}
+          </p>
+        ) : null}
+        {description ? (
+          <p
+            className={`font-serif w-full max-w-[640px] text-base leading-7 ${inverse ? "text-white" : "text-ink"}`}
+            style={{ fontFeatureSettings: '"liga" 0' }}
+          >
+            {description}
           </p>
         ) : null}
       </div>

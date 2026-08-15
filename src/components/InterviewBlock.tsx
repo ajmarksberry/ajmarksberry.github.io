@@ -18,8 +18,18 @@ export function InterviewBlock() {
       <SectionHeader
         overline="Discovery"
         title="Interviews"
-        className="w-full max-w-[620px] lg:max-w-full"
+        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
+        className="w-full max-w-[620px] pb-4 lg:max-w-full"
       />
+
+      <p
+        className="font-serif w-full max-w-[620px] text-base leading-7 text-neutral-900 lg:mr-auto lg:max-w-[840px]"
+        style={{ fontFeatureSettings: '"liga" 0' }}
+      >
+        Because we couldn’t afford to do user testing or interviews, we offered
+        the customer success team a list of questions to ask consumers during
+        sales and support calls.
+      </p>
 
       <div className="flex w-full flex-col items-center gap-8 pt-8">
         <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start">
@@ -29,7 +39,7 @@ export function InterviewBlock() {
               className="flex w-full max-w-[620px] flex-col items-start border-t-2 border-ink pt-6 lg:max-w-none lg:min-w-0 lg:flex-1"
             >
               <p
-                className="w-full font-extrabold text-[48px] leading-[60px] tracking-[-1.2px] text-ink sm:text-[60px] sm:leading-[72px] lg:text-[72px] lg:leading-[90px] lg:tracking-[-1.8px]"
+                className="w-full font-extrabold text-[48px] leading-[60px] tracking-[-1.2px] text-primary-600 sm:text-[60px] sm:leading-[72px] lg:text-[72px] lg:leading-[90px] lg:tracking-[-1.8px]"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 {stat.value}
@@ -44,50 +54,46 @@ export function InterviewBlock() {
           ))}
         </div>
 
-        <div className="flex w-full max-w-[620px] flex-col items-start gap-4 lg:mr-auto">
-          <div className="flex w-full flex-col items-start gap-2">
+        <div className="flex w-full max-w-[620px] flex-col gap-10 rounded-lg bg-panel-dark p-6 text-white sm:p-8 lg:max-w-full lg:flex-row lg:items-start lg:gap-10 lg:p-10">
+          <div className="flex w-full flex-col gap-4 lg:min-w-0 lg:flex-1">
             <h3
-              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-neutral-900"
+              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               What we asked
             </h3>
-            <p
-              className="font-serif w-full text-base leading-7 text-neutral-900"
+            <ol
+              className="font-serif w-full list-decimal text-lg leading-8 sm:text-xl sm:leading-9 lg:text-xl lg:leading-6 lg:space-y-6"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
-              Because we couldn’t afford to do user testing or interviews, we
-              offered the customer success team a list of questions to ask
-              consumers during sales and support calls.
-            </p>
+              {questions.map((question) => (
+                <li key={question} className="ms-[30px]">
+                  {question}
+                </li>
+              ))}
+            </ol>
           </div>
-          <ol className="font-serif w-full list-decimal text-base font-bold text-neutral-900">
-            {questions.map((question) => (
-              <li key={question} className="ms-6 leading-7">
-                {question}
-              </li>
-            ))}
-          </ol>
-        </div>
 
-        <div className="flex w-full max-w-[620px] flex-col gap-6 rounded-lg bg-primary-600 p-6 text-white dark:text-ink lg:max-w-full lg:flex-row lg:items-start lg:justify-between lg:gap-10">
-          <h3
-            className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] lg:w-[254px] lg:shrink-0 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
-            style={{ fontFeatureSettings: '"liga" 0' }}
-          >
-            What we heard
-          </h3>
-          <div
-            className="font-serif flex w-full flex-col gap-2 text-lg font-medium leading-8 lg:max-w-[640px] lg:flex-1 lg:text-xl lg:leading-9"
-            style={{ fontFeatureSettings: '"liga" 0' }}
-          >
-            <p>
-              “There is a lot of information on the dashboard.”
-              <br />
-              “I can’t find what I’m looking for.”
-            </p>
-            <p>“My staff shouldn’t need a tutorial to check in a walk-up.”</p>
-            <p>“It’s difficult to change locations.”</p>
+          <div className="flex w-full flex-col gap-4 lg:min-w-0 lg:flex-1">
+            <h3
+              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
+              style={{ fontFeatureSettings: '"liga" 0' }}
+            >
+              What we heard
+            </h3>
+            <div
+              className="font-serif flex w-full flex-col gap-6 text-lg leading-8 sm:text-xl sm:leading-9 lg:text-xl lg:leading-6"
+              style={{ fontFeatureSettings: '"liga" 0' }}
+            >
+              <p>
+                “There is a lot of information on the dashboard.”
+                <br />
+                <br />
+                “I can’t find what I’m looking for.”
+              </p>
+              <p>“My staff shouldn’t need a tutorial to check in a walk-up.”</p>
+              <p>“It’s difficult to change locations.”</p>
+            </div>
           </div>
         </div>
       </div>

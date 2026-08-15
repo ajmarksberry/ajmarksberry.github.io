@@ -3,14 +3,15 @@ import { SectionHeader } from "@/components/SectionHeader";
 
 export function IntroBlock() {
   return (
-    <section className="section-reveal flex w-full flex-col items-start gap-8">
+    <section className="section-reveal flex w-full flex-col items-center gap-8 lg:items-start">
       <SectionHeader
         overline="Introduction"
         title="Setting the stage"
-        className="w-full"
+        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
+        className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start lg:gap-12">
+      <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start">
         <div className="relative aspect-square w-full max-w-[468px] shrink-0 overflow-hidden rounded-full shadow-[8px_16px_48px_0px_rgba(28,44,64,0.12)] lg:size-[468px] lg:max-w-none dark:shadow-[8px_16px_48px_0px_rgba(0,0,0,0.45)]">
           <Image
             src="/images/reach/intro-salon.jpg"

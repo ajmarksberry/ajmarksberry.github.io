@@ -8,12 +8,13 @@ export function WireframeBlock() {
         overline="Discovery"
         title="Wireframe"
         subtitle="Structure before polish"
+        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full max-w-[620px] flex-col items-center lg:max-w-[996px]">
+      <div className="flex w-full max-w-[620px] flex-col items-center lg:max-w-full">
         {/* Desktop / tablet: overlapping composition matches Figma */}
-        <div className="relative hidden w-full aspect-[996/616] sm:block">
+        <div className="relative hidden w-full max-w-[996px] aspect-[996/616] sm:block">
           <div className="absolute left-0 top-[0.13%] h-[77.44%] w-[63.05%] overflow-hidden rounded-lg">
             <Image
               src="/images/reach/wireframe-1.png"

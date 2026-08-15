@@ -3,9 +3,11 @@ import { Divider } from "@/components/Divider";
 import { ReachLogo } from "@/components/ReachLogo";
 
 const meta = [
-  { label: "Role", value: "Lead Product Designer" },
-  { label: "Timeline", value: "2021 - 2022" },
-  { label: "Team", value: "2 Engineers, 1 Designer" },
+  { label: "Client", value: "REACH.ai" },
+  { label: "Role", value: "Lead product designer" },
+  { label: "Duration", value: "2021-2022" },
+  { label: "Platform", value: "Desktop & Mobile" },
+  { label: "Tools", value: "Figma · Principle" },
 ] as const;
 
 export function HeroBlock() {
@@ -30,23 +32,24 @@ export function HeroBlock() {
           Booking Dashboard
         </h1>
         <p
-          className="hero-reveal font-serif w-full text-lg leading-7 text-ink sm:text-xl"
-          style={{ animationDelay: "240ms" }}
+          className="hero-reveal w-full text-lg leading-7 text-ink sm:text-xl"
+          style={{ fontFeatureSettings: '"liga" 0', animationDelay: "240ms" }}
         >
           Bringing an outdated experience back to life again
         </p>
       </div>
 
-      <div className="hero-devices flex w-full flex-col items-center py-8 lg:px-20 lg:py-10">
-        <div className="relative w-full">
+      <div className="hero-devices w-full py-8 lg:py-10">
+        <div className="relative w-full overflow-hidden bg-[#58C2A2]">
           <Image
-            src="/images/reach/hero-devices.png"
+            src="/images/reach/hero-panel.png"
             alt="REACH.ai dashboard shown on desktop and mobile"
-            width={2560}
-            height={1167}
-            className="h-auto w-full"
+            width={2556}
+            height={1321}
+            className="block h-auto w-full"
             priority
-            sizes="(min-width: 1440px) 1120px, (min-width: 1024px) calc(100vw - 320px), calc(100vw - 40px)"
+            unoptimized
+            sizes="(min-width: 1440px) 1280px, (min-width: 1024px) calc(100vw - 160px), calc(100vw - 40px)"
           />
         </div>
       </div>
@@ -56,14 +59,14 @@ export function HeroBlock() {
         style={{ animationDelay: "360ms" }}
       >
         <Divider thin />
-        <dl className="flex w-full flex-col gap-6 sm:flex-row sm:items-center sm:justify-center sm:gap-[60px]">
+        <dl className="flex w-full flex-col gap-6 lg:flex-row lg:flex-wrap lg:items-start lg:justify-center lg:gap-x-[60px] lg:gap-y-6">
           {meta.map((item) => (
             <div key={item.label} className="flex flex-col items-start gap-2">
               <dt className="font-extrabold text-xs uppercase tracking-[0.48px] leading-none text-accent">
                 {item.label}
               </dt>
               <dd
-                className="font-serif text-base font-medium leading-7 text-ink"
+                className="whitespace-nowrap text-lg font-semibold leading-7 text-ink"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 {item.value}

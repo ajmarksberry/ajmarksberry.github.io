@@ -16,12 +16,13 @@ export function EvaluateBlock() {
       <SectionHeader
         overline="Evaluate"
         title="Heuristic evaluation"
+        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
       <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-start">
         <div className="w-full max-w-[620px] overflow-hidden rounded-lg shadow-[0px_8px_16px_-4px_rgba(28,44,64,0.08)] lg:max-w-none lg:min-w-0 lg:flex-1">
-          <div className="relative aspect-[2464/1600] w-full bg-surface">
+          <div className="relative aspect-[1264/826] w-full bg-surface">
             <Image
               src="/images/reach/evaluate-dashboard.png"
               alt="Annotated REACH.ai dashboard with heuristic findings"

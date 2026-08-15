@@ -28,49 +28,48 @@ const insights = [
 
 export function ResultsBlock() {
   return (
-    <section className="section-reveal flex w-full flex-col items-center gap-7">
-      <div className="flex w-full flex-col items-center">
-        <SectionHeader
-          overline="Design"
-          title="Results"
-          subtitle="Project success metrics."
-          className="w-full max-w-[620px] pb-10 lg:max-w-full"
-        />
+    <section className="section-reveal flex w-full flex-col items-center gap-8">
+      <SectionHeader
+        overline="Design"
+        title="Results"
+        subtitle="Project success metrics."
+        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
+        className="w-full max-w-[620px] lg:max-w-full"
+      />
 
-        <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start">
-          {metrics.map((metric) => (
-            <div
-              key={metric.label}
-              className="flex w-full max-w-[620px] flex-col items-start gap-4 border-t-2 border-ink pt-6 lg:max-w-none lg:min-w-0 lg:flex-1"
+      <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start">
+        {metrics.map((metric) => (
+          <div
+            key={metric.label}
+            className="flex w-full max-w-[620px] flex-col items-start gap-4 border-t-2 border-ink pt-6 lg:max-w-none lg:min-w-0 lg:flex-1"
+          >
+            <p
+              className="font-extrabold text-[48px] leading-[60px] tracking-[-1.2px] text-primary-600 sm:text-[60px] sm:leading-[72px] lg:text-[72px] lg:leading-[90px] lg:tracking-[-1.8px]"
+              style={{ fontFeatureSettings: '"liga" 0' }}
             >
-              <p
-                className="font-extrabold text-[48px] leading-[60px] tracking-[-1.2px] text-primary-600 sm:text-[60px] sm:leading-[72px] lg:text-[72px] lg:leading-[90px] lg:tracking-[-1.8px]"
-                style={{ fontFeatureSettings: '"liga" 0' }}
-              >
-                {metric.value}
-              </p>
-              <p className="font-bold text-base leading-none text-ink">
-                {metric.label}
-              </p>
-              <p
-                className="font-serif w-full text-lg leading-7 text-ink"
-                style={{ fontFeatureSettings: '"liga" 0' }}
-              >
-                {metric.description}
-              </p>
-            </div>
-          ))}
-        </div>
+              {metric.value}
+            </p>
+            <p className="font-bold text-base leading-none text-ink">
+              {metric.label}
+            </p>
+            <p
+              className="font-serif w-full text-lg leading-7 text-ink"
+              style={{ fontFeatureSettings: '"liga" 0' }}
+            >
+              {metric.description}
+            </p>
+          </div>
+        ))}
       </div>
 
       <div className="flex w-full max-w-[620px] flex-col items-start gap-4 text-ink lg:mr-auto lg:max-w-[632px]">
         <h3
-          className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] sm:text-[30px] sm:leading-10"
+          className="w-full max-w-[632px] font-extrabold text-2xl leading-8 sm:text-[30px] sm:leading-10"
           style={{ fontFeatureSettings: '"liga" 0' }}
         >
           Other insights
         </h3>
-        <ul className="font-serif w-full list-disc text-lg">
+        <ul className="font-serif flex w-full list-disc flex-col gap-2 text-lg">
           {insights.map((insight) => (
             <li key={insight} className="ms-[27px] leading-7">
               {insight}

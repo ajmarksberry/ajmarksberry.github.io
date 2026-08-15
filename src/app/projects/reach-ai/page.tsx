@@ -7,7 +7,6 @@ import { HeroBlock } from "@/components/HeroBlock";
 import { IdentifyBlock } from "@/components/IdentifyBlock";
 import { InterviewBlock } from "@/components/InterviewBlock";
 import { IntroBlock } from "@/components/IntroBlock";
-import { NextStepsBlock } from "@/components/NextStepsBlock";
 import { PlanBlock } from "@/components/PlanBlock";
 import { ResultsBlock } from "@/components/ResultsBlock";
 import { SprintBlock } from "@/components/SprintBlock";
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
 export default function ReachAiCaseStudyPage() {
   return (
     <main id="top">
-      <div className="px-5 sm:px-10 lg:px-20">
+      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-10 lg:px-20">
         <HeroBlock />
         <IntroBlock />
         <Divider padded />
@@ -40,8 +39,6 @@ export default function ReachAiCaseStudyPage() {
         <DesignBlock />
         <Divider padded />
         <ResultsBlock />
-        <Divider padded />
-        <NextStepsBlock />
       </div>
       <Footer />
     </main>

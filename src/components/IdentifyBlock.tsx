@@ -19,6 +19,7 @@ export function IdentifyBlock() {
       <SectionHeader
         overline="Identify"
         title="Meet Emily"
+        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
@@ -34,7 +35,7 @@ export function IdentifyBlock() {
           />
         </div>
         <blockquote
-          className="w-full max-w-[620px] font-semibold italic text-[22px] leading-8 text-accent sm:text-[26px] sm:leading-9 lg:flex-1 lg:text-[30px] lg:leading-10"
+          className="w-full max-w-[620px] font-semibold italic text-[22px] leading-8 text-accent sm:text-[26px] sm:leading-9 lg:max-w-none lg:min-w-0 lg:flex-1 lg:text-[30px] lg:leading-10"
           style={{ fontFeatureSettings: '"liga" 0' }}
         >
           “I need an easy-to-use interface to gain quick, high-level insights
@@ -43,8 +44,8 @@ export function IdentifyBlock() {
         </blockquote>
       </div>
 
-      <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-start">
-        <div className="flex w-full max-w-[620px] flex-col items-start gap-2">
+      <div className="flex w-full flex-col items-center gap-6 lg:items-start">
+        <div className="flex w-full max-w-[620px] flex-col items-start gap-2 lg:max-w-full">
           <h3
             className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-ink sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
             style={{ fontFeatureSettings: '"liga" 0' }}
@@ -59,7 +60,7 @@ export function IdentifyBlock() {
             ))}
           </ul>
         </div>
-        <div className="flex w-full max-w-[620px] flex-col items-start gap-2">
+        <div className="flex w-full max-w-[620px] flex-col items-start gap-2 lg:max-w-full">
           <h3
             className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-ink sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
             style={{ fontFeatureSettings: '"liga" 0' }}

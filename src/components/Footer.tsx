@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <div className="w-full pt-10">
-      <footer className="flex w-full flex-col items-start gap-16 bg-footer-bg px-5 pb-24 pt-20 sm:gap-20 sm:px-10 sm:pb-28 sm:pt-[100px] lg:px-20 lg:pt-[120px]">
+    <footer className="mt-10 w-full bg-footer-bg">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-start gap-16 px-5 pb-24 pt-20 sm:gap-20 sm:px-10 sm:pb-28 sm:pt-[100px] lg:px-20 lg:pt-[120px]">
         <div className="flex w-full flex-col items-start gap-8">
           <p
             className="w-full font-extrabold text-[36px] leading-[44px] tracking-[-0.9px] text-footer-fg sm:text-[48px] sm:leading-[58px] sm:tracking-[-1.2px] lg:text-[60px] lg:leading-[72px] lg:tracking-[-1.5px]"
             style={{ fontFeatureSettings: '"liga" 0' }}
           >
-            Hire me.
+            Let’s chat
           </p>
           <Link
             href="/contact"
@@ -27,7 +27,7 @@ export function Footer() {
             BACK TO TOP ↑
           </a>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 }

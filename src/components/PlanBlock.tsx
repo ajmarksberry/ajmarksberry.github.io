@@ -13,7 +13,12 @@ export function PlanBlock() {
   return (
     <section className="section-reveal flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-start">
       <div className="flex w-full max-w-[620px] flex-col items-start gap-6 lg:max-w-none lg:min-w-0 lg:flex-1">
-        <SectionHeader overline="PROCCESS" title="Plan" className="w-full" />
+        <SectionHeader
+          overline="PROCCESS"
+          title="The plan"
+          description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
+          className="w-full"
+        />
         <p
           className="font-serif w-full text-base leading-7 text-neutral-900"
           style={{ fontFeatureSettings: '"liga" 0' }}
