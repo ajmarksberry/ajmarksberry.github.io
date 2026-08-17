@@ -5,15 +5,14 @@ import { ReachLogo } from "@/components/ReachLogo";
 const meta = [
   { label: "Client", value: "REACH.ai" },
   { label: "Role", value: "Lead product designer" },
-  { label: "Duration", value: "2021-2022" },
-  { label: "Platform", value: "Desktop & Mobile" },
+  { label: "Duration", value: "2020-2022" },
   { label: "Tools", value: "Figma · Principle" },
 ] as const;
 
 export function HeroBlock() {
   return (
     <section className="flex w-full flex-col items-start py-10">
-      <div className="flex w-full max-w-[620px] flex-col items-start gap-6">
+      <div className="flex w-full max-w-[620px] flex-col items-start gap-6 pb-10">
         <div
           className="hero-reveal flex w-full flex-col items-start gap-5"
           style={{ animationDelay: "40ms" }}
@@ -39,26 +38,24 @@ export function HeroBlock() {
         </p>
       </div>
 
-      <div className="hero-devices w-full py-8 lg:py-10">
-        <div className="relative w-full overflow-hidden bg-[#58C2A2]">
-          <Image
-            src="/images/reach/hero-panel.png"
-            alt="REACH.ai dashboard shown on desktop and mobile"
-            width={2556}
-            height={1321}
-            className="block h-auto w-full"
-            priority
-            unoptimized
-            sizes="(min-width: 1440px) 1280px, (min-width: 1024px) calc(100vw - 160px), calc(100vw - 40px)"
-          />
-        </div>
+      <div className="hero-devices w-full overflow-hidden rounded-none">
+        <Image
+          src="/images/reach/hero-tray.webp"
+          alt="REACH.ai dashboard shown on desktop and mobile"
+          width={2560}
+          height={1322}
+          className="block h-auto w-full rounded-none"
+          priority
+          unoptimized
+          sizes="(min-width: 1140px) 980px, (min-width: 1024px) calc(100vw - 160px), calc(100vw - 40px)"
+        />
       </div>
 
       <div
         className="hero-reveal flex w-full flex-col items-center gap-6"
         style={{ animationDelay: "360ms" }}
       >
-        <Divider thin />
+        <Divider />
         <dl className="flex w-full flex-col gap-6 lg:flex-row lg:flex-wrap lg:items-start lg:justify-center lg:gap-x-[60px] lg:gap-y-6">
           {meta.map((item) => (
             <div key={item.label} className="flex flex-col items-start gap-2">
@@ -66,7 +63,7 @@ export function HeroBlock() {
                 {item.label}
               </dt>
               <dd
-                className="whitespace-nowrap text-lg font-semibold leading-7 text-ink"
+                className="whitespace-nowrap text-base font-semibold leading-7 text-ink"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 {item.value}
@@ -74,7 +71,7 @@ export function HeroBlock() {
             </div>
           ))}
         </dl>
-        <Divider thin />
+        <Divider />
       </div>
     </section>
   );

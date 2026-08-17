@@ -3,23 +3,23 @@ import { SectionHeader } from "@/components/SectionHeader";
 
 export function IntroBlock() {
   return (
-    <section className="section-reveal flex w-full flex-col items-center gap-8 lg:items-start">
+    <section className="section-reveal flex w-full flex-col items-center gap-10 lg:items-start">
       <SectionHeader
         overline="Introduction"
         title="Setting the stage"
-        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start">
-        <div className="relative aspect-square w-full max-w-[468px] shrink-0 overflow-hidden rounded-full shadow-[8px_16px_48px_0px_rgba(28,44,64,0.12)] lg:size-[468px] lg:max-w-none dark:shadow-[8px_16px_48px_0px_rgba(0,0,0,0.45)]">
+      <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start lg:gap-12">
+        <div className="w-full max-w-[468px] shrink-0 lg:size-[468px] lg:max-w-none">
           <Image
-            src="/images/reach/intro-salon.jpg"
+            src="/images/reach/intro-salon.webp"
             alt="Barber blow-drying a client's hair in a salon"
-            fill
-            className="object-cover object-[center_20%]"
+            width={936}
+            height={936}
+            className="h-auto w-full"
             sizes="(min-width: 1024px) 468px, min(468px, 100vw)"
-            priority={false}
+            unoptimized
           />
         </div>
 
@@ -30,13 +30,13 @@ export function IntroBlock() {
           <div className="flex w-full flex-col items-start gap-8 text-neutral-900">
             <div className="flex w-full flex-col items-start gap-4">
               <h3
-                className="w-full font-bold text-[28px] leading-9 tracking-[-0.7px] sm:text-[36px] sm:leading-[48px] sm:tracking-[-0.9px]"
+                className="w-full font-extrabold text-[28px] leading-9 tracking-[-0.7px] sm:text-[36px] sm:leading-[48px] sm:tracking-[-0.9px]"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 What is REACH.ai?
               </h3>
               <p
-                className="font-serif w-full text-base leading-7"
+                className="w-full text-base leading-7"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 REACH integrates with your scheduling software (think hair salon)
@@ -48,13 +48,13 @@ export function IntroBlock() {
             </div>
             <div className="flex w-full flex-col items-start gap-4">
               <h3
-                className="w-full font-bold text-2xl leading-8 tracking-[-0.24px]"
+                className="w-full font-extrabold text-2xl leading-8 tracking-[-0.24px] sm:text-[30px] sm:leading-10"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 Merchant dashboard
               </h3>
               <p
-                className="font-serif w-full text-base leading-7"
+                className="w-full text-base leading-7"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 Owners needed a command center that made demand, staffing, and

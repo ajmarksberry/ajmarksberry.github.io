@@ -14,22 +14,13 @@ const questions = [
 
 export function InterviewBlock() {
   return (
-    <section className="section-reveal flex w-full flex-col items-center">
+    <section className="section-reveal flex w-full flex-col items-center pb-16 lg:pb-20">
       <SectionHeader
         overline="Discovery"
         title="Interviews"
-        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
-        className="w-full max-w-[620px] pb-4 lg:max-w-full"
+        description="Because we couldn’t afford to do user testing or interviews, we offered the customer success team a list of questions to ask consumers during sales and support calls."
+        className="w-full max-w-[620px] lg:max-w-full"
       />
-
-      <p
-        className="font-serif w-full max-w-[620px] text-base leading-7 text-neutral-900 lg:mr-auto lg:max-w-[840px]"
-        style={{ fontFeatureSettings: '"liga" 0' }}
-      >
-        Because we couldn’t afford to do user testing or interviews, we offered
-        the customer success team a list of questions to ask consumers during
-        sales and support calls.
-      </p>
 
       <div className="flex w-full flex-col items-center gap-8 pt-8">
         <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start">
@@ -54,35 +45,35 @@ export function InterviewBlock() {
           ))}
         </div>
 
-        <div className="flex w-full max-w-[620px] flex-col gap-10 rounded-lg bg-panel-dark p-6 text-white sm:p-8 lg:max-w-full lg:flex-row lg:items-start lg:gap-10 lg:p-10">
-          <div className="flex w-full flex-col gap-4 lg:min-w-0 lg:flex-1">
+        <div className="flex w-full max-w-[620px] flex-col gap-10 rounded-none bg-panel-dark p-6 text-white sm:p-8 lg:max-w-full lg:flex-row lg:items-start lg:gap-10 lg:p-10">
+          <div className="flex w-full flex-col gap-6 lg:min-w-0 lg:flex-1">
             <h3
-              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
+              className="w-full font-extrabold text-2xl leading-8 sm:text-[30px] sm:leading-10"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               What we asked
             </h3>
             <ol
-              className="font-serif w-full list-decimal text-lg leading-8 sm:text-xl sm:leading-9 lg:text-xl lg:leading-6 lg:space-y-6"
+              className="w-full list-decimal text-base leading-5"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               {questions.map((question) => (
-                <li key={question} className="ms-[30px]">
+                <li key={question} className="ms-6 mb-6 last:mb-0">
                   {question}
                 </li>
               ))}
             </ol>
           </div>
 
-          <div className="flex w-full flex-col gap-4 lg:min-w-0 lg:flex-1">
+          <div className="flex w-full flex-col gap-6 lg:min-w-0 lg:flex-1">
             <h3
-              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
+              className="w-full font-extrabold text-2xl leading-8 sm:text-[30px] sm:leading-10"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               What we heard
             </h3>
             <div
-              className="font-serif flex w-full flex-col gap-6 text-lg leading-8 sm:text-xl sm:leading-9 lg:text-xl lg:leading-6"
+              className="flex w-full flex-col gap-6 text-base leading-5"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               <p>

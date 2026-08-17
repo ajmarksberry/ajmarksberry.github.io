@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CaseStudyExplorer } from "@/components/CaseStudyExplorer";
 import { DesignBlock } from "@/components/DesignBlock";
 import { Divider } from "@/components/Divider";
 import { EvaluateBlock } from "@/components/EvaluateBlock";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 export default function ReachAiCaseStudyPage() {
   return (
     <main id="top">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-10 lg:px-20">
+      <div className="mx-auto w-full max-w-[1140px] px-5 sm:px-10 lg:px-20">
         <HeroBlock />
         <IntroBlock />
         <Divider padded />
@@ -29,7 +30,6 @@ export default function ReachAiCaseStudyPage() {
         <IdentifyBlock />
         <Divider padded />
         <InterviewBlock />
-        <Divider padded />
         <EvaluateBlock />
         <Divider padded />
         <SprintBlock />
@@ -39,6 +39,8 @@ export default function ReachAiCaseStudyPage() {
         <DesignBlock />
         <Divider padded />
         <ResultsBlock />
+        <Divider padded />
+        <CaseStudyExplorer />
       </div>
       <Footer />
     </main>

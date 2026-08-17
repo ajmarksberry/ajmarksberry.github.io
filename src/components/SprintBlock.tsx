@@ -27,27 +27,26 @@ export function SprintBlock() {
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full max-w-[620px] flex-col gap-8 rounded-lg bg-panel-dark p-6 sm:p-8 lg:max-w-full lg:flex-row lg:items-start lg:gap-10">
-        <div className="relative aspect-[1200/800] w-full overflow-hidden rounded-lg lg:h-[332px] lg:min-w-0 lg:flex-1 lg:aspect-auto">
+      <div className="flex w-full max-w-[620px] flex-col gap-8 lg:max-w-full lg:flex-row lg:items-start">
+        <div className="relative aspect-[1296/728] w-full overflow-hidden lg:h-[332px] lg:min-w-0 lg:flex-1 lg:aspect-auto">
           <Image
-            src="/images/reach/sprint-workshop.png"
+            src="/images/reach/sprint-workshop.webp"
             alt="Workshop participants reviewing sticky notes on a wall"
             fill
             className="object-cover"
             sizes="(min-width: 1024px) 50vw, (min-width: 640px) 620px, calc(100vw - 40px)"
+            unoptimized
           />
         </div>
 
         <div className="flex w-full flex-col items-start gap-6 lg:min-w-0 lg:flex-1">
           <p
-            className="font-serif w-full text-lg font-medium leading-7 text-white"
+            className="w-full text-lg font-bold leading-7 text-ink"
             style={{ fontFeatureSettings: '"liga" 0' }}
           >
-            I planned and lead a 3-day workshop onsite in Phoenix, Arizona. We
-            reviewed the existing experience and eventually identified areas
-            where we could improve the user experience.
+            Design sprint activities
           </p>
-          <div className="font-serif flex w-full flex-col gap-2 text-base text-white sm:flex-row sm:justify-between sm:gap-10">
+          <div className="flex w-full flex-col gap-2 text-base text-ink sm:flex-row sm:justify-between sm:gap-10">
             <ul className="min-w-0 flex-1 list-disc">
               {leftActivities.map((item) => (
                 <li key={item} className="ms-6 leading-7">

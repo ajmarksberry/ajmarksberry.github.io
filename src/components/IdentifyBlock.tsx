@@ -15,27 +15,27 @@ const goals = [
 
 export function IdentifyBlock() {
   return (
-    <section className="section-reveal flex w-full flex-col items-center gap-10">
+    <section className="section-reveal flex w-full flex-col items-center gap-6">
       <SectionHeader
         overline="Identify"
         title="Meet Emily"
-        description="High-fidelity UI brought breathing room, confident typography, and a design system that made charts, status, and AI moments feel like one product family."
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-center">
-        <div className="relative aspect-square w-full max-w-[345px] shrink-0 overflow-hidden rounded-full lg:size-[345px] lg:max-w-none">
+      <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:justify-start">
+        <div className="w-full max-w-[345px] shrink-0 lg:size-[345px] lg:max-w-none">
           <Image
-            src="/images/reach/persona-emily.png"
+            src="/images/reach/persona-emily.webp"
             alt="Emily, merchant persona"
             width={690}
             height={690}
-            className="size-full object-cover"
+            className="h-auto w-full"
             sizes="345px"
+            unoptimized
           />
         </div>
         <blockquote
-          className="w-full max-w-[620px] font-semibold italic text-[22px] leading-8 text-accent sm:text-[26px] sm:leading-9 lg:max-w-none lg:min-w-0 lg:flex-1 lg:text-[30px] lg:leading-10"
+          className="w-full max-w-[620px] shrink-0 font-semibold italic text-[22px] leading-8 text-black sm:text-[26px] sm:leading-9 lg:text-[30px] lg:leading-10"
           style={{ fontFeatureSettings: '"liga" 0' }}
         >
           “I need an easy-to-use interface to gain quick, high-level insights
@@ -52,7 +52,7 @@ export function IdentifyBlock() {
           >
             Frustrations
           </h3>
-          <ul className="font-serif w-full list-disc text-base text-neutral-900">
+          <ul className="w-full list-disc text-base text-neutral-900">
             {frustrations.map((item) => (
               <li key={item} className="ms-6 leading-7">
                 {item}
@@ -67,7 +67,7 @@ export function IdentifyBlock() {
           >
             Goals
           </h3>
-          <ul className="font-serif w-full list-disc text-base text-neutral-900">
+          <ul className="w-full list-disc text-base text-neutral-900">
             {goals.map((item) => (
               <li key={item} className="ms-6 leading-7">
                 {item}

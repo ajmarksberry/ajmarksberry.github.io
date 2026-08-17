@@ -37,7 +37,7 @@ export function SectionHeader({
         ) : null}
         {description ? (
           <p
-            className={`font-serif w-full max-w-[640px] text-base leading-7 ${inverse ? "text-white" : "text-ink"}`}
+            className={`w-full max-w-[640px] text-base leading-7 ${inverse ? "text-white" : "text-ink"}`}
             style={{ fontFeatureSettings: '"liga" 0' }}
           >
             {description}

@@ -1,5 +1,17 @@
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+import { MarketingPage } from "@/components/MarketingPage";
 
-export default function Home() {
-  redirect("/projects/reach-ai");
+export const metadata: Metadata = {
+  title: "AJ Marksberry",
+  description: "Product design portfolio",
+};
+
+export default function HomePage() {
+  return (
+    <MarketingPage
+      overline="Hello"
+      title="AJ Marksberry is a product designer"
+      description="Placeholder intro. I’ll use this space for a short home-page statement, selected work, and a path into the rest of the site."
+    />
+  );
 }

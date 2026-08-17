@@ -18,8 +18,8 @@
   --footer-fg: #ffffff;
   --footer-muted: #dfd8fc;
   --footer-border: rgba(255, 255, 255, 0.15);
-  --panel-dark: #000000;
-  --font-body-serif: var(--font-inter), system-ui, sans-serif;
+  --panel-dark: #111827;
+  --secondary-600: #58c2a2;
   color-scheme: light;
 }
 
@@ -40,11 +40,8 @@ html.dark {
   --footer-muted: #5e3bee;
   --footer-border: rgba(9, 14, 26, 0.14);
   --panel-dark: #0a0c12;
+  --secondary-600: #58c2a2;
   color-scheme: dark;
-}
-
-html.font-version-serif {
-  --font-body-serif: var(--font-merriweather), Georgia, "Times New Roman", serif;
 }
 
 @theme inline {
@@ -64,8 +61,8 @@ html.font-version-serif {
   --color-footer-muted: var(--footer-muted);
   --color-footer-border: var(--footer-border);
   --color-panel-dark: var(--panel-dark);
+  --color-secondary-600: var(--secondary-600);
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-body-serif);
 }
 
 html {
@@ -76,10 +73,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
-}
-
-.font-serif {
-  font-family: var(--font-body-serif);
 }
 
 @keyframes fade-up {
@@ -93,18 +86,14 @@ body {
   }
 }
 
-@keyframes hero-float {
+@keyframes menu-item-in {
   from {
-    opacity: 0.55;
-    transform: translateY(28px) scale(0.96);
-  }
-  35% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
-    transform: translateY(-18px) scale(1.025);
+    transform: translateY(0);
   }
 }
 
@@ -114,17 +103,14 @@ body {
 }
 
 .hero-devices {
-  transform-origin: center 70%;
   animation: fade-up 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
-@supports (animation-timeline: view()) {
-  .hero-devices {
-    animation: hero-float linear both;
-    animation-timeline: view();
-    animation-range: entry 0% exit 85%;
-  }
+.menu-item-in {
+  animation: menu-item-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
 
+@supports (animation-timeline: view()) {
   .section-reveal {
     animation: fade-up linear both;
     animation-timeline: view();
@@ -139,7 +125,8 @@ body {
 
   .hero-reveal,
   .hero-devices,
-  .section-reveal {
+  .section-reveal,
+  .menu-item-in {
     animation: none;
   }
 }

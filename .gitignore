@@ -16,6 +16,8 @@
 # next.js
 /.next/
 /out/
+/AJM-Portfolio/
+/AJM-Portfolio.zip
 
 # production
 /build

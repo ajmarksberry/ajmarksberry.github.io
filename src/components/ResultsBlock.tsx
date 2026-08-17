@@ -53,7 +53,7 @@ export function ResultsBlock() {
               {metric.label}
             </p>
             <p
-              className="font-serif w-full text-lg leading-7 text-ink"
+              className="w-full text-base leading-6 text-ink"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               {metric.description}
@@ -69,9 +69,9 @@ export function ResultsBlock() {
         >
           Other insights
         </h3>
-        <ul className="font-serif flex w-full list-disc flex-col gap-2 text-lg">
+        <ul className="flex w-full list-disc flex-col gap-2 text-base">
           {insights.map((insight) => (
-            <li key={insight} className="ms-[27px] leading-7">
+            <li key={insight} className="ms-6 leading-6">
               {insight}
             </li>
           ))}
