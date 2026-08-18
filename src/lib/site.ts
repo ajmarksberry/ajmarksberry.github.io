@@ -1,4 +1,4 @@
-export const EMAIL = "hello@ajmarksberry.com";
+export const EMAIL = "ajmarksberry@gmail.com";
 export const MAILTO = `mailto:${EMAIL}`;
 
 export const navLinks = [
