@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
@@ -9,10 +10,6 @@ import { caseStudies, navLinks } from "@/lib/site";
 const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
 const desktopLinkClass =
   "font-semibold text-xs uppercase leading-none tracking-[0.04em] text-white sm:text-sm";
-const mobileLinkClass =
-  "flex min-h-14 w-full items-center py-4 font-extrabold text-[32px] leading-10 tracking-[-0.8px] text-white";
-const mobileProjectClass =
-  "flex min-h-12 w-full items-center py-3 font-bold text-lg leading-7 tracking-[-0.18px] text-white/80";
 
 function isCurrentPath(pathname: string, href: string) {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
@@ -24,22 +21,14 @@ export function TopBar() {
   const menuId = useId();
   const headerRef = useRef<HTMLElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const workButtonRef = useRef<HTMLButtonElement>(null);
   const openRef = useRef(open);
   openRef.current = open;
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
-
-  useEffect(() => {
-    const media = window.matchMedia("(min-width: 640px)");
-    function onChange() {
-      if (media.matches) setOpen(false);
-    }
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -50,17 +39,25 @@ export function TopBar() {
     document.body.style.overflow = "hidden";
     document.body.style.touchAction = "none";
 
+    const dialog = header?.querySelector<HTMLElement>(
+      'nav[role="dialog"]:not([inert])',
+    );
+    const firstLink = dialog?.querySelector<HTMLElement>("a[href]");
+    firstLink?.focus();
+
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
-        buttonRef.current?.focus();
+        (workButtonRef.current ?? menuButtonRef.current)?.focus();
         return;
       }
 
       if (event.key !== "Tab" || !header) return;
 
       const focusable = [
-        ...header.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"),
+        ...header.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled])",
+        ),
       ].filter((el) => !el.hasAttribute("inert") && el.tabIndex !== -1);
 
       if (focusable.length === 0) return;
@@ -182,10 +179,49 @@ export function TopBar() {
               className="hidden items-center gap-6 sm:flex"
               aria-label="Primary"
             >
-              <DesktopNavItems pathname={pathname} />
+              {navLinks.map((link) => {
+                if (link.href === "/projects") {
+                  return (
+                    <button
+                      key={link.href}
+                      ref={workButtonRef}
+                      type="button"
+                      aria-expanded={open}
+                      aria-controls={menuId}
+                      aria-haspopup="dialog"
+                      className={`${desktopLinkClass} ${open || isCurrentPath(pathname, link.href) ? "opacity-60" : fade}`}
+                      onClick={() => setOpen((current) => !current)}
+                    >
+                      {link.label}
+                    </button>
+                  );
+                }
+
+                if (isCurrentPath(pathname, link.href)) {
+                  return (
+                    <span
+                      key={link.href}
+                      aria-current="page"
+                      className={`${desktopLinkClass} opacity-60`}
+                    >
+                      {link.label}
+                    </span>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`${desktopLinkClass} ${fade}`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
             <button
-              ref={buttonRef}
+              ref={menuButtonRef}
               type="button"
               className={`relative z-10 flex size-11 items-center justify-center text-white pointer-events-auto sm:hidden ${fade}`}
               aria-expanded={open}
@@ -200,166 +236,138 @@ export function TopBar() {
         </div>
       </div>
 
-      <div
-        className={`absolute left-0 right-0 top-full z-40 w-full max-w-none grid sm:hidden ${
-          open ? "grid-rows-[1fr]" : "pointer-events-none grid-rows-[0fr]"
-        } ${
-          open
-            ? "transition-[grid-template-rows] duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
-            : "transition-[grid-template-rows] duration-300 ease-in motion-reduce:transition-none"
-        }`}
-      >
-        <div className="min-h-0 overflow-hidden">
-          <nav
-            id={menuId}
-            role="dialog"
-            aria-modal={open}
-            aria-label="Site menu"
-            inert={!open || undefined}
-            className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-white/10 bg-black/90 px-5 pb-10 pt-2 backdrop-blur-md"
-          >
-            <div className="mx-auto w-full max-w-[1140px]">
-              <MobileNavItems pathname={pathname} animate={open} />
-            </div>
-          </nav>
-        </div>
-      </div>
+      <WorkIndexPanel id={menuId} open={open} pathname={pathname} />
     </header>
   );
 }
 
-function DesktopNavItems({ pathname }: { pathname: string }) {
-  return (
-    <>
-      {navLinks.map((link) => {
-        if (link.href === "/projects") {
-          return (
-            <DesktopCaseStudies key={link.href} pathname={pathname} />
-          );
-        }
-
-        if (isCurrentPath(pathname, link.href)) {
-          return (
-            <span
-              key={link.href}
-              aria-current="page"
-              className={`${desktopLinkClass} opacity-60`}
-            >
-              {link.label}
-            </span>
-          );
-        }
-
-        return (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={`${desktopLinkClass} ${fade}`}
-          >
-            {link.label}
-          </Link>
-        );
-      })}
-    </>
-  );
-}
-
-function DesktopCaseStudies({ pathname }: { pathname: string }) {
-  const currentSection =
-    pathname === "/projects" || pathname.startsWith("/projects/");
-
-  return (
-    <div className="group relative">
-      <Link
-        href="/projects"
-        aria-current={pathname === "/projects" ? "page" : undefined}
-        className={`${desktopLinkClass} ${currentSection ? "opacity-60" : fade}`}
-      >
-        Case studies
-      </Link>
-      <ul className="invisible absolute right-0 top-full z-50 mt-3 min-w-[260px] rounded-lg border border-white/10 bg-black/90 p-2 opacity-0 shadow-lg backdrop-blur-md transition-[opacity,visibility] duration-200 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-        {caseStudies.map((study) => {
-          const current = pathname === study.href;
-          return (
-            <li key={study.href}>
-              <Link
-                href={study.href}
-                aria-current={current ? "page" : undefined}
-                className={`flex min-h-11 items-center rounded-md px-3 font-semibold text-sm leading-5 text-white ${
-                  current ? "opacity-60" : fade
-                }`}
-              >
-                {study.label}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
-
-function MobileNavItems({
+function WorkIndexPanel({
+  id,
+  open,
   pathname,
-  animate,
 }: {
+  id: string;
+  open: boolean;
   pathname: string;
-  animate: boolean;
 }) {
-  let delay = 0;
-
-  function itemDelay() {
-    const current = delay;
-    delay += 60;
-    return animate ? `${current}ms` : undefined;
-  }
-
   return (
-    <ul className="flex w-full flex-col">
-      {navLinks.map((link) => {
-        const current = pathname === link.href;
-        const delayMs = itemDelay();
-
-        return (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              aria-current={current ? "page" : undefined}
-              className={`${mobileLinkClass} ${current ? "opacity-60" : fade} ${
-                animate ? "menu-item-in" : ""
-              }`}
-              style={delayMs ? { animationDelay: delayMs } : undefined}
-            >
-              {link.label}
-            </Link>
-            {link.href === "/projects" ? (
-              <ul className="flex flex-col pb-2" aria-label="Case studies">
-                {caseStudies.map((study) => {
-                  const studyCurrent = pathname === study.href;
-                  const studyDelay = itemDelay();
-
-                  return (
-                    <li key={study.href}>
-                      <Link
-                        href={study.href}
-                        aria-current={studyCurrent ? "page" : undefined}
-                        className={`${mobileProjectClass} ${
-                          studyCurrent ? "opacity-60" : fade
-                        } ${animate ? "menu-item-in" : ""}`}
-                        style={
-                          studyDelay ? { animationDelay: studyDelay } : undefined
-                        }
+    <div
+      className={`absolute left-0 right-0 top-full z-40 grid w-full max-w-none ${
+        open ? "grid-rows-[1fr]" : "pointer-events-none grid-rows-[0fr]"
+      } ${
+        open
+          ? "transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none"
+          : "transition-[grid-template-rows] duration-200 ease-in motion-reduce:transition-none"
+      }`}
+    >
+      <div className="min-h-0 overflow-hidden">
+        <nav
+          id={id}
+          role="dialog"
+          aria-modal={open}
+          aria-label="Case studies"
+          inert={!open || undefined}
+          className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-white/10 bg-black/90 px-5 pb-10 pt-4 backdrop-blur-md sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
+        >
+          <div className="mx-auto flex w-full max-w-[1140px] flex-col">
+            <ol className="flex flex-col">
+              {caseStudies.map((study, index) => {
+                const active = pathname === study.href;
+                return (
+                  <li key={study.href}>
+                    <Link
+                      href={study.href}
+                      aria-current={active ? "page" : undefined}
+                      className={`group flex items-center gap-3 border-b border-white/10 py-3 sm:gap-5 sm:py-4 ${
+                        open ? "index-item-in" : ""
+                      } ${active ? "opacity-60" : fade}`}
+                      style={
+                        open ? { animationDelay: `${index * 40}ms` } : undefined
+                      }
+                    >
+                      <span className="w-6 shrink-0 font-extrabold text-[10px] tracking-[0.08em] text-accent sm:w-8 sm:text-xs">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="relative h-12 w-[76px] shrink-0 overflow-hidden rounded-md bg-panel-dark sm:h-16 sm:w-[112px]">
+                        <Image
+                          src={study.thumb}
+                          alt=""
+                          fill
+                          className="object-cover object-top transition-transform duration-300 ease-out motion-reduce:transition-none group-hover:scale-[1.03]"
+                          sizes="112px"
+                          unoptimized
+                        />
+                      </span>
+                      <span
+                        className="min-w-0 flex-1 font-extrabold text-lg leading-6 tracking-[-0.36px] text-white sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px]"
+                        style={{ fontFeatureSettings: '"liga" 0' }}
                       >
-                        {study.label}
-                      </Link>
-                    </li>
+                        {study.title}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ol>
+            <div className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:gap-8">
+              <Link
+                href="/projects"
+                aria-current={pathname === "/projects" ? "page" : undefined}
+                className={`inline-flex font-semibold text-xs uppercase tracking-[0.04em] text-white/70 ${fade} ${
+                  open ? "index-item-in" : ""
+                }`}
+                style={
+                  open
+                    ? { animationDelay: `${caseStudies.length * 40}ms` }
+                    : undefined
+                }
+              >
+                All case studies
+              </Link>
+              {navLinks
+                .filter((link) => link.href !== "/projects")
+                .map((link, index) => {
+                  const current = isCurrentPath(pathname, link.href);
+                  return current ? (
+                    <span
+                      key={link.href}
+                      aria-current="page"
+                      className={`font-semibold text-xs uppercase tracking-[0.04em] text-white/40 sm:hidden ${
+                        open ? "index-item-in" : ""
+                      }`}
+                      style={
+                        open
+                          ? {
+                              animationDelay: `${(caseStudies.length + 1 + index) * 40}ms`,
+                            }
+                          : undefined
+                      }
+                    >
+                      {link.label}
+                    </span>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`font-semibold text-xs uppercase tracking-[0.04em] text-white/70 sm:hidden ${fade} ${
+                        open ? "index-item-in" : ""
+                      }`}
+                      style={
+                        open
+                          ? {
+                              animationDelay: `${(caseStudies.length + 1 + index) * 40}ms`,
+                            }
+                          : undefined
+                      }
+                    >
+                      {link.label}
+                    </Link>
                   );
                 })}
-              </ul>
-            ) : null}
-          </li>
-        );
-      })}
-    </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
   );
 }

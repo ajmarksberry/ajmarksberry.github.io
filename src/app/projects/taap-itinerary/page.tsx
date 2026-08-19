@@ -1,0 +1,47 @@
+import type { Metadata } from "next";
+import { CaseStudyExplorer } from "@/components/CaseStudyExplorer";
+import { Divider } from "@/components/Divider";
+import { Footer } from "@/components/Footer";
+import { ItineraryChallengeBlock } from "@/components/itinerary/ItineraryChallengeBlock";
+import { ItineraryDesignBlock } from "@/components/itinerary/ItineraryDesignBlock";
+import { ItineraryFoundationsBlock } from "@/components/itinerary/ItineraryFoundationsBlock";
+import { ItineraryHeroBlock } from "@/components/itinerary/ItineraryHeroBlock";
+import { ItineraryInterviewsBlock } from "@/components/itinerary/ItineraryInterviewsBlock";
+import { ItineraryIntroBlock } from "@/components/itinerary/ItineraryIntroBlock";
+import { ItineraryPrototypeBlock } from "@/components/itinerary/ItineraryPrototypeBlock";
+import { ItineraryResultsBlock } from "@/components/itinerary/ItineraryResultsBlock";
+import { ItinerarySprintBlock } from "@/components/itinerary/ItinerarySprintBlock";
+
+export const metadata: Metadata = {
+  title: "TAAP Itinerary builder | AJ Marksberry",
+  description:
+    "From a confusing experience, to a professional-grade agent tool",
+};
+
+export default function TaapItineraryCaseStudyPage() {
+  return (
+    <main id="top">
+      <div className="mx-auto w-full max-w-[1140px] px-5 sm:px-10 lg:px-20">
+        <ItineraryHeroBlock />
+        <ItineraryIntroBlock />
+        <Divider padded />
+        <ItineraryChallengeBlock />
+        <Divider padded />
+        <ItineraryFoundationsBlock />
+        <Divider padded />
+        <ItinerarySprintBlock />
+        <Divider padded />
+        <ItineraryPrototypeBlock />
+        <Divider padded />
+        <ItineraryInterviewsBlock />
+        <Divider padded />
+        <ItineraryDesignBlock />
+        <Divider padded />
+        <ItineraryResultsBlock />
+        <Divider padded />
+        <CaseStudyExplorer />
+      </div>
+      <Footer />
+    </main>
+  );
+}

@@ -15,6 +15,7 @@ const routes = [
   "/contact/",
   "/projects/",
   "/projects/taap/",
+  "/projects/taap-itinerary/",
   "/projects/reach-ai/",
   "/projects/reach-booking/",
 ];

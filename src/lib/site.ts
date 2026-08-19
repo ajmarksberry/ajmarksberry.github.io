@@ -18,6 +18,13 @@ export const caseStudies = [
     thumb: "/images/taap/hero-tray.webp",
   },
   {
+    href: "/projects/taap-itinerary",
+    label: "TAAP Itinerary builder",
+    title: "TAAP Itinerary builder",
+    description: "From a confusing experience, to a professional-grade agent tool",
+    thumb: "/images/itinerary/hero-tray.webp",
+  },
+  {
     href: "/projects/reach-ai",
     label: "REACH.ai dashboard",
     title: "REACH.ai / Booking Dashboard",

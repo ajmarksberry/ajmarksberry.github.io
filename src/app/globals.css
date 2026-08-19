@@ -97,6 +97,17 @@ body {
   }
 }
 
+@keyframes index-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-reveal,
 .section-reveal {
   animation: fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -108,6 +119,10 @@ body {
 
 .menu-item-in {
   animation: menu-item-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.index-item-in {
+  animation: index-item-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @supports (animation-timeline: view()) {
@@ -126,7 +141,8 @@ body {
   .hero-reveal,
   .hero-devices,
   .section-reveal,
-  .menu-item-in {
+  .menu-item-in,
+  .index-item-in {
     animation: none;
   }
 }
