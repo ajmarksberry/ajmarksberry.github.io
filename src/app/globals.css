@@ -112,9 +112,9 @@ body {
 
 @supports (animation-timeline: view()) {
   .section-reveal {
-    animation: fade-up linear both;
+    animation: fade-up linear forwards;
     animation-timeline: view();
-    animation-range: entry 0% entry 35%;
+    animation-range: entry 0% entry 12%;
   }
 }
 
