@@ -11,7 +11,7 @@ export default function ProjectsPage() {
     <MarketingPage
       overline="Case studies"
       title="Selected case studies"
-      description="Three product design case studies, each on its own page. Switch the layout below to browse by cards, thumbnails, or a list."
+      description="Three product design case studies, each on its own page."
     />
   );
 }

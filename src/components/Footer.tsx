@@ -4,7 +4,12 @@ import { MAILTO } from "@/lib/site";
 const fade =
   "transition-opacity duration-200 ease-out hover:opacity-60";
 
+/** Flip to true to show the site footer again. */
+const SHOW_FOOTER = false;
+
 export function Footer() {
+  if (!SHOW_FOOTER) return null;
+
   return (
     <footer className="mt-10 w-full bg-footer-bg">
       <div className="mx-auto flex w-full max-w-[1140px] flex-col items-start gap-16 px-5 pb-24 pt-20 sm:gap-20 sm:px-10 sm:pb-28 sm:pt-[100px] lg:px-20 lg:pt-[120px]">

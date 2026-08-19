@@ -10,8 +10,8 @@ export default function HomePage() {
   return (
     <MarketingPage
       overline="Hello"
-      title="AJ Marksberry is a product designer"
-      description="Placeholder intro. I’ll use this space for a short home-page statement, selected work, and a path into the rest of the site."
+      title="AJ Marksberry"
+      // description="Placeholder intro. I’ll use this space for a short home-page statement, selected work, and a path into the rest of the site."
     />
   );
 }

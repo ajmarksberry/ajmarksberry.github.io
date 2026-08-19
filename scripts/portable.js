@@ -93,42 +93,4 @@
       { passive: true }
     );
   }
-
-  var STORAGE_KEY = "case-study-nav";
-  var layouts = ["cards", "thumbnails", "list"];
-
-  function isLayout(value) {
-    return layouts.indexOf(value) !== -1;
-  }
-
-  function selectLayout(next) {
-    if (!isLayout(next)) return;
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    } catch (error) {}
-
-    document.querySelectorAll("[data-explorer-layout]").forEach(function (list) {
-      list.hidden = list.getAttribute("data-explorer-layout") !== next;
-    });
-
-    document.querySelectorAll("[data-explorer-option]").forEach(function (button) {
-      var selected = button.getAttribute("data-explorer-option") === next;
-      button.setAttribute("aria-checked", selected ? "true" : "false");
-      button.classList.toggle("bg-ink", selected);
-      button.classList.toggle("text-white", selected);
-      button.classList.toggle("text-ink", !selected);
-      button.classList.toggle("hover:opacity-60", !selected);
-    });
-  }
-
-  document.querySelectorAll("[data-explorer-option]").forEach(function (button) {
-    button.addEventListener("click", function () {
-      selectLayout(button.getAttribute("data-explorer-option"));
-    });
-  });
-
-  try {
-    var stored = window.localStorage.getItem(STORAGE_KEY);
-    if (isLayout(stored)) selectLayout(stored);
-  } catch (error) {}
 })();
