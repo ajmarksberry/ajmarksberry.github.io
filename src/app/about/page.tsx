@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { MarketingPage } from "@/components/MarketingPage";
+import { SHOW_ABOUT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About | AJ Marksberry",
@@ -7,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  if (!SHOW_ABOUT) notFound();
+
   return (
     <MarketingPage
       overline="About"

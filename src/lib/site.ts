@@ -1,11 +1,13 @@
 export const EMAIL = "ajmarksberry@gmail.com";
 export const MAILTO = `mailto:${EMAIL}`;
 
+export const SHOW_ABOUT = false;
+
 export const navLinks = [
   { href: "/projects", label: "Case studies" },
-  { href: "/about", label: "About" },
+  ...(SHOW_ABOUT ? [{ href: "/about", label: "About" }] : []),
   { href: "/contact", label: "Contact" },
-] as const;
+];
 
 export const caseStudies = [
   {
