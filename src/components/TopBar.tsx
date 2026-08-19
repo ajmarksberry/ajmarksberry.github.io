@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
@@ -270,7 +269,7 @@ function WorkIndexPanel({
           className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-white/10 bg-black/90 px-5 pb-10 pt-4 backdrop-blur-md sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
         >
           <div className="mx-auto flex w-full max-w-[1140px] flex-col">
-            <ol className="flex flex-col">
+            <ul className="flex flex-col">
               {caseStudies.map((study, index) => {
                 const active = pathname === study.href;
                 return (
@@ -278,37 +277,20 @@ function WorkIndexPanel({
                     <Link
                       href={study.href}
                       aria-current={active ? "page" : undefined}
-                      className={`group flex items-center gap-3 border-b border-white/10 py-3 sm:gap-5 sm:py-4 ${
+                      className={`flex border-b border-white/10 py-3 font-extrabold text-lg leading-6 tracking-[-0.36px] text-white sm:py-4 sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px] ${
                         open ? "index-item-in" : ""
                       } ${active ? "opacity-60" : fade}`}
-                      style={
-                        open ? { animationDelay: `${index * 40}ms` } : undefined
-                      }
+                      style={{
+                        fontFeatureSettings: '"liga" 0',
+                        ...(open ? { animationDelay: `${index * 40}ms` } : {}),
+                      }}
                     >
-                      <span className="w-6 shrink-0 font-extrabold text-[10px] tracking-[0.08em] text-accent sm:w-8 sm:text-xs">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="relative h-12 w-[76px] shrink-0 overflow-hidden rounded-md bg-panel-dark sm:h-16 sm:w-[112px]">
-                        <Image
-                          src={study.thumb}
-                          alt=""
-                          fill
-                          className="object-cover object-top transition-transform duration-300 ease-out motion-reduce:transition-none group-hover:scale-[1.03]"
-                          sizes="112px"
-                          unoptimized
-                        />
-                      </span>
-                      <span
-                        className="min-w-0 flex-1 font-extrabold text-lg leading-6 tracking-[-0.36px] text-white sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px]"
-                        style={{ fontFeatureSettings: '"liga" 0' }}
-                      >
-                        {study.title}
-                      </span>
+                      {study.title}
                     </Link>
                   </li>
                 );
               })}
-            </ol>
+            </ul>
             <div className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:gap-8">
               <Link
                 href="/projects"

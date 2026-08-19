@@ -6,7 +6,6 @@ export const SHOW_ABOUT = false;
 export const navLinks = [
   { href: "/projects", label: "Case studies" },
   ...(SHOW_ABOUT ? [{ href: "/about", label: "About" }] : []),
-  { href: "/contact", label: "Contact" },
 ];
 
 export const caseStudies = [
