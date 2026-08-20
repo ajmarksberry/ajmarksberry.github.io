@@ -13,9 +13,9 @@ import { ItineraryResultsBlock } from "@/components/itinerary/ItineraryResultsBl
 import { ItinerarySprintBlock } from "@/components/itinerary/ItinerarySprintBlock";
 
 export const metadata: Metadata = {
-  title: "TAAP Itinerary builder | AJ Marksberry",
+  title: "Expedia TAAP Itinerary Builder | AJ Marksberry",
   description:
-    "From a confusing experience, to a professional-grade agent tool",
+    "A new tool that turns scattered bookings into one itinerary agents can share",
 };
 
 export default function TaapItineraryCaseStudyPage() {

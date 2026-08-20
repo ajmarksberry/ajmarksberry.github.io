@@ -38,7 +38,7 @@ export function CaseStudyExplorer() {
               <Link
                 href={study.href}
                 aria-current={current ? "page" : undefined}
-                className={`group flex flex-col overflow-hidden rounded-lg bg-panel-dark ${current ? "opacity-60" : fade}`}
+                className={`group flex flex-col overflow-hidden bg-panel-dark ${current ? "opacity-60" : fade}`}
               >
                 <span className="relative block aspect-[16/9] w-full overflow-hidden bg-panel-dark sm:aspect-[2/1]">
                   <Image

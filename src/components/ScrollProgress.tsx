@@ -1,11 +1,15 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export function ScrollProgress() {
+  const pathname = usePathname();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    if (pathname === "/") return;
+
     function update() {
       const max =
         document.documentElement.scrollHeight - window.innerHeight;
@@ -20,7 +24,9 @@ export function ScrollProgress() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [pathname]);
+
+  if (pathname === "/") return null;
 
   const percent = Math.round(progress * 100);
 

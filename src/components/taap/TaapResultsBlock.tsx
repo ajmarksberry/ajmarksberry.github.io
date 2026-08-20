@@ -2,9 +2,9 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { TaapCheckItem, TaapClockItem } from "@/components/taap/TaapListItems";
 
 const shipped = [
-  "Gen 1 shipped — established B2B data table foundation with search, filtering, and LOB icons",
-  "Gen 2 shipped — 3-column panel view replaced Gen 1 based on research and product direction",
-  "Map removal validated independently across two separate research studies — informing a platform-wide content decision",
+  "Gen 1 shipped, establishing a B2B data table foundation with search, filtering, and LOB icons",
+  "Gen 2 shipped: a 3-column panel view replaced Gen 1 based on research and product direction",
+  "Map removal was validated independently across two separate research studies, informing a platform-wide content decision",
   "Accessibility annotations delivered at every dev handoff across all three generations",
 ] as const;
 
@@ -14,7 +14,7 @@ export function TaapResultsBlock() {
       <SectionHeader
         overline="Retrospective"
         title="Results"
-        description="Three design generations spanning three years — each grounded in research and each replacing the last. The original consumer UI became a professional, accessible, research-informed agent workspace."
+        description="Three design generations spanning three years, each grounded in research and each replacing the last. The original consumer UI became a professional, accessible, research-informed agent workspace."
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
@@ -23,7 +23,7 @@ export function TaapResultsBlock() {
           <TaapCheckItem key={item}>{item}</TaapCheckItem>
         ))}
         <TaapClockItem>
-          Gen 3 enhancements in progress — post-launch metrics to follow
+          Gen 3 enhancements in progress, with post-launch metrics to follow
         </TaapClockItem>
       </div>
     </section>

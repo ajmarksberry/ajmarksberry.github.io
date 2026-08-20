@@ -11,29 +11,27 @@ export const navLinks = [
 export const caseStudies = [
   {
     href: "/projects/taap",
-    label: "Trips on TAAP",
-    title: "Trips on TAAP",
-    description: "From a confusing experience, to a professional-grade agent tool",
+    title: "Expedia TAAP Trips",
+    description:
+      "From chaos to clarity: three generations that turned a consumer list into a professional agent workspace",
     thumb: "/images/taap/hero-tray.webp",
   },
   {
     href: "/projects/taap-itinerary",
-    label: "TAAP Itinerary builder",
-    title: "TAAP Itinerary builder",
-    description: "From a confusing experience, to a professional-grade agent tool",
+    title: "Expedia TAAP Itinerary Builder",
+    description:
+      "A new tool that turns scattered bookings into one itinerary agents can share",
     thumb: "/images/itinerary/hero-tray.webp",
   },
   {
     href: "/projects/reach-ai",
-    label: "REACH.ai dashboard",
-    title: "REACH.ai / Booking Dashboard",
+    title: "REACH.ai Booking Dashboard",
     description: "Bringing an outdated experience back to life again",
     thumb: "/images/reach/hero-tray.webp",
   },
   {
     href: "/projects/reach-booking",
-    label: "REACH.ai booking",
-    title: "REACH.ai / booking experience",
+    title: "REACH.ai booking experience",
     description: "Filling last-minute appointments to capture lost revenue for service providers, built from the ground up",
     thumb: "/images/booking/hero-tray.webp",
   },

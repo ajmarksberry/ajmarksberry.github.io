@@ -26,13 +26,14 @@ export function ItineraryHeroBlock() {
           className="hero-reveal w-full font-extrabold text-[36px] leading-[44px] tracking-[-0.9px] text-ink sm:text-[48px] sm:leading-[58px] sm:tracking-[-1.2px] lg:text-[60px] lg:leading-[72px] lg:tracking-[-1.5px]"
           style={{ fontFeatureSettings: '"liga" 0', animationDelay: "140ms" }}
         >
-          TAAP Itinerary builder
+          Expedia TAAP Itinerary Builder
         </h1>
         <p
           className="hero-reveal w-full text-lg leading-7 text-ink sm:text-xl"
           style={{ fontFeatureSettings: '"liga" 0', animationDelay: "240ms" }}
         >
-          From a confusing experience, to a professional-grade agent tool
+          A new tool that turns scattered bookings into one itinerary agents can
+          share
         </p>
       </div>
 

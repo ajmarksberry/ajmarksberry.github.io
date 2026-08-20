@@ -7,7 +7,7 @@ export function TaapHandoffBlock() {
       <SectionHeader
         overline="Build"
         title="Dev handoff"
-        description="Structured dev handoff—with annotated specs, tokenized styles, and component-level documentation—bridged design and engineering so spacing, states, edge cases, and interactions shipped exactly as intended."
+        description="A structured dev handoff, with annotated specs, tokenized styles, and component-level documentation, bridged design and engineering so spacing, states, edge cases, and interactions shipped exactly as intended."
         className="w-full max-w-[620px] lg:max-w-full"
       />
 

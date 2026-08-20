@@ -1,3 +1,4 @@
+import { CaseStudyCarousel } from "@/components/CaseStudyCarousel";
 import { CaseStudyExplorer } from "@/components/CaseStudyExplorer";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -10,6 +11,7 @@ export function MarketingPage({
   children,
   showFooter = true,
   showCaseStudies,
+  caseStudyLayout = "list",
 }: {
   overline: string;
   title: string;
@@ -17,6 +19,7 @@ export function MarketingPage({
   children?: ReactNode;
   showFooter?: boolean;
   showCaseStudies?: boolean;
+  caseStudyLayout?: "list" | "carousel";
 }) {
   const explorer = showCaseStudies ?? showFooter;
 
@@ -32,7 +35,13 @@ export function MarketingPage({
           />
           {children}
         </section>
-        {explorer ? <CaseStudyExplorer /> : null}
+        {explorer ? (
+          caseStudyLayout === "carousel" ? (
+            <CaseStudyCarousel />
+          ) : (
+            <CaseStudyExplorer />
+          )
+        ) : null}
       </div>
       {showFooter ? <Footer /> : null}
     </main>

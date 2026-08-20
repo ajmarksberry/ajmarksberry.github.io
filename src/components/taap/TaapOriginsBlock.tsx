@@ -3,9 +3,9 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { TaapXItem } from "@/components/taap/TaapListItems";
 
 const gaps = [
-  "Two tabs only — Upcoming and Past and Canceled",
-  "Flat list of hyperlinks — destination, date, itinerary number only",
-  "No traveler name visible — critical for multi-client agents",
+  "Two tabs only: Upcoming and Past and Canceled",
+  "A flat list of hyperlinks showing destination, date, and itinerary number only",
+  "No traveler name visible, which is critical for multi-client agents",
   "No search, no filter, no booking type indicators",
   "No earnings, no refund status, no agent-specific actions",
 ] as const;

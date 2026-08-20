@@ -12,7 +12,7 @@ export default function HomePage() {
     <MarketingPage
       overline="Contact"
       title="Let’s work together"
-      description="The fastest way to reach me is email."
+      caseStudyLayout="carousel"
     >
       <a
         href={MAILTO}

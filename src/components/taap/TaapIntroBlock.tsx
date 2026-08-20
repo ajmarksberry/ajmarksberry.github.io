@@ -48,8 +48,9 @@ export function TaapIntroBlock() {
               className="w-full text-base leading-7"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
-              The TAAP Trips page started as a consumer-borrowed flat list — no
-              search, no agent-specific data, no professional tooling. Over three
+              The TAAP Trips page started as a consumer-borrowed flat list, with
+              no search, no agent-specific data, and no professional tooling.
+              Over three
               years, I led three successive design generations that transformed
               it into a research-informed professional workspace. Each version
               shipped to production and informed the next through user testing,

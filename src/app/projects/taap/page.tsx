@@ -12,9 +12,9 @@ import { TaapOriginsBlock } from "@/components/taap/TaapOriginsBlock";
 import { TaapResultsBlock } from "@/components/taap/TaapResultsBlock";
 
 export const metadata: Metadata = {
-  title: "Trips on TAAP | AJ Marksberry",
+  title: "Expedia TAAP Trips | AJ Marksberry",
   description:
-    "From a confusing experience, to a professional-grade agent tool",
+    "From chaos to clarity: three generations that turned a consumer list into a professional agent workspace",
 };
 
 export default function TaapTripsCaseStudyPage() {

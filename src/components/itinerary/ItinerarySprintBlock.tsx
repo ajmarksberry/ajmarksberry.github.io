@@ -23,7 +23,7 @@ export function ItinerarySprintBlock() {
       <SectionHeader
         overline="Discovery"
         title="Sprint"
-        subtitle="2-day design sprint — 3 concepts explored"
+        subtitle="A 2-day design sprint exploring 3 concepts"
         description="Facilitated a sprint with UX, Research, and Content."
         className="w-full max-w-[620px] lg:max-w-full"
       />

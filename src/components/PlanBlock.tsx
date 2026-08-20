@@ -16,7 +16,7 @@ export function PlanBlock() {
         <SectionHeader
           overline="PROCCESS"
           title="The plan"
-          description="We framed the work as a discovery-led redesign with a clear decision path — learn fast, pressure-test assumptions, then ship in focused sprints."
+          description="We framed the work as a discovery-led redesign with a clear decision path: learn fast, pressure-test assumptions, then ship in focused sprints."
           className="w-full"
         />
       </div>

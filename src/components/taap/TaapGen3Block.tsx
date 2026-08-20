@@ -8,7 +8,7 @@ export function TaapGen3Block() {
         overline="Generation 3"
         title="Post-launch"
         subtitle="2025–2026"
-        description="Further post-launch research — user testing, surveys, and feedback questionnaires conducted with the Research team — surfaced specific refinements. I organized 20+ changes into four categories for engineering prioritization."
+        description="Further post-launch research, including user testing, surveys, and feedback questionnaires conducted with the Research team, surfaced specific refinements. I organized 20+ changes into four categories for engineering prioritization."
         className="w-full max-w-[620px] lg:max-w-full"
       />
 

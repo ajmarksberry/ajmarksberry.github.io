@@ -1,8 +1,14 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { ArrowUpIcon } from "@/components/Icons";
 
 const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
 
 export function BackToTop() {
+  const pathname = usePathname();
+  if (pathname === "/") return null;
+
   return (
     <a
       href="#top"

@@ -23,7 +23,7 @@ export function ItineraryResultsBlock() {
           <TaapCheckItem key={item}>{item}</TaapCheckItem>
         ))}
         <TaapClockItem>
-          Agent adoption and share-rate metrics — to follow post-launch
+          Agent adoption and share-rate metrics to follow post-launch
         </TaapClockItem>
       </div>
     </section>

@@ -23,7 +23,7 @@ export function BookingPlanBlock() {
           style={{ fontFeatureSettings: '"liga" 0' }}
         >
           We framed the work as a discovery-led redesign with a clear decision
-          path — learn fast, pressure-test assumptions, then ship in focused
+          path: learn fast, pressure-test assumptions, then ship in focused
           sprints.
         </p>
       </div>

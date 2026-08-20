@@ -291,21 +291,8 @@ function WorkIndexPanel({
                 );
               })}
             </ul>
+            {navLinks.filter((link) => link.href !== "/projects").length > 0 ? (
             <div className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:gap-8">
-              <Link
-                href="/projects"
-                aria-current={pathname === "/projects" ? "page" : undefined}
-                className={`inline-flex font-semibold text-xs uppercase tracking-[0.04em] text-white/70 ${fade} ${
-                  open ? "index-item-in" : ""
-                }`}
-                style={
-                  open
-                    ? { animationDelay: `${caseStudies.length * 40}ms` }
-                    : undefined
-                }
-              >
-                All case studies
-              </Link>
               {navLinks
                 .filter((link) => link.href !== "/projects")
                 .map((link, index) => {
@@ -347,6 +334,7 @@ function WorkIndexPanel({
                   );
                 })}
             </div>
+            ) : null}
           </div>
         </nav>
       </div>

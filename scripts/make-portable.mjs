@@ -13,7 +13,6 @@ const routes = [
   "/",
   "/about/",
   "/contact/",
-  "/projects/",
   "/projects/taap/",
   "/projects/taap-itinerary/",
   "/projects/reach-ai/",
