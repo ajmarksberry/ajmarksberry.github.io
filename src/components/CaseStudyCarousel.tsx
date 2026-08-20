@@ -86,8 +86,9 @@ export function CaseStudyCarousel() {
   }, [sync]);
 
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
+    const node = trackRef.current;
+    if (!node) return;
+    const scroller: HTMLUListElement = node;
 
     const snapClass = ["snap-x", "snap-mandatory"];
     let pointerId: number | null = null;
@@ -98,11 +99,11 @@ export function CaseStudyCarousel() {
     let suppressClick = false;
 
     function stopSnap() {
-      track.classList.remove(...snapClass);
+      scroller.classList.remove(...snapClass);
     }
 
     function restoreSnap() {
-      track.classList.add(...snapClass);
+      scroller.classList.add(...snapClass);
     }
 
     function onPointerDown(event: PointerEvent) {
@@ -111,7 +112,7 @@ export function CaseStudyCarousel() {
       pointerId = event.pointerId;
       originX = event.clientX;
       originY = event.clientY;
-      originScroll = track.scrollLeft;
+      originScroll = scroller.scrollLeft;
       dragging = false;
     }
 
@@ -131,11 +132,11 @@ export function CaseStudyCarousel() {
         dragging = true;
         suppressClick = true;
         stopSnap();
-        track.setPointerCapture(event.pointerId);
+        scroller.setPointerCapture(event.pointerId);
       }
 
       event.preventDefault();
-      track.scrollLeft = originScroll - dx;
+      scroller.scrollLeft = originScroll - dx;
     }
 
     function onPointerUp(event: PointerEvent) {
@@ -159,20 +160,20 @@ export function CaseStudyCarousel() {
       event.preventDefault();
     }
 
-    track.addEventListener("pointerdown", onPointerDown);
-    track.addEventListener("pointermove", onPointerMove, { passive: false });
-    track.addEventListener("pointerup", onPointerUp);
-    track.addEventListener("pointercancel", onPointerUp);
-    track.addEventListener("click", onClickCapture, true);
-    track.addEventListener("dragstart", onDragStart);
+    scroller.addEventListener("pointerdown", onPointerDown);
+    scroller.addEventListener("pointermove", onPointerMove, { passive: false });
+    scroller.addEventListener("pointerup", onPointerUp);
+    scroller.addEventListener("pointercancel", onPointerUp);
+    scroller.addEventListener("click", onClickCapture, true);
+    scroller.addEventListener("dragstart", onDragStart);
 
     return () => {
-      track.removeEventListener("pointerdown", onPointerDown);
-      track.removeEventListener("pointermove", onPointerMove);
-      track.removeEventListener("pointerup", onPointerUp);
-      track.removeEventListener("pointercancel", onPointerUp);
-      track.removeEventListener("click", onClickCapture, true);
-      track.removeEventListener("dragstart", onDragStart);
+      scroller.removeEventListener("pointerdown", onPointerDown);
+      scroller.removeEventListener("pointermove", onPointerMove);
+      scroller.removeEventListener("pointerup", onPointerUp);
+      scroller.removeEventListener("pointercancel", onPointerUp);
+      scroller.removeEventListener("click", onClickCapture, true);
+      scroller.removeEventListener("dragstart", onDragStart);
       restoreSnap();
     };
   }, []);
