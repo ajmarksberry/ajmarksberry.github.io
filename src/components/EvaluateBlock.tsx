@@ -39,7 +39,7 @@ export function EvaluateBlock() {
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full max-w-[620px] flex-col items-center gap-10 overflow-hidden bg-[#b6cfed] px-6 pt-16 sm:px-10 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10 lg:pt-20">
+      <div className="flex w-full max-w-[620px] flex-col items-center gap-10 overflow-hidden bg-mat px-6 pt-16 sm:px-10 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10 lg:pt-20">
         <div className="w-full min-w-0 lg:max-w-[647px] lg:flex-1">
           <Image
             src="/images/reach/evaluate-shot.webp"

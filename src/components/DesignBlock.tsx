@@ -45,7 +45,7 @@ export function DesignBlock() {
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full min-w-0 max-w-[620px] flex-col items-center gap-16 overflow-hidden rounded-none bg-[#9dd2bf] pt-16 lg:max-w-full">
+      <div className="flex w-full min-w-0 max-w-[620px] flex-col items-center gap-16 overflow-hidden rounded-none bg-mat pt-16 lg:max-w-full">
         {visuals.map((visual) => (
           <Image
             key={visual.src}

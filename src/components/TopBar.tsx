@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { CloseIcon, MenuIcon } from "@/components/Icons";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { caseStudies, navLinks } from "@/lib/site";
 
 const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
@@ -220,7 +219,6 @@ export function TopBar() {
                 );
               })}
             </nav>
-            <ThemeToggle />
             <button
               ref={menuButtonRef}
               type="button"

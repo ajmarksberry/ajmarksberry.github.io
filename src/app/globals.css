@@ -3,27 +3,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #faf9f5;
-  --foreground: #090e1a;
-  --accent: #ff5a5f;
-  --neutral-900: #111827;
-  --neutral-600: #4b5563;
-  --primary-600: #5e3bee;
-  --primary-100: #dfd8fc;
-  --ink: #090e1a;
-  --surface: #ffffff;
-  --surface-muted: #f3f1eb;
-  --border: rgba(9, 14, 26, 0.14);
-  --footer-bg: #090e1a;
-  --footer-fg: #ffffff;
-  --footer-muted: #dfd8fc;
-  --footer-border: rgba(255, 255, 255, 0.15);
-  --panel-dark: #111827;
-  --secondary-600: #58c2a2;
-  color-scheme: light;
-}
-
-html.dark {
   --background: #12141c;
   --foreground: #f4f1ea;
   --accent: #ff8a8e;
@@ -35,6 +14,10 @@ html.dark {
   --surface: #1a1e2a;
   --surface-muted: #232838;
   --border: rgba(244, 241, 234, 0.18);
+  /* Horizontal rules: low-contrast, sits just above the background. */
+  --rule: rgba(244, 241, 234, 0.12);
+  /* Neutral mat behind screenshots. Must match MAT in scripts/rebuild-image-mats.mjs. */
+  --mat: #21252e;
   --footer-bg: #faf9f5;
   --footer-fg: #090e1a;
   --footer-muted: #5e3bee;
@@ -56,6 +39,8 @@ html.dark {
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
   --color-border: var(--border);
+  --color-rule: var(--rule);
+  --color-mat: var(--mat);
   --color-footer-bg: var(--footer-bg);
   --color-footer-fg: var(--footer-fg);
   --color-footer-muted: var(--footer-muted);

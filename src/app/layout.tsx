@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { CaseStudyShell } from "@/components/CaseStudyShell";
-import { themeBootScript } from "@/lib/theme";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,14 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
-      </head>
+    <html lang="en" className={`dark ${inter.variable} h-full antialiased`}>
       <body className="min-h-full bg-background text-ink">
         <CaseStudyShell>{children}</CaseStudyShell>
       </body>

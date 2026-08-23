@@ -19,7 +19,7 @@ export function TaapGen1Block() {
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full min-w-0 max-w-[620px] flex-col-reverse items-center gap-10 overflow-hidden rounded-none bg-[#ccdff4] px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10">
+      <div className="flex w-full min-w-0 max-w-[620px] flex-col-reverse items-center gap-10 overflow-hidden rounded-none bg-mat px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10">
         <div className="flex w-full min-w-0 flex-col items-start gap-4 pb-8 sm:pb-10 lg:max-w-[375px] lg:flex-none lg:pb-0">
           <h3
             className="w-full font-extrabold text-2xl leading-8 text-ink sm:text-[30px] sm:leading-10"

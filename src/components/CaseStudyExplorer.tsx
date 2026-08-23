@@ -1,21 +1,31 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useId } from "react";
+import { ArrowRightIcon } from "@/components/Icons";
 import { caseStudies } from "@/lib/site";
 
-const fade = "transition-opacity duration-200 ease-out hover:opacity-80";
+const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
+
+/** Static export serves trailing-slash URLs; hrefs in site.ts have none. */
+function samePath(a: string, b: string) {
+  const trim = (v: string) => (v.length > 1 ? v.replace(/\/+$/, "") : v);
+  return trim(a) === trim(b);
+}
 
 export function CaseStudyExplorer() {
   const pathname = usePathname();
   const groupId = useId();
 
+  // On a case study page this leaves the other three; elsewhere, all of them.
+  const others = caseStudies.filter((study) => !samePath(study.href, pathname));
+  if (others.length === 0) return null;
+
   return (
     <section
       aria-labelledby={`${groupId}-heading`}
-      className="flex w-full flex-col gap-8 pb-16 sm:gap-10 sm:pb-20"
+      className="flex w-full flex-col gap-6 pb-16 sm:gap-8 sm:pb-20"
     >
       <div className="flex flex-col gap-3">
         <p className="font-extrabold text-xs uppercase leading-none text-accent">
@@ -26,48 +36,27 @@ export function CaseStudyExplorer() {
           className="font-extrabold text-[28px] leading-9 tracking-[-0.7px] text-ink sm:text-[36px] sm:leading-[48px] sm:tracking-[-0.9px]"
           style={{ fontFeatureSettings: '"liga" 0' }}
         >
-          My work
+          More work
         </h2>
       </div>
 
-      <ul className="flex w-full flex-col gap-8 sm:gap-10">
-        {caseStudies.map((study) => {
-          const current = pathname === study.href;
-          return (
-            <li key={study.href}>
-              <Link
-                href={study.href}
-                aria-current={current ? "page" : undefined}
-                className={`group flex flex-col overflow-hidden bg-panel-dark ${current ? "opacity-60" : fade}`}
+      <ul className="flex w-full flex-col">
+        {others.map((study) => (
+          <li key={study.href}>
+            <Link
+              href={study.href}
+              className={`group flex items-center justify-between gap-6 border-b border-rule py-4 sm:py-5 ${fade}`}
+            >
+              <span
+                className="font-extrabold text-lg leading-6 tracking-[-0.36px] text-ink sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px]"
+                style={{ fontFeatureSettings: '"liga" 0' }}
               >
-                <span className="relative block aspect-[16/9] w-full overflow-hidden bg-panel-dark sm:aspect-[2/1]">
-                  <Image
-                    src={study.thumb}
-                    alt=""
-                    fill
-                    className="object-cover object-top transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-                    sizes="(min-width: 1024px) 980px, calc(100vw - 40px)"
-                    unoptimized
-                  />
-                </span>
-                <div className="flex flex-col gap-3 px-6 py-6 sm:gap-4 sm:px-8 sm:py-8">
-                  <p
-                    className="font-extrabold text-2xl leading-8 tracking-[-0.48px] text-secondary-600 sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px]"
-                    style={{ fontFeatureSettings: '"liga" 0' }}
-                  >
-                    {study.title}
-                  </p>
-                  <p
-                    className="max-w-[640px] text-base leading-7 text-white"
-                    style={{ fontFeatureSettings: '"liga" 0' }}
-                  >
-                    {study.description}
-                  </p>
-                </div>
-              </Link>
-            </li>
-          );
-        })}
+                {study.title}
+              </span>
+              <ArrowRightIcon className="size-6 shrink-0 text-ink transition-transform duration-200 ease-out group-hover:translate-x-1 motion-reduce:transition-none" />
+            </Link>
+          </li>
+        ))}
       </ul>
     </section>
   );

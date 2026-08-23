@@ -11,7 +11,7 @@ export function Divider({
 }: DividerProps) {
   const line = (
     <div
-      className={`w-full bg-ink ${thin ? "h-px" : "h-0.5"} ${padded ? "" : className}`}
+      className={`w-full bg-rule ${thin ? "h-px" : "h-0.5"} ${padded ? "" : className}`}
       aria-hidden
     />
   );

@@ -20,7 +20,7 @@ export function TaapOriginsBlock() {
         className="w-full max-w-[620px] pb-6 lg:max-w-full"
       />
 
-      <div className="flex w-full min-w-0 max-w-[620px] flex-col items-center gap-10 overflow-hidden rounded-none bg-[#f4dbd7] px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-end lg:justify-center lg:gap-10 lg:px-10">
+      <div className="flex w-full min-w-0 max-w-[620px] flex-col items-center gap-10 overflow-hidden rounded-none bg-mat px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-end lg:justify-center lg:gap-10 lg:px-10">
         <div className="relative aspect-[733/489] w-full min-w-0 overflow-hidden rounded-none lg:max-w-[733px] lg:flex-1">
           <Image
             src="/images/taap/origins-shot.webp"
