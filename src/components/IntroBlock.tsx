@@ -17,7 +17,7 @@ export function IntroBlock() {
             alt="Barber blow-drying a client's hair in a salon"
             width={936}
             height={936}
-            className="h-auto w-full"
+            className="h-auto w-full rounded-full"
             sizes="(min-width: 1024px) 468px, min(468px, 100vw)"
             unoptimized
           />

@@ -23,7 +23,7 @@ export function Footer() {
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
             <Link
               href="/contact"
-              className={`flex items-center justify-center rounded-full bg-primary-600 px-6 py-4 font-semibold text-sm leading-none text-white dark:text-ink ${fade}`}
+              className={`flex items-center justify-center rounded-full bg-primary-600 px-6 py-4 font-semibold text-sm leading-none text-on-primary ${fade}`}
             >
               START A DISCUSSION
             </Link>

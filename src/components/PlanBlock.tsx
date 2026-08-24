@@ -24,7 +24,7 @@ export function PlanBlock() {
         {steps.map((step, index) => (
           <li key={step} className="flex w-full items-center gap-2">
             <span
-              className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary-600 font-bold text-base leading-7 text-white"
+              className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary-600 font-bold text-base leading-7 text-on-primary"
               aria-hidden
             >
               {index + 1}

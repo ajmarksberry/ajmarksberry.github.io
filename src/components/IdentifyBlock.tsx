@@ -29,13 +29,13 @@ export function IdentifyBlock() {
             alt="Emily, merchant persona"
             width={690}
             height={690}
-            className="h-auto w-full"
+            className="h-auto w-full rounded-full"
             sizes="345px"
             unoptimized
           />
         </div>
         <blockquote
-          className="w-full max-w-[620px] shrink-0 font-semibold italic text-[22px] leading-8 text-black sm:text-[26px] sm:leading-9 lg:text-[30px] lg:leading-10"
+          className="w-full max-w-[620px] lg:min-w-0 lg:flex-1 font-semibold italic text-[22px] leading-8 text-ink sm:text-[26px] sm:leading-9 lg:text-[30px] lg:leading-10"
           style={{ fontFeatureSettings: '"liga" 0' }}
         >
           “I need an easy-to-use interface to gain quick, high-level insights

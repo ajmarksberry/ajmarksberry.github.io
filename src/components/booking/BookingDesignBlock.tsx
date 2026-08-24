@@ -70,13 +70,13 @@ export function BookingDesignBlock() {
                 {feature.description}
               </p>
             </div>
-            <div className="w-full min-w-0 overflow-hidden rounded-none">
+            <div className="w-full min-w-0 overflow-hidden rounded-lg">
               <Image
                 src={feature.src}
                 alt={feature.alt}
                 width={feature.width}
                 height={feature.height}
-                className="block h-auto w-full rounded-none"
+                className="block h-auto w-full rounded-lg"
                 sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
                 unoptimized
               />

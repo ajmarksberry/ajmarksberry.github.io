@@ -8,7 +8,7 @@ export function TaapLogo({ className }: TaapLogoProps) {
   return (
     <div className={className} style={{ width: 200, height: 25 }}>
       <Image
-        src="/images/taap/logo.svg"
+        src="/images/taap/logo-dark.svg"
         alt="Expedia TAAP"
         width={200}
         height={25}

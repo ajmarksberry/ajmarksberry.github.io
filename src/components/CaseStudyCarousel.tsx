@@ -234,7 +234,7 @@ export function CaseStudyCarousel() {
               <Link
                 href={study.href}
                 aria-current={current ? "page" : undefined}
-                className={`group flex h-full flex-col overflow-hidden bg-panel-dark outline-none focus-visible:ring-2 focus-visible:ring-accent ${current ? "opacity-60" : fade}`}
+                className={`group flex h-full flex-col overflow-hidden rounded-lg bg-panel-dark outline-none focus-visible:ring-2 focus-visible:ring-accent ${current ? "opacity-60" : fade}`}
               >
                 <span className="relative block aspect-[16/9] w-full overflow-hidden bg-panel-dark">
                   <Image

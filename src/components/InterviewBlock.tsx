@@ -45,7 +45,7 @@ export function InterviewBlock() {
           ))}
         </div>
 
-        <div className="flex w-full max-w-[620px] flex-col gap-10 rounded-none bg-panel-dark p-6 text-white sm:p-8 lg:max-w-full lg:flex-row lg:items-start lg:gap-10 lg:p-10">
+        <div className="flex w-full max-w-[620px] flex-col gap-10 rounded-lg bg-panel-dark p-6 text-white sm:p-8 lg:max-w-full lg:flex-row lg:items-start lg:gap-10 lg:p-10">
           <div className="flex w-full flex-col gap-6 lg:min-w-0 lg:flex-1">
             <h3
               className="w-full font-extrabold text-2xl leading-8 sm:text-[30px] sm:leading-10"

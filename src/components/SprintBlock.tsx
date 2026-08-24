@@ -28,7 +28,7 @@ export function SprintBlock() {
       />
 
       <div className="flex w-full max-w-[620px] flex-col gap-8 lg:max-w-full lg:flex-row lg:items-start">
-        <div className="relative aspect-[1296/728] w-full overflow-hidden lg:h-[332px] lg:min-w-0 lg:flex-1 lg:aspect-auto">
+        <div className="relative aspect-[1296/728] w-full overflow-hidden rounded-lg lg:h-[332px] lg:min-w-0 lg:flex-1 lg:aspect-auto">
           <Image
             src="/images/reach/sprint-workshop.webp"
             alt="Workshop participants reviewing sticky notes on a wall"

@@ -12,13 +12,13 @@ export function BookingWireframeBlock() {
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="w-full min-w-0 max-w-[620px] overflow-hidden rounded-none lg:max-w-full">
+      <div className="w-full min-w-0 max-w-[620px] overflow-hidden rounded-lg lg:max-w-full">
         <Image
           src="/images/booking/wireframes-tray.webp"
           alt="Booking experience sitemap and information architecture diagrams"
           width={2560}
           height={768}
-          className="block h-auto w-full rounded-none"
+          className="block h-auto w-full rounded-lg"
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
           unoptimized
         />

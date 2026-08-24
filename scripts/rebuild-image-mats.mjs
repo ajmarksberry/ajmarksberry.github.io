@@ -18,8 +18,12 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 import sharp from "sharp";
 
-/** Keep in sync with --mat in src/app/globals.css. */
-const MAT = [0x21, 0x25, 0x2e];
+/**
+ * Resolved value of --mat in src/app/globals.css, which is
+ * color-mix(in oklab, var(--figma-neutral-500) 55%, black) — i.e. Figma's
+ * Neutral/500 taken down for a dark ground. Keep the two in sync.
+ */
+const MAT = [0x2b, 0x2f, 0x35];
 
 const sourceDir =
   process.env.SOURCE_ART ??

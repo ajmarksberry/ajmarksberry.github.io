@@ -38,13 +38,13 @@ export function HeroBlock() {
         </p>
       </div>
 
-      <div className="hero-devices w-full overflow-hidden rounded-none">
+      <div className="hero-devices w-full overflow-hidden rounded-lg">
         <Image
           src="/images/reach/hero-tray.webp"
           alt="REACH.ai dashboard shown on desktop and mobile"
           width={2560}
           height={1322}
-          className="block h-auto w-full rounded-none"
+          className="block h-auto w-full rounded-lg"
           priority
           unoptimized
           sizes="(min-width: 1140px) 980px, (min-width: 1024px) calc(100vw - 160px), calc(100vw - 40px)"
@@ -63,7 +63,7 @@ export function HeroBlock() {
                 {item.label}
               </dt>
               <dd
-                className="whitespace-nowrap text-base font-semibold leading-7 text-ink"
+                className="text-base font-semibold leading-7 text-ink lg:whitespace-nowrap"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 {item.value}

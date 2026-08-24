@@ -11,7 +11,7 @@ export function WireframeBlock() {
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="w-full min-w-0 max-w-[620px] overflow-hidden lg:max-w-full">
+      <div className="w-full min-w-0 max-w-[620px] overflow-hidden rounded-lg lg:max-w-full">
         <Image
           src="/images/reach/wireframes-tray.webp"
           alt="Overlapping dashboard wireframes showing revenue overview and location selector"

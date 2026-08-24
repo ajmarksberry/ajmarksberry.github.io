@@ -2,28 +2,72 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ---------------------------------------------------------------------------
+ * Figma palette — AJM Portfolio 2026-2027, file YMeIxSju7jExNqwN8W7RJA.
+ * Pulled from the Itinerary Builder frame (node 7663:3891) via get_variable_defs.
+ * These are the raw design tokens: names and values match Figma exactly. Do not
+ * hand-edit — re-pull from Figma instead. Semantic tokens below reference these.
+ * ------------------------------------------------------------------------- */
 :root {
-  --background: #12141c;
-  --foreground: #f4f1ea;
-  --accent: #ff8a8e;
-  --neutral-900: #e8e6e0;
-  --neutral-600: #b7b3aa;
-  --primary-600: #a899ff;
-  --primary-100: #2a2548;
-  --ink: #f4f1ea;
-  --surface: #1a1e2a;
-  --surface-muted: #232838;
-  --border: rgba(244, 241, 234, 0.18);
+  --figma-white: #ffffff;
+  --figma-black: #000000;
+  --figma-neutral-900: #111827;
+  --figma-neutral-500: #6b7280;
+  --figma-highlights: #ff5a5f;
+  --figma-primary-600: #5e3bee;
+  --figma-primary-100: #dfd8fc;
+  --figma-secondary-600: #58c2a2;
+  --figma-deep-teal-400: #69bfc9;
+  --figma-stroke-dark: #000000;
+  /* Effect(DROP_SHADOW, #4544455E, offset 0 4, radius 16, spread 0) */
+  --figma-shadow-screens: 0 4px 16px 0 rgba(69, 68, 69, 0.37);
+
+  /* Type ramp — Inter throughout. size / line-height / letter-spacing. */
+  --figma-navigation: 600 14px/1 var(--font-inter);
+  --figma-overline: 800 12px/1 var(--font-inter);
+  --figma-display-sm: 800 30px/40px var(--font-inter);
+  --figma-display-md: 800 36px/48px var(--font-inter);
+  --figma-display-lg: 800 48px/60px var(--font-inter);
+  --figma-display-xl: 800 60px/72px var(--font-inter);
+  --figma-display-2xl: 800 72px/90px var(--font-inter);
+  --figma-display-tracking: -2.5px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Semantic tokens. The site runs dark, but Figma only defines a light palette,
+ * so each value here is DERIVED from a --figma-* token rather than invented:
+ * same hue, lightness remapped for a dark ground. Change the Figma import above
+ * and these follow. Mixing happens in oklab so hues stay put.
+ * ------------------------------------------------------------------------- */
+:root {
+  /* Neutral/900 verbatim: the design's darkest neutral becomes the page. */
+  --background: var(--figma-neutral-900);
+  --foreground: color-mix(in oklab, var(--figma-white) 94%, var(--figma-neutral-500));
+  --ink: var(--foreground);
+  --accent: color-mix(in oklab, var(--figma-highlights) 76%, white);
+  --neutral-900: color-mix(in oklab, var(--figma-white) 90%, var(--figma-neutral-500));
+  --neutral-600: color-mix(in oklab, var(--figma-neutral-500) 62%, white);
+  --primary-600: color-mix(in oklab, var(--figma-primary-600) 52%, white);
+  --primary-100: color-mix(in oklab, var(--figma-primary-100) 22%, black);
+  /* Foreground for anything sitting ON --primary-600, which is light here. */
+  --on-primary: var(--figma-neutral-900);
+  --secondary-600: var(--figma-secondary-600);
+  --deep-teal-400: var(--figma-deep-teal-400);
+  --surface: color-mix(in oklab, var(--figma-neutral-500) 50%, black);
+  --surface-muted: color-mix(in oklab, var(--figma-neutral-500) 66%, black);
+  --border: color-mix(in srgb, var(--figma-white) 18%, transparent);
   /* Horizontal rules: low-contrast, sits just above the background. */
-  --rule: rgba(244, 241, 234, 0.12);
-  /* Neutral mat behind screenshots. Must match MAT in scripts/rebuild-image-mats.mjs. */
-  --mat: #21252e;
+  --rule: color-mix(in srgb, var(--figma-white) 12%, transparent);
+  /* Screenshot mat. Figma uses Neutral/500 on a light page; on a dark ground the
+   * same hue is taken down until it reads as a panel, not a highlight.
+   * Resolved value must match MAT in scripts/rebuild-image-mats.mjs. */
+  --mat: color-mix(in oklab, var(--figma-neutral-500) 55%, black);
+  --panel-dark: color-mix(in oklab, var(--figma-neutral-900) 70%, black);
+  --shadow-screens: var(--figma-shadow-screens);
   --footer-bg: #faf9f5;
-  --footer-fg: #090e1a;
-  --footer-muted: #5e3bee;
-  --footer-border: rgba(9, 14, 26, 0.14);
-  --panel-dark: #0a0c12;
-  --secondary-600: #58c2a2;
+  --footer-fg: var(--figma-neutral-900);
+  --footer-muted: var(--figma-primary-600);
+  --footer-border: color-mix(in srgb, var(--figma-neutral-900) 14%, transparent);
   color-scheme: dark;
 }
 
@@ -41,6 +85,8 @@
   --color-border: var(--border);
   --color-rule: var(--rule);
   --color-mat: var(--mat);
+  --color-on-primary: var(--on-primary);
+  --color-deep-teal-400: var(--deep-teal-400);
   --color-footer-bg: var(--footer-bg);
   --color-footer-fg: var(--footer-fg);
   --color-footer-muted: var(--footer-muted);

@@ -26,7 +26,7 @@ export function BookingIdentifyBlock() {
             alt="Customer persona for the REACH.ai booking experience"
             width={550}
             height={550}
-            className="h-auto w-full"
+            className="h-auto w-full rounded-full"
             sizes="275px"
             unoptimized
           />

@@ -142,7 +142,7 @@ export function TaapNumberItem({
       ? "bg-white text-ink"
       : tone === "ink"
         ? "bg-ink text-white"
-        : "bg-primary-600 text-white";
+        : "bg-primary-600 text-on-primary";
 
   return (
     <div className="flex w-full items-center gap-2">

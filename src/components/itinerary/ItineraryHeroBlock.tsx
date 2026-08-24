@@ -26,24 +26,23 @@ export function ItineraryHeroBlock() {
           className="hero-reveal w-full font-extrabold text-[36px] leading-[44px] tracking-[-0.9px] text-ink sm:text-[48px] sm:leading-[58px] sm:tracking-[-1.2px] lg:text-[60px] lg:leading-[72px] lg:tracking-[-1.5px]"
           style={{ fontFeatureSettings: '"liga" 0', animationDelay: "140ms" }}
         >
-          Expedia TAAP Itinerary Builder
+          TAAP Itinerary builder
         </h1>
         <p
           className="hero-reveal w-full text-lg leading-7 text-ink sm:text-xl"
           style={{ fontFeatureSettings: '"liga" 0', animationDelay: "240ms" }}
         >
-          A new tool that turns scattered bookings into one itinerary agents can
-          share
+          From a confusing experience, to a professional-grade agent tool
         </p>
       </div>
 
-      <div className="hero-devices w-full overflow-hidden rounded-none">
+      <div className="hero-devices w-full overflow-hidden rounded-lg">
         <Image
           src="/images/itinerary/hero-tray.webp"
           alt="TAAP Share itinerary page in a browser on a teal background"
           width={2560}
           height={1112}
-          className="block h-auto w-full rounded-none"
+          className="block h-auto w-full rounded-lg"
           priority
           unoptimized
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
@@ -62,7 +61,7 @@ export function ItineraryHeroBlock() {
                 {item.label}
               </dt>
               <dd
-                className="whitespace-nowrap text-base font-semibold leading-7 text-ink"
+                className="text-base font-semibold leading-7 text-ink lg:whitespace-nowrap"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 {item.value}

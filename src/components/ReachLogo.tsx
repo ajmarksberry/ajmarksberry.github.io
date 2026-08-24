@@ -8,7 +8,7 @@ export function ReachLogo({ className }: ReachLogoProps) {
   return (
     <div className={className} style={{ width: 183, height: 39 }}>
       <Image
-        src="/images/reach/logo-shape.svg"
+        src="/images/reach/logo-shape-dark.svg"
         alt="REACH.ai"
         width={183}
         height={39}

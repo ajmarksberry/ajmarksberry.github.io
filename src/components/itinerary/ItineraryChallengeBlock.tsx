@@ -20,7 +20,7 @@ export function ItineraryChallengeBlock() {
         className="w-full max-w-[620px] pb-10 lg:max-w-full"
       />
 
-      <div className="flex w-full min-w-0 max-w-[620px] flex-col items-center gap-10 overflow-hidden rounded-none bg-mat px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10">
+      <div className="flex w-full min-w-0 max-w-[620px] flex-col items-center gap-10 overflow-hidden rounded-lg bg-mat px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10">
         <div className="relative aspect-[688/475] w-full min-w-0 overflow-hidden rounded-none lg:max-w-[688px] lg:flex-1">
           <Image
             src="/images/itinerary/challenge-shot.webp"
