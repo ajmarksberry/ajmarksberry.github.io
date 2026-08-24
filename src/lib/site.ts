@@ -1,6 +1,10 @@
 export const EMAIL = "ajmarksberry@gmail.com";
 export const MAILTO = `mailto:${EMAIL}`;
 
+export const RESUME_PATH = "/AJ_Marksberry_Resume_2026.pdf";
+/** Name the file lands under on the visitor's machine. */
+export const RESUME_FILENAME = "AJ-Marksberry-Resume-2026.pdf";
+
 export const SHOW_ABOUT = false;
 
 export const navLinks = [
