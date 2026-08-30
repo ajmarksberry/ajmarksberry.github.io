@@ -38,13 +38,13 @@ export function ItineraryHeroBlock() {
 
       {/* Transparent tray: the panel behind it is --mat, so the palette can move
        * without re-baking the image. Built by scripts/build-trays.mjs. */}
-      <div className="hero-devices w-full overflow-hidden rounded-lg bg-mat">
+      <div className="hero-devices w-full overflow-clip rounded-lg bg-mat">
         <Image
           src="/images/itinerary/hero-tray.png"
           alt="TAAP Share itinerary page in a browser, with the older itinerary detail screen behind it"
           width={2560}
           height={1588}
-          className="block h-auto w-full"
+          className="block h-auto w-full media-parallax"
           priority
           unoptimized
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"

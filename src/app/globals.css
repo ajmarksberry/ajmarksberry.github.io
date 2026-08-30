@@ -171,6 +171,20 @@ body {
   }
 }
 
+/* Case-study imagery drifts against the scroll. Gentler than the homepage
+ * banners, which are full-screen. Transforms do not affect layout, so the
+ * wrapper keeps the image's natural height while the scaled image overhangs and
+ * is clipped — no restructuring needed. The scale must exceed the translate:
+ * 1.14 gives 7% of overhang each side against a 5% drift. */
+@keyframes media-parallax {
+  from {
+    transform: scale(1.14) translate3d(0, -5%, 0);
+  }
+  to {
+    transform: scale(1.14) translate3d(0, 5%, 0);
+  }
+}
+
 /* Circle row: hovering one brings it forward and pushes the rest back. The
  * scale-back sits on the row so every sibling reacts, and the item's own rule
  * comes later so it wins for the one under the cursor. focus-within keeps it
@@ -232,6 +246,12 @@ body {
     animation-range: cover 0% cover 100%;
   }
 
+  .media-parallax {
+    animation: media-parallax linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
   /* The stagger is in the ranges, not delays: a scroll-driven animation has no
    * wall-clock time to delay against. */
   .card-rise {
@@ -259,7 +279,8 @@ body {
   .section-reveal,
   .menu-item-in,
   .card-media,
-  .card-rise {
+  .card-rise,
+  .media-parallax {
     animation: none;
   }
 

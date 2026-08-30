@@ -23,13 +23,13 @@ export function IdentifyBlock() {
       />
 
       <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:justify-start">
-        <div className="w-full max-w-[345px] shrink-0 lg:size-[345px] lg:max-w-none">
+        <div className="w-full max-w-[345px] shrink-0 overflow-clip rounded-full lg:size-[345px] lg:max-w-none">
           <Image
             src="/images/reach/persona-emily.webp"
             alt="Emily, merchant persona"
             width={690}
             height={690}
-            className="h-auto w-full rounded-full"
+            className="h-auto w-full rounded-full media-parallax"
             sizes="345px"
             unoptimized
           />

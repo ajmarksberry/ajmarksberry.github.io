@@ -20,13 +20,13 @@ export function BookingIdentifyBlock() {
       />
 
       <div className="flex w-full flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-8">
-        <div className="w-full max-w-[275px] shrink-0 lg:size-[275px] lg:max-w-none">
+        <div className="w-full max-w-[275px] shrink-0 overflow-clip rounded-full lg:size-[275px] lg:max-w-none">
           <Image
             src="/images/booking/persona.webp"
             alt="Customer persona for the REACH.ai booking experience"
             width={550}
             height={550}
-            className="h-auto w-full rounded-full"
+            className="h-auto w-full rounded-full media-parallax"
             sizes="275px"
             unoptimized
           />

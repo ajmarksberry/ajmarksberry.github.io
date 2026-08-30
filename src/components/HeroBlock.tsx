@@ -38,13 +38,13 @@ export function HeroBlock() {
         </p>
       </div>
 
-      <div className="hero-devices w-full overflow-hidden rounded-lg">
+      <div className="hero-devices w-full overflow-clip rounded-lg">
         <Image
           src="/images/reach/hero-tray.webp"
           alt="REACH.ai dashboard shown on desktop and mobile"
           width={2560}
           height={1322}
-          className="block h-auto w-full rounded-lg"
+          className="block h-auto w-full rounded-lg media-parallax"
           priority
           unoptimized
           sizes="(min-width: 1140px) 980px, (min-width: 1024px) calc(100vw - 160px), calc(100vw - 40px)"

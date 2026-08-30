@@ -37,13 +37,13 @@ export function TaapHeroBlock() {
         </p>
       </div>
 
-      <div className="hero-devices w-full overflow-hidden rounded-lg">
+      <div className="hero-devices w-full overflow-clip rounded-lg">
         <Image
           src="/images/taap/hero-tray.webp"
           alt="TAAP Trips dashboard on desktop, tablet, and mobile"
           width={2560}
           height={1220}
-          className="block h-auto w-full rounded-lg"
+          className="block h-auto w-full rounded-lg media-parallax"
           priority
           unoptimized
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"

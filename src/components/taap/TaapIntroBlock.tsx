@@ -3,13 +3,13 @@ import Image from "next/image";
 export function TaapIntroBlock() {
   return (
     <section className="section-reveal flex w-full flex-col items-center gap-10 pt-16 lg:flex-row lg:items-start lg:justify-center lg:gap-12">
-      <div className="w-full max-w-[468px] shrink-0 overflow-hidden rounded-full lg:size-[468px] lg:max-w-none">
+      <div className="w-full max-w-[468px] shrink-0 overflow-clip rounded-full lg:size-[468px] lg:max-w-none">
         <Image
           src="/images/taap/intro-plane.webp"
           alt="Commercial jet flying above the clouds"
           width={936}
           height={936}
-          className="h-auto w-full rounded-full"
+          className="h-auto w-full rounded-full media-parallax"
           sizes="(min-width: 1024px) 468px, min(468px, 100vw)"
           unoptimized
         />

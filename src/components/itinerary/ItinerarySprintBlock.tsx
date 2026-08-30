@@ -29,12 +29,12 @@ export function ItinerarySprintBlock() {
       />
 
       <div className="flex w-full max-w-[620px] flex-col gap-8 lg:max-w-full lg:flex-row lg:items-start">
-        <div className="relative aspect-[1184/664] w-full overflow-hidden rounded-lg lg:h-[347px] lg:min-w-0 lg:flex-1 lg:aspect-auto">
+        <div className="relative aspect-[1184/664] w-full overflow-clip rounded-lg lg:h-[347px] lg:min-w-0 lg:flex-1 lg:aspect-auto">
           <Image
             src="/images/itinerary/sprint-board.webp"
             alt="Miro board from the itinerary builder design sprint"
             fill
-            className="object-cover object-top"
+            className="object-cover object-top media-parallax"
             sizes="(min-width: 1024px) 618px, (min-width: 640px) 620px, calc(100vw - 40px)"
             unoptimized
           />

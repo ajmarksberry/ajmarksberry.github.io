@@ -39,14 +39,14 @@ export function EvaluateBlock() {
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full max-w-[620px] flex-col items-center gap-10 overflow-hidden rounded-lg bg-mat px-6 pt-16 sm:px-10 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10 lg:pt-20">
+      <div className="flex w-full max-w-[620px] flex-col items-center gap-10 overflow-clip rounded-lg bg-mat px-6 pt-16 sm:px-10 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10 lg:pt-20">
         <div className="w-full min-w-0 lg:max-w-[647px] lg:flex-1">
           <Image
             src="/images/reach/evaluate-shot.webp"
             alt="Annotated REACH.ai dashboard with heuristic findings"
             width={1294}
             height={1200}
-            className="h-auto w-full"
+            className="h-auto w-full media-parallax"
             sizes="(min-width: 1024px) 50vw, (min-width: 640px) 620px, calc(100vw - 40px)"
             unoptimized
           />
