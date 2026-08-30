@@ -23,7 +23,7 @@ export function ItineraryHeroBlock() {
           <TaapLogo />
         </div>
         <h1
-          className="hero-reveal w-full font-extrabold text-[36px] leading-[44px] tracking-[-0.9px] text-ink sm:text-[48px] sm:leading-[58px] sm:tracking-[-1.2px] lg:text-[60px] lg:leading-[72px] lg:tracking-[-1.5px]"
+          className="hero-reveal w-full font-extrabold text-[36px] leading-[44px] tracking-[-0.9px] text-heading sm:text-[48px] sm:leading-[58px] sm:tracking-[-1.2px] lg:text-[60px] lg:leading-[72px] lg:tracking-[-1.5px]"
           style={{ fontFeatureSettings: '"liga" 0', animationDelay: "140ms" }}
         >
           TAAP Itinerary builder
@@ -36,13 +36,15 @@ export function ItineraryHeroBlock() {
         </p>
       </div>
 
-      <div className="hero-devices w-full overflow-hidden rounded-lg">
+      {/* Transparent tray: the panel behind it is --mat, so the palette can move
+       * without re-baking the image. Built by scripts/build-trays.mjs. */}
+      <div className="hero-devices w-full overflow-hidden rounded-lg bg-mat">
         <Image
-          src="/images/itinerary/hero-tray.webp"
-          alt="TAAP Share itinerary page in a browser on a teal background"
+          src="/images/itinerary/hero-tray.png"
+          alt="TAAP Share itinerary page in a browser, with the older itinerary detail screen behind it"
           width={2560}
-          height={1112}
-          className="block h-auto w-full rounded-lg"
+          height={1588}
+          className="block h-auto w-full"
           priority
           unoptimized
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"

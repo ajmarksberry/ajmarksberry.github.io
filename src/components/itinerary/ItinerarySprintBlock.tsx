@@ -43,7 +43,7 @@ export function ItinerarySprintBlock() {
         <div className="flex w-full flex-col items-start gap-6 lg:min-w-0 lg:flex-1">
           <div className="flex w-full flex-col gap-4">
             <p
-              className="w-full text-2xl font-bold leading-8 text-ink"
+              className="w-full text-2xl font-bold leading-8 text-heading"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               Sprint overview
@@ -61,7 +61,7 @@ export function ItinerarySprintBlock() {
           </div>
           <div className="flex w-full flex-col gap-4">
             <p
-              className="w-full text-2xl font-bold leading-8 text-ink"
+              className="w-full text-2xl font-bold leading-8 text-heading"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               Activities

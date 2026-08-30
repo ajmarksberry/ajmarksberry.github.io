@@ -14,9 +14,8 @@ const linkClass =
 export default function HomePage() {
   return (
     <MarketingPage
-      overline="Contact"
       title="Let’s work together"
-      caseStudyLayout="carousel"
+      caseStudyLayout="stack"
     >
       <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
         <a href={MAILTO} className={`${linkClass} underline underline-offset-4`}>

@@ -22,6 +22,15 @@
   /* Effect(DROP_SHADOW, #4544455E, offset 0 4, radius 16, spread 0) */
   --figma-shadow-screens: 0 4px 16px 0 rgba(69, 68, 69, 0.37);
 
+  /* Dark frame — node 7755:8907 "TAAP - Itinerary Builder dark mode test".
+   * Pulled with get_variable_defs; these are Figma's own dark ramp, so the
+   * semantic block below no longer has to guess at one. */
+  --figma-neutral-800: #1f2937;
+  --figma-neutral-700: #374151;
+  --figma-neutral-400: #9ca3af;
+  --figma-on-dark: #ffffff;
+  --figma-on-dark-muted: #e5e7eb;
+
   /* Type ramp — Inter throughout. size / line-height / letter-spacing. */
   --figma-navigation: 600 14px/1 var(--font-inter);
   --figma-overline: 800 12px/1 var(--font-inter);
@@ -31,21 +40,36 @@
   --figma-display-xl: 800 60px/72px var(--font-inter);
   --figma-display-2xl: 800 72px/90px var(--font-inter);
   --figma-display-tracking: -2.5px;
+
+  /* The two typeface options. Switch the site by pointing --app-font at the
+   * other stack — that one line is the whole change.
+   * Inter is still imported in layout.tsx, so it stays available. */
+  --font-stack-system: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-stack-inter: var(--font-inter), var(--font-stack-system);
+
+  --app-font: var(--font-stack-system);
 }
 
 /* ---------------------------------------------------------------------------
- * Semantic tokens. The site runs dark, but Figma only defines a light palette,
- * so each value here is DERIVED from a --figma-* token rather than invented:
- * same hue, lightness remapped for a dark ground. Change the Figma import above
- * and these follow. Mixing happens in oklab so hues stay put.
+ * Semantic tokens — the site's dark mode, taken from the dark Figma frame.
+ * Anything the dark frame specifies is now a verbatim --figma-* reference
+ * rather than a lightness remap of the light palette. Tokens the dark frame
+ * does not cover (--panel-dark, --primary-*, --footer-*) keep their derived
+ * values. Mixing, where it remains, happens in oklab so hues stay put.
  * ------------------------------------------------------------------------- */
 :root {
-  /* Neutral/900 verbatim: the design's darkest neutral becomes the page. */
+  /* Neutral/900 verbatim: the frame's page background. */
   --background: var(--figma-neutral-900);
-  --foreground: color-mix(in oklab, var(--figma-white) 94%, var(--figma-neutral-500));
+  /* Accessible/On Dark Muted — the frame's prose colour. */
+  --foreground: var(--figma-on-dark-muted);
   --ink: var(--foreground);
-  --accent: color-mix(in oklab, var(--figma-highlights) 76%, white);
-  --neutral-900: color-mix(in oklab, var(--figma-white) 90%, var(--figma-neutral-500));
+  /* Accessible/On Dark — display type sits a step brighter than prose. */
+  --heading: var(--figma-on-dark);
+  /* Highlights at full strength; the dark frame does not tint it. */
+  --accent: var(--figma-highlights);
+  --muted: var(--figma-neutral-400);
+  --neutral-900: var(--figma-on-dark-muted);
   --neutral-600: color-mix(in oklab, var(--figma-neutral-500) 62%, white);
   --primary-600: color-mix(in oklab, var(--figma-primary-600) 52%, white);
   --primary-100: color-mix(in oklab, var(--figma-primary-100) 22%, black);
@@ -53,15 +77,19 @@
   --on-primary: var(--figma-neutral-900);
   --secondary-600: var(--figma-secondary-600);
   --deep-teal-400: var(--figma-deep-teal-400);
-  --surface: color-mix(in oklab, var(--figma-neutral-500) 50%, black);
-  --surface-muted: color-mix(in oklab, var(--figma-neutral-500) 66%, black);
-  --border: color-mix(in srgb, var(--figma-white) 18%, transparent);
-  /* Horizontal rules: low-contrast, sits just above the background. */
-  --rule: color-mix(in srgb, var(--figma-white) 12%, transparent);
-  /* Screenshot mat. Figma uses Neutral/500 on a light page; on a dark ground the
-   * same hue is taken down until it reads as a panel, not a highlight.
-   * Resolved value must match MAT in scripts/rebuild-image-mats.mjs. */
-  --mat: color-mix(in oklab, var(--figma-neutral-500) 55%, black);
+  /* Neutral/800 — the frame's content blocks sit one step off the page. */
+  --surface: var(--figma-neutral-800);
+  --surface-muted: var(--figma-neutral-700);
+  /* Neutral/700 — the frame's nav rule and block borders. */
+  --border: var(--figma-neutral-700);
+  --rule: var(--figma-neutral-700);
+  /* Brighter rule the dark frame uses above the Interviews stats. */
+  --rule-strong: var(--figma-neutral-500);
+  /* Screenshot mat. The dark frame stands its "Screens" blocks on Neutral/800,
+   * so the mat is that colour exactly. The trays are transparent PNGs now, so
+   * this is free to move; only the case-study card thumbnail bakes it, via MAT in
+   * scripts/build-trays.mjs. */
+  --mat: var(--figma-neutral-800);
   --panel-dark: color-mix(in oklab, var(--figma-neutral-900) 70%, black);
   --shadow-screens: var(--figma-shadow-screens);
   --footer-bg: #faf9f5;
@@ -80,10 +108,13 @@
   --color-primary-600: var(--primary-600);
   --color-primary-100: var(--primary-100);
   --color-ink: var(--ink);
+  --color-heading: var(--heading);
+  --color-muted: var(--muted);
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
   --color-border: var(--border);
   --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
   --color-mat: var(--mat);
   --color-on-primary: var(--on-primary);
   --color-deep-teal-400: var(--deep-teal-400);
@@ -93,7 +124,7 @@
   --color-footer-border: var(--footer-border);
   --color-panel-dark: var(--panel-dark);
   --color-secondary-600: var(--secondary-600);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--app-font);
 }
 
 html {
@@ -103,7 +134,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--app-font);
 }
 
 @keyframes fade-up {
@@ -117,10 +148,22 @@ body {
   }
 }
 
-@keyframes menu-item-in {
+/* The case-study banners: the photograph drifts against the scroll while the
+ * copy rises in, each element a beat behind the one above it. Both are driven
+ * by scroll position rather than time, so they track the wheel exactly. */
+@keyframes card-parallax {
+  from {
+    transform: scale(1.18) translate3d(0, -6%, 0);
+  }
+  to {
+    transform: scale(1.18) translate3d(0, 6%, 0);
+  }
+}
+
+@keyframes card-rise {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -128,10 +171,33 @@ body {
   }
 }
 
-@keyframes index-item-in {
+/* Circle row: hovering one brings it forward and pushes the rest back. The
+ * scale-back sits on the row so every sibling reacts, and the item's own rule
+ * comes later so it wins for the one under the cursor. focus-within keeps it
+ * reachable from the keyboard. */
+.circle-item {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease-out;
+}
+
+.circle-row:hover .circle-item,
+.circle-row:focus-within .circle-item {
+  transform: scale(0.9);
+  opacity: 0.55;
+}
+
+.circle-row .circle-item:hover,
+.circle-row .circle-item:focus-within {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 10;
+}
+
+@keyframes menu-item-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -152,15 +218,34 @@ body {
   animation: menu-item-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.index-item-in {
-  animation: index-item-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
 @supports (animation-timeline: view()) {
   .section-reveal {
     animation: fade-up linear forwards;
     animation-timeline: view();
     animation-range: entry 0% entry 12%;
+  }
+
+  /* Runs the whole time the card is on screen, so the drift never stops short. */
+  .card-media {
+    animation: card-parallax linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  /* The stagger is in the ranges, not delays: a scroll-driven animation has no
+   * wall-clock time to delay against. */
+  .card-rise {
+    animation: card-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 8% entry 46%;
+  }
+
+  .card-rise-2 {
+    animation-range: entry 14% entry 52%;
+  }
+
+  .card-rise-3 {
+    animation-range: entry 20% entry 58%;
   }
 }
 
@@ -173,7 +258,13 @@ body {
   .hero-devices,
   .section-reveal,
   .menu-item-in,
-  .index-item-in {
+  .card-media,
+  .card-rise {
     animation: none;
+  }
+
+  /* The forward/back states still apply; they just stop being animated. */
+  .circle-item {
+    transition: none;
   }
 }

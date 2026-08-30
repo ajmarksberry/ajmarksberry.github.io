@@ -270,20 +270,15 @@ function WorkIndexPanel({
         >
           <div className="mx-auto flex w-full max-w-[1140px] flex-col">
             <ul className="flex flex-col">
-              {caseStudies.map((study, index) => {
+              {caseStudies.map((study) => {
                 const active = pathname === study.href;
                 return (
                   <li key={study.href}>
                     <Link
                       href={study.href}
                       aria-current={active ? "page" : undefined}
-                      className={`flex border-b border-white/10 py-3 font-extrabold text-lg leading-6 tracking-[-0.36px] text-white sm:py-4 sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px] ${
-                        open ? "index-item-in" : ""
-                      } ${active ? "opacity-60" : fade}`}
-                      style={{
-                        fontFeatureSettings: '"liga" 0',
-                        ...(open ? { animationDelay: `${index * 40}ms` } : {}),
-                      }}
+                      className={`flex border-b border-white/10 py-3 font-extrabold text-lg leading-6 tracking-[-0.36px] text-white sm:py-4 sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px] ${active ? "opacity-60" : fade}`}
+                      style={{ fontFeatureSettings: '"liga" 0' }}
                     >
                       {study.title}
                     </Link>
@@ -295,22 +290,13 @@ function WorkIndexPanel({
             <div className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:gap-8">
               {navLinks
                 .filter((link) => link.href !== "/projects")
-                .map((link, index) => {
+                .map((link) => {
                   const current = isCurrentPath(pathname, link.href);
                   return current ? (
                     <span
                       key={link.href}
                       aria-current="page"
-                      className={`font-semibold text-xs uppercase tracking-[0.04em] text-white/40 sm:hidden ${
-                        open ? "index-item-in" : ""
-                      }`}
-                      style={
-                        open
-                          ? {
-                              animationDelay: `${(caseStudies.length + 1 + index) * 40}ms`,
-                            }
-                          : undefined
-                      }
+                      className="font-semibold text-xs uppercase tracking-[0.04em] text-white/40 sm:hidden"
                     >
                       {link.label}
                     </span>
@@ -318,16 +304,7 @@ function WorkIndexPanel({
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`font-semibold text-xs uppercase tracking-[0.04em] text-white/70 sm:hidden ${fade} ${
-                        open ? "index-item-in" : ""
-                      }`}
-                      style={
-                        open
-                          ? {
-                              animationDelay: `${(caseStudies.length + 1 + index) * 40}ms`,
-                            }
-                          : undefined
-                      }
+                      className={`font-semibold text-xs uppercase tracking-[0.04em] text-white/70 sm:hidden ${fade}`}
                     >
                       {link.label}
                     </Link>

@@ -35,7 +35,7 @@ export function BookingIdentifyBlock() {
         <div className="flex w-full max-w-[620px] flex-col items-start gap-6 lg:max-w-none lg:min-w-0 lg:flex-1">
           <div className="flex w-full flex-col items-start gap-2">
             <h3
-              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-ink sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
+              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-heading sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               Frustrations
@@ -50,7 +50,7 @@ export function BookingIdentifyBlock() {
           </div>
           <div className="flex w-full flex-col items-start gap-2">
             <h3
-              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-ink sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
+              className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-heading sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
               style={{ fontFeatureSettings: '"liga" 0' }}
             >
               Goals

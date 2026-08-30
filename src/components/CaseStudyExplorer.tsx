@@ -33,7 +33,7 @@ export function CaseStudyExplorer() {
         </p>
         <h2
           id={`${groupId}-heading`}
-          className="font-extrabold text-[28px] leading-9 tracking-[-0.7px] text-ink sm:text-[36px] sm:leading-[48px] sm:tracking-[-0.9px]"
+          className="font-extrabold text-[28px] leading-9 tracking-[-0.7px] text-heading sm:text-[36px] sm:leading-[48px] sm:tracking-[-0.9px]"
           style={{ fontFeatureSettings: '"liga" 0' }}
         >
           More work
@@ -48,7 +48,7 @@ export function CaseStudyExplorer() {
               className={`group flex items-center justify-between gap-6 border-b border-rule py-4 sm:py-5 ${fade}`}
             >
               <span
-                className="font-extrabold text-lg leading-6 tracking-[-0.36px] text-ink sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px]"
+                className="font-extrabold text-lg leading-6 tracking-[-0.36px] text-heading sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px]"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 {study.title}

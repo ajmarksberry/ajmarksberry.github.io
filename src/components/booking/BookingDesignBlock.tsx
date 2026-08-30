@@ -58,7 +58,7 @@ export function BookingDesignBlock() {
           >
             <div className="flex w-full max-w-[620px] flex-col items-start gap-4 lg:max-w-[800px]">
               <h3
-                className="w-full font-bold text-[28px] leading-9 tracking-[-0.7px] text-ink sm:text-[36px] sm:leading-[48px] sm:tracking-[-0.9px]"
+                className="w-full font-bold text-[28px] leading-9 tracking-[-0.7px] text-heading sm:text-[36px] sm:leading-[48px] sm:tracking-[-0.9px]"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 {feature.title}

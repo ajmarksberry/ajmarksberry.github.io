@@ -23,7 +23,7 @@ export function ItineraryChallengeBlock() {
       <div className="flex w-full min-w-0 max-w-[620px] flex-col items-center gap-10 overflow-hidden rounded-lg bg-mat px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10">
         <div className="relative aspect-[688/475] w-full min-w-0 overflow-hidden rounded-none lg:max-w-[688px] lg:flex-1">
           <Image
-            src="/images/itinerary/challenge-shot.webp"
+            src="/images/itinerary/challenge-shot.png"
             alt="Original TAAP itinerary detail and booked itineraries list"
             fill
             className="object-cover object-top"
@@ -34,7 +34,7 @@ export function ItineraryChallengeBlock() {
 
         <div className="flex w-full flex-col items-start gap-3 pb-8 sm:pb-10 lg:max-w-[442px] lg:flex-none">
           <h3
-            className="w-full font-extrabold text-2xl leading-8 text-ink sm:text-[30px] sm:leading-10"
+            className="w-full font-extrabold text-2xl leading-8 text-heading sm:text-[30px] sm:leading-10"
             style={{ fontFeatureSettings: '"liga" 0' }}
           >
             Pain points

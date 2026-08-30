@@ -23,7 +23,7 @@ export function BookingHeroBlock() {
           <ReachLogo />
         </div>
         <h1
-          className="hero-reveal w-full font-extrabold text-[36px] leading-[44px] tracking-[-0.9px] text-ink sm:text-[48px] sm:leading-[58px] sm:tracking-[-1.2px] lg:text-[60px] lg:leading-[72px] lg:tracking-[-1.5px]"
+          className="hero-reveal w-full font-extrabold text-[36px] leading-[44px] tracking-[-0.9px] text-heading sm:text-[48px] sm:leading-[58px] sm:tracking-[-1.2px] lg:text-[60px] lg:leading-[72px] lg:tracking-[-1.5px]"
           style={{ fontFeatureSettings: '"liga" 0', animationDelay: "140ms" }}
         >
           REACH.ai

@@ -11,6 +11,7 @@ import { ItineraryIntroBlock } from "@/components/itinerary/ItineraryIntroBlock"
 import { ItineraryPrototypeBlock } from "@/components/itinerary/ItineraryPrototypeBlock";
 import { ItineraryResultsBlock } from "@/components/itinerary/ItineraryResultsBlock";
 import { ItinerarySprintBlock } from "@/components/itinerary/ItinerarySprintBlock";
+import { ItineraryWireframesBlock } from "@/components/itinerary/ItineraryWireframesBlock";
 
 export const metadata: Metadata = {
   title: "Expedia TAAP Itinerary Builder | AJ Marksberry",
@@ -30,6 +31,8 @@ export default function TaapItineraryCaseStudyPage() {
         <ItineraryFoundationsBlock />
         <Divider padded />
         <ItinerarySprintBlock />
+        <Divider padded />
+        <ItineraryWireframesBlock />
         <Divider padded />
         <ItineraryPrototypeBlock />
         <Divider padded />

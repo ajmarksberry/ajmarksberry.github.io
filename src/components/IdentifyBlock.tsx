@@ -47,7 +47,7 @@ export function IdentifyBlock() {
       <div className="flex w-full flex-col items-center gap-6 lg:items-start">
         <div className="flex w-full max-w-[620px] flex-col items-start gap-2 lg:max-w-full">
           <h3
-            className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-ink sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
+            className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-heading sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
             style={{ fontFeatureSettings: '"liga" 0' }}
           >
             Frustrations
@@ -62,7 +62,7 @@ export function IdentifyBlock() {
         </div>
         <div className="flex w-full max-w-[620px] flex-col items-start gap-2 lg:max-w-full">
           <h3
-            className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-ink sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
+            className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-heading sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
             style={{ fontFeatureSettings: '"liga" 0' }}
           >
             Goals

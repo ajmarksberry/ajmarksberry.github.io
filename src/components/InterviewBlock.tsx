@@ -36,7 +36,7 @@ export function InterviewBlock() {
                 {stat.value}
               </p>
               <p
-                className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-ink sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
+                className="w-full font-bold text-2xl leading-8 tracking-[-0.24px] text-heading sm:text-[30px] sm:leading-10 lg:text-[36px] lg:leading-[48px] lg:tracking-[-0.9px]"
                 style={{ fontFeatureSettings: '"liga" 0' }}
               >
                 {stat.label}

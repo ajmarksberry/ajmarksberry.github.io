@@ -1,4 +1,4 @@
-import { CaseStudyCarousel } from "@/components/CaseStudyCarousel";
+import { CaseStudyShowcase } from "@/components/CaseStudyShowcase";
 import { CaseStudyExplorer } from "@/components/CaseStudyExplorer";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -13,13 +13,13 @@ export function MarketingPage({
   showCaseStudies,
   caseStudyLayout = "list",
 }: {
-  overline: string;
+  overline?: string;
   title: string;
   description?: string;
   children?: ReactNode;
   showFooter?: boolean;
   showCaseStudies?: boolean;
-  caseStudyLayout?: "list" | "carousel";
+  caseStudyLayout?: "list" | "stack";
 }) {
   const explorer = showCaseStudies ?? showFooter;
 
@@ -32,12 +32,20 @@ export function MarketingPage({
             title={title}
             description={description}
             className="w-full max-w-[640px]"
+            reveal
           />
-          {children}
+          {children ? (
+            <div
+              className="hero-reveal w-full"
+              style={{ animationDelay: "340ms" }}
+            >
+              {children}
+            </div>
+          ) : null}
         </section>
         {explorer ? (
-          caseStudyLayout === "carousel" ? (
-            <CaseStudyCarousel />
+          caseStudyLayout === "stack" ? (
+            <CaseStudyShowcase />
           ) : (
             <CaseStudyExplorer />
           )
