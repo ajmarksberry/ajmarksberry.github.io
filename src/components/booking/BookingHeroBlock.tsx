@@ -45,7 +45,7 @@ export function BookingHeroBlock() {
           alt="REACH.ai booking flow on desktop, mobile, email, and SMS"
           width={2560}
           height={1356}
-          className="block h-auto w-full rounded-lg media-parallax"
+          className="block h-auto w-full rounded-lg"
           priority
           unoptimized
           sizes="(min-width: 1140px) 980px, (min-width: 1024px) calc(100vw - 160px), calc(100vw - 40px)"

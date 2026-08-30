@@ -44,7 +44,7 @@ export function ItineraryHeroBlock() {
           alt="TAAP Share itinerary page in a browser, with the older itinerary detail screen behind it"
           width={2560}
           height={1588}
-          className="block h-auto w-full media-parallax"
+          className="block h-auto w-full"
           priority
           unoptimized
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
