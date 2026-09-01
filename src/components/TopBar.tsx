@@ -7,8 +7,13 @@ import { CloseIcon, MenuIcon } from "@/components/Icons";
 import { caseStudies, navLinks } from "@/lib/site";
 
 const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
-const desktopLinkClass =
-  "font-semibold text-xs uppercase leading-none tracking-[0.04em] text-white sm:text-sm";
+/** Shared nav link treatment, so the two navs cannot drift apart. */
+const navLinkBase =
+  "font-semibold uppercase leading-none tracking-[0.04em] text-white";
+const desktopLinkClass = `${navLinkBase} text-xs sm:text-sm`;
+/** The menu is sm:hidden, so it takes the desktop's 14px directly rather than
+ * at a breakpoint that never fires for it. */
+const menuLinkClass = `${navLinkBase} text-sm sm:hidden`;
 
 function isCurrentPath(pathname: string, href: string) {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
@@ -296,7 +301,7 @@ function WorkIndexPanel({
                     <span
                       key={link.href}
                       aria-current="page"
-                      className="font-semibold text-xs uppercase tracking-[0.04em] text-white/40 sm:hidden"
+                      className={`${menuLinkClass} opacity-60`}
                     >
                       {link.label}
                     </span>
@@ -304,7 +309,7 @@ function WorkIndexPanel({
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`font-semibold text-xs uppercase tracking-[0.04em] text-white/70 sm:hidden ${fade}`}
+                      className={`${menuLinkClass} ${fade}`}
                     >
                       {link.label}
                     </Link>
