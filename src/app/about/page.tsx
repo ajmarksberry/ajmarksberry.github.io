@@ -73,19 +73,23 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <div className="flex w-full max-w-[640px] flex-col gap-6 border-t border-rule pt-8 text-base leading-7 text-ink">
-          <p>
-            I enjoy simplifying complexity, aligning teams around customer
-            needs, and creating experiences that are useful, usable, accessible,
-            and valuable.
-          </p>
-          <p>
-            Over the years, I&rsquo;ve worked across travel, healthcare,
-            insurance, communications, hospitality, ecommerce, and emerging
-            technology industries, partnering closely with Product, Engineering,
-            Research, Content Design, and business stakeholders to bring ideas
-            from discovery through delivery.
-          </p>
+        {/* The rule spans the full column like the Expertise one above it; the
+         * prose keeps its 640px measure on an inner wrapper. */}
+        <div className="w-full border-t border-rule pt-8">
+          <div className="flex w-full max-w-[640px] flex-col gap-6 text-base leading-7 text-ink">
+            <p>
+              I enjoy simplifying complexity, aligning teams around customer
+              needs, and creating experiences that are useful, usable,
+              accessible, and valuable.
+            </p>
+            <p>
+              Over the years, I&rsquo;ve worked across travel, healthcare,
+              insurance, communications, hospitality, ecommerce, and emerging
+              technology industries, partnering closely with Product,
+              Engineering, Research, Content Design, and business stakeholders
+              to bring ideas from discovery through delivery.
+            </p>
+          </div>
         </div>
 
         <div className="flex w-full max-w-[640px] flex-col items-start gap-4 rounded-lg bg-surface p-6 sm:p-8 lg:max-w-[760px]">
