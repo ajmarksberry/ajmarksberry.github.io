@@ -274,6 +274,31 @@ function WorkIndexPanel({
           className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-white/10 bg-black/90 px-5 pb-10 pt-4 backdrop-blur-md sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
         >
           <div className="mx-auto flex w-full max-w-[1140px] flex-col">
+            {navLinks
+              .filter((link) => link.href !== "/projects")
+              .map((link) => {
+                const current = isCurrentPath(pathname, link.href);
+                // py-4 turns a 14px label into a ~46px row: the type stays the
+                // size it is on desktop, the target becomes thumb-sized.
+                const row = `${menuLinkClass} flex items-center border-b border-white/10 py-4`;
+                return current ? (
+                  <span
+                    key={link.href}
+                    aria-current="page"
+                    className={`${row} opacity-60`}
+                  >
+                    {link.label}
+                  </span>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`${row} ${fade}`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             <ul className="flex flex-col">
               {caseStudies.map((study) => {
                 const active = pathname === study.href;
@@ -291,32 +316,6 @@ function WorkIndexPanel({
                 );
               })}
             </ul>
-            {navLinks.filter((link) => link.href !== "/projects").length > 0 ? (
-            <div className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:gap-8">
-              {navLinks
-                .filter((link) => link.href !== "/projects")
-                .map((link) => {
-                  const current = isCurrentPath(pathname, link.href);
-                  return current ? (
-                    <span
-                      key={link.href}
-                      aria-current="page"
-                      className={`${menuLinkClass} opacity-60`}
-                    >
-                      {link.label}
-                    </span>
-                  ) : (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`${menuLinkClass} ${fade}`}
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                })}
-            </div>
-            ) : null}
           </div>
         </nav>
       </div>
