@@ -40,7 +40,7 @@ export default function AboutPage() {
   return (
     <MarketingPage
       overline="About"
-      title="Simplifying complexity"
+      title="AJ Marksberry"
       description="I'm a Senior Product Designer with 27+ years of experience helping organizations transform complex business challenges into intuitive, human-centered digital products."
       showFooter={false}
     >
