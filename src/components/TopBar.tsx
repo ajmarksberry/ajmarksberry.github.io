@@ -161,14 +161,14 @@ export function TopBar() {
           {pathname === "/" ? (
             <span
               aria-current="page"
-              className="font-extrabold text-lg leading-none tracking-[-0.72px] text-white opacity-60 sm:text-[22px] sm:tracking-[-0.88px]"
+              className="font-bold text-lg leading-none tracking-[-0.72px] text-white opacity-60 sm:text-[22px] sm:tracking-[-0.88px]"
             >
               AJ Marksberry
             </span>
           ) : (
             <Link
               href="/"
-              className={`font-extrabold text-lg leading-none tracking-[-0.72px] text-white sm:text-[22px] sm:tracking-[-0.88px] ${fade}`}
+              className={`font-bold text-lg leading-none tracking-[-0.72px] text-white sm:text-[22px] sm:tracking-[-0.88px] ${fade}`}
             >
               AJ Marksberry
             </Link>
