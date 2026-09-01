@@ -5,7 +5,7 @@ export const RESUME_PATH = "/AJ_Marksberry_Resume_2026.pdf";
 /** Name the file lands under on the visitor's machine. */
 export const RESUME_FILENAME = "AJ-Marksberry-Resume-2026.pdf";
 
-export const SHOW_ABOUT = false;
+export const SHOW_ABOUT = true;
 
 export const navLinks = [
   { href: "/projects", label: "Case studies" },

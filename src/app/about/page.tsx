@@ -1,12 +1,27 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MarketingPage } from "@/components/MarketingPage";
-import { SHOW_ABOUT } from "@/lib/site";
+import { EMAIL, MAILTO, SHOW_ABOUT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About | AJ Marksberry",
-  description: "About AJ Marksberry",
+  description:
+    "Senior Product Designer with 27+ years turning complex business challenges into intuitive, human-centered digital products.",
 };
+
+const expertise = [
+  "Product Design",
+  "UX Strategy",
+  "User Research & Validation",
+  "Information Architecture",
+  "Interaction Design",
+  "Accessibility",
+  "Design Systems",
+  "Enterprise SaaS Platforms",
+  "Journey Mapping",
+  "Stakeholder Facilitation",
+  "Visual Design",
+] as const;
 
 export default function AboutPage() {
   if (!SHOW_ABOUT) notFound();
@@ -14,19 +29,84 @@ export default function AboutPage() {
   return (
     <MarketingPage
       overline="About"
-      title="A placeholder for the about page"
-      description="This page will hold a short bio, the kind of work I like, and how I work with teams. For now, this is just a placeholder so the navigation can land here."
+      title="Simplifying complexity"
+      description="I'm a Senior Product Designer with 27+ years of experience helping organizations transform complex business challenges into intuitive, human-centered digital products."
       showFooter={false}
     >
-      <div className="flex w-full max-w-[640px] flex-col gap-4 text-base leading-7 text-ink">
-        <p>
-          Placeholder: background, current focus, and a few notes on process
-          will go here.
-        </p>
-        <p>
-          Placeholder: selected experience, tools, and the kinds of problems I
-          like to take on.
-        </p>
+      <div className="flex w-full max-w-[640px] flex-col gap-10 lg:max-w-full">
+        <div className="flex w-full max-w-[640px] flex-col gap-6 text-base leading-7 text-ink">
+          <p>
+            Throughout my career, I&rsquo;ve partnered with startups, SaaS
+            companies, enterprise organizations, healthcare providers, agencies,
+            and global brands to create experiences that improve customer
+            outcomes while supporting business goals.
+          </p>
+          <p>
+            Currently, I design enterprise experiences for Expedia Group&rsquo;s
+            Travel Agent Affiliate Program (TAAP), where I lead UX initiatives
+            focused on trip management, itinerary creation, post-booking
+            experiences, advisor productivity tools, and workflow optimization.
+          </p>
+        </div>
+
+        <section
+          aria-labelledby="expertise-heading"
+          className="flex w-full flex-col gap-6 border-t border-rule pt-8"
+        >
+          <h2
+            id="expertise-heading"
+            className="font-extrabold text-2xl leading-8 tracking-[-0.24px] text-heading sm:text-[30px] sm:leading-10"
+            style={{ fontFeatureSettings: '"liga" 0' }}
+          >
+            Expertise
+          </h2>
+          <ul className="grid w-full grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+            {expertise.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span
+                  aria-hidden
+                  className="mt-[10px] size-1.5 shrink-0 rounded-full bg-accent"
+                />
+                <span className="text-base leading-7 text-ink">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <div className="flex w-full max-w-[640px] flex-col gap-6 border-t border-rule pt-8 text-base leading-7 text-ink">
+          <p>
+            I enjoy simplifying complexity, aligning teams around customer
+            needs, and creating experiences that are useful, usable, accessible,
+            and valuable.
+          </p>
+          <p>
+            Over the years, I&rsquo;ve worked across travel, healthcare,
+            insurance, communications, hospitality, ecommerce, and emerging
+            technology industries, partnering closely with Product, Engineering,
+            Research, Content Design, and business stakeholders to bring ideas
+            from discovery through delivery.
+          </p>
+        </div>
+
+        <div className="flex w-full max-w-[640px] flex-col items-start gap-4 rounded-lg bg-surface p-6 sm:p-8 lg:max-w-[760px]">
+          <p className="font-extrabold text-xs uppercase leading-none text-accent">
+            Open to work
+          </p>
+          <p
+            className="text-base leading-7 text-heading sm:text-lg sm:leading-8"
+            style={{ fontFeatureSettings: '"liga" 0' }}
+          >
+            I&rsquo;m currently open to Senior Product Designer, Lead Product
+            Designer, Principal Product Designer, and UX Leadership
+            opportunities.
+          </p>
+          <a
+            href={MAILTO}
+            className="font-semibold text-base leading-7 text-ink underline underline-offset-4 transition-opacity duration-200 ease-out hover:opacity-60"
+          >
+            {EMAIL}
+          </a>
+        </div>
       </div>
     </MarketingPage>
   );
