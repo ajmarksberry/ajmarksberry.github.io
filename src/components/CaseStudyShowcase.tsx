@@ -141,7 +141,7 @@ function CaseStudyBanner({
       href={study.href}
       aria-current={current ? "page" : undefined}
       draggable={false}
-      className={`relative flex h-full w-full items-center touch-pan-y overflow-clip bg-panel-dark px-5 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent sm:px-10 lg:px-[6.94%] ${current ? "opacity-60" : ""}`}
+      className={`group relative flex h-full w-full items-center touch-pan-y overflow-clip bg-panel-dark px-5 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent sm:px-10 lg:px-[6.94%] ${current ? "opacity-60" : ""}`}
     >
       <span
         aria-hidden
@@ -184,6 +184,11 @@ function CaseStudyBanner({
           {study.description}
         </p>
       </div>
+
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-200 ease-out [box-shadow:inset_0_0_0_12px_var(--accent)] group-hover:opacity-100 motion-reduce:transition-none"
+      />
     </Link>
   );
 }
