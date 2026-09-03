@@ -185,11 +185,11 @@ function CaseStudyBanner({
         </p>
       </div>
 
-      {/* Grows the spread itself from 0, rather than fading a fixed-width
-       * stroke in, so the border reads as expanding inward on hover. */}
+      {/* No transition: the stroke is only ever present while this exact card
+       * is hovered/focused/pressed, and disappears the instant it isn't. */}
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-10 [box-shadow:inset_0_0_0_0px_var(--accent)] transition-[box-shadow] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:[box-shadow:inset_0_0_0_16px_var(--accent)] group-focus-visible:[box-shadow:inset_0_0_0_16px_var(--accent)] group-active:[box-shadow:inset_0_0_0_16px_var(--accent)] motion-reduce:transition-none"
+        className="pointer-events-none absolute inset-0 z-10 [box-shadow:inset_0_0_0_0px_var(--accent)] group-hover:[box-shadow:inset_0_0_0_16px_var(--accent)] group-focus-visible:[box-shadow:inset_0_0_0_16px_var(--accent)] group-active:[box-shadow:inset_0_0_0_16px_var(--accent)]"
       />
     </Link>
   );
