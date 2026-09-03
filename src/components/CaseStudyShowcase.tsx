@@ -152,7 +152,7 @@ function CaseStudyBanner({
           alt=""
           draggable={false}
           fill
-          className="object-cover opacity-40"
+          className="object-cover opacity-40 transition-[opacity,filter] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-[0.55] group-hover:brightness-110 group-active:opacity-[0.55] group-active:brightness-110 motion-reduce:transition-none"
           style={{ objectPosition: "50% 30%" }}
           sizes="100vw"
           priority={study.href === caseStudies[0].href}
@@ -185,9 +185,11 @@ function CaseStudyBanner({
         </p>
       </div>
 
+      {/* Grows the spread itself from 0, rather than fading a fixed-width
+       * stroke in, so the border reads as expanding inward on hover. */}
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-200 ease-out [box-shadow:inset_0_0_0_12px_var(--accent)] group-hover:opacity-100 motion-reduce:transition-none"
+        className="pointer-events-none absolute inset-0 z-10 [box-shadow:inset_0_0_0_0px_var(--accent)] transition-[box-shadow] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:[box-shadow:inset_0_0_0_16px_var(--accent)] group-focus-visible:[box-shadow:inset_0_0_0_16px_var(--accent)] group-active:[box-shadow:inset_0_0_0_16px_var(--accent)] motion-reduce:transition-none"
       />
     </Link>
   );
