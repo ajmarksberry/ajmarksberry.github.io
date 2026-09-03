@@ -1,9 +1,8 @@
 import { SectionHeader } from "@/components/SectionHeader";
 
 const stats = [
-  { value: "12", label: "Participants" },
-  { value: "14", label: "Questions" },
-  { value: "16+", label: "Hours" },
+  { value: "52", label: "Participants" },
+  { value: "3", label: "Questions" },
 ] as const;
 
 const questions = [

@@ -13,12 +13,6 @@ const metrics = [
     description:
       "Fewer “where do I…?” tickets as hierarchy, labels, and empty states did the teaching.",
   },
-  {
-    value: "3wks",
-    label: "Faster handoff",
-    description:
-      "Shared components and a clearer IA shortened design-to-engineering cycles on follow-on features.",
-  },
 ] as const;
 
 const insights = [
