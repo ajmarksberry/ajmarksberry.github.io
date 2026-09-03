@@ -279,14 +279,17 @@ function WorkIndexPanel({
               .filter((link) => link.href !== "/projects")
               .map((link) => {
                 const current = isCurrentPath(pathname, link.href);
-                // py-4 turns a 14px label into a ~46px row: the type stays the
-                // size it is on desktop, the target becomes thumb-sized.
-                const row = `${menuLinkClass} flex items-center border-b border-white/10 py-4`;
+                // A filled pill rather than one more divided row, so it reads
+                // as an action distinct from the case-study list beneath it.
+                // sm:hidden: this stands out on the phone-width menu only —
+                // the desktop nav above (line ~187) is untouched.
+                const button =
+                  "mb-6 flex sm:hidden w-full items-center justify-center rounded-full bg-primary-600 px-6 py-4 font-semibold text-sm uppercase leading-none tracking-[0.04em] text-on-primary";
                 return current ? (
                   <span
                     key={link.href}
                     aria-current="page"
-                    className={`${row} opacity-60`}
+                    className={`${button} opacity-60`}
                   >
                     {link.label}
                   </span>
@@ -294,7 +297,7 @@ function WorkIndexPanel({
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`${row} ${fade}`}
+                    className={`${button} ${fade}`}
                   >
                     {link.label}
                   </Link>
