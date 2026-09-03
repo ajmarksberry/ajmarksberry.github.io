@@ -1,12 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useId } from "react";
-import { ArrowRightIcon } from "@/components/Icons";
+import { CaseStudyPreviewRow } from "@/components/CaseStudyPreviewRow";
 import { caseStudies } from "@/lib/site";
-
-const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
 
 /** Static export serves trailing-slash URLs; hrefs in site.ts have none. */
 function samePath(a: string, b: string) {
@@ -43,18 +40,7 @@ export function CaseStudyExplorer() {
       <ul className="flex w-full flex-col">
         {others.map((study) => (
           <li key={study.href}>
-            <Link
-              href={study.href}
-              className={`group flex items-center justify-between gap-6 border-b border-rule py-4 sm:py-5 ${fade}`}
-            >
-              <span
-                className="font-extrabold text-lg leading-6 tracking-[-0.36px] text-heading sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px]"
-                style={{ fontFeatureSettings: '"liga" 0' }}
-              >
-                {study.title}
-              </span>
-              <ArrowRightIcon className="size-6 shrink-0 text-ink transition-transform duration-200 ease-out group-hover:translate-x-1 motion-reduce:transition-none" />
-            </Link>
+            <CaseStudyPreviewRow study={study} current={false} />
           </li>
         ))}
       </ul>

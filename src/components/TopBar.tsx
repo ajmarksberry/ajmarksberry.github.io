@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
+import { CaseStudyPreviewRow } from "@/components/CaseStudyPreviewRow";
 import { CloseIcon, MenuIcon } from "@/components/Icons";
 import { caseStudies, navLinks } from "@/lib/site";
 
@@ -300,21 +301,16 @@ function WorkIndexPanel({
                 );
               })}
             <ul className="flex flex-col">
-              {caseStudies.map((study) => {
-                const active = pathname === study.href;
-                return (
-                  <li key={study.href}>
-                    <Link
-                      href={study.href}
-                      aria-current={active ? "page" : undefined}
-                      className={`flex border-b border-white/10 py-3 font-extrabold text-lg leading-6 tracking-[-0.36px] text-white sm:py-4 sm:text-[28px] sm:leading-9 sm:tracking-[-0.56px] ${active ? "opacity-60" : fade}`}
-                      style={{ fontFeatureSettings: '"liga" 0' }}
-                    >
-                      {study.title}
-                    </Link>
-                  </li>
-                );
-              })}
+              {caseStudies.map((study) => (
+                <li key={study.href}>
+                  <CaseStudyPreviewRow
+                    study={study}
+                    current={pathname === study.href}
+                    compact
+                    dividerClassName="border-white/10"
+                  />
+                </li>
+              ))}
             </ul>
           </div>
         </nav>
