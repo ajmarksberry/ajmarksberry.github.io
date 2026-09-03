@@ -185,11 +185,13 @@ function CaseStudyBanner({
         </p>
       </div>
 
-      {/* No transition: the stroke is only ever present while this exact card
-       * is hovered/focused/pressed, and disappears the instant it isn't. */}
+      {/* Transition lives on the hover/focus/active state, not the resting
+       * one. A transition change is governed by whichever state you're
+       * entering: coming IN grows the stroke over 500ms; going back to rest
+       * has no transition declared, so it snaps to 0 instantly. */}
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-10 [box-shadow:inset_0_0_0_0px_var(--accent)] group-hover:[box-shadow:inset_0_0_0_16px_var(--accent)] group-focus-visible:[box-shadow:inset_0_0_0_16px_var(--accent)] group-active:[box-shadow:inset_0_0_0_16px_var(--accent)]"
+        className="pointer-events-none absolute inset-0 z-10 [box-shadow:inset_0_0_0_0px_var(--accent)] group-hover:[box-shadow:inset_0_0_0_16px_var(--accent)] group-hover:transition-[box-shadow] group-hover:duration-500 group-hover:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-focus-visible:[box-shadow:inset_0_0_0_16px_var(--accent)] group-focus-visible:transition-[box-shadow] group-focus-visible:duration-500 group-focus-visible:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-active:[box-shadow:inset_0_0_0_16px_var(--accent)] group-active:transition-[box-shadow] group-active:duration-500 group-active:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
       />
     </Link>
   );
