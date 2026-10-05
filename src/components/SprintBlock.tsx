@@ -33,7 +33,7 @@ export function SprintBlock() {
             src="/images/reach/sprint-workshop.webp"
             alt="Workshop participants reviewing sticky notes on a wall"
             fill
-            className="object-cover media-parallax"
+            className="object-cover"
             sizes="(min-width: 1024px) 50vw, (min-width: 640px) 620px, calc(100vw - 40px)"
             unoptimized
           />

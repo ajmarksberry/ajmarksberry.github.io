@@ -46,7 +46,7 @@ export function EvaluateBlock() {
             alt="Annotated REACH.ai dashboard with heuristic findings"
             width={1294}
             height={1200}
-            className="h-auto w-full media-parallax"
+            className="h-auto w-full"
             sizes="(min-width: 1024px) 50vw, (min-width: 640px) 620px, calc(100vw - 40px)"
             unoptimized
           />

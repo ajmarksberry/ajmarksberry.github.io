@@ -18,7 +18,7 @@ export function TaapGen3Block() {
           alt="Generation 3 Trips dashboard after post-launch refinements"
           width={2560}
           height={3032}
-          className="block h-auto w-full rounded-lg media-parallax"
+          className="block h-auto w-full rounded-lg"
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
           unoptimized
         />

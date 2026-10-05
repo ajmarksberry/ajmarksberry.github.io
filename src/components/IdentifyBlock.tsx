@@ -29,7 +29,7 @@ export function IdentifyBlock() {
             alt="Emily, merchant persona"
             width={690}
             height={690}
-            className="h-auto w-full rounded-full media-parallax"
+            className="h-auto w-full rounded-full"
             sizes="345px"
             unoptimized
           />

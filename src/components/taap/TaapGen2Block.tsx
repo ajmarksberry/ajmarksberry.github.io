@@ -17,7 +17,7 @@ export function TaapGen2Block() {
           alt="Generation 2 three-panel Trips layout on desktop with the mobile list overlapping"
           width={2560}
           height={2122}
-          className="block h-auto w-full rounded-lg media-parallax"
+          className="block h-auto w-full rounded-lg"
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
           unoptimized
         />

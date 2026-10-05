@@ -34,7 +34,7 @@ export function ItinerarySprintBlock() {
             src="/images/itinerary/sprint-board.webp"
             alt="Miro board from the itinerary builder design sprint"
             fill
-            className="object-cover object-top media-parallax"
+            className="object-cover object-top"
             sizes="(min-width: 1024px) 618px, (min-width: 640px) 620px, calc(100vw - 40px)"
             unoptimized
           />

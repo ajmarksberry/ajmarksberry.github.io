@@ -18,7 +18,7 @@ export function BookingWireframeBlock() {
           alt="Booking experience sitemap and information architecture diagrams"
           width={2560}
           height={768}
-          className="block h-auto w-full rounded-lg media-parallax"
+          className="block h-auto w-full rounded-lg"
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
           unoptimized
         />

@@ -26,7 +26,7 @@ export function TaapOriginsBlock() {
             src="/images/taap/origins-shot.webp"
             alt="Original My Trips page with a flat list of hyperlinks"
             fill
-            className="object-cover object-top media-parallax"
+            className="object-cover object-top"
             sizes="(min-width: 1024px) 733px, (min-width: 640px) 620px, calc(100vw - 40px)"
             unoptimized
           />

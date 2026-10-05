@@ -18,7 +18,7 @@ export function ItineraryFoundationsBlock() {
           alt="Competitive audit collage of itinerary sharing patterns"
           width={2560}
           height={1016}
-          className="block h-auto w-full media-parallax"
+          className="block h-auto w-full"
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
           unoptimized
         />

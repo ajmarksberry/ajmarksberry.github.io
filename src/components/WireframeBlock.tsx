@@ -17,7 +17,7 @@ export function WireframeBlock() {
           alt="Overlapping dashboard wireframes showing revenue overview and location selector"
           width={2560}
           height={1262}
-          className="block h-auto w-full media-parallax"
+          className="block h-auto w-full"
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
           unoptimized
         />

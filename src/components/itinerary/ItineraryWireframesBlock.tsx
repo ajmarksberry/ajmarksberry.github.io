@@ -17,7 +17,7 @@ export function ItineraryWireframesBlock() {
           alt="Three wireframe concepts for the itinerary share flow, including edit mode and the confirmed reservation view"
           width={1280}
           height={1123}
-          className="block h-auto w-full media-parallax"
+          className="block h-auto w-full"
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
           unoptimized
         />

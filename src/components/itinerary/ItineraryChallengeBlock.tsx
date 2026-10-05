@@ -26,7 +26,7 @@ export function ItineraryChallengeBlock() {
             src="/images/itinerary/challenge-shot.png"
             alt="Original TAAP itinerary detail and booked itineraries list"
             fill
-            className="object-cover object-top media-parallax"
+            className="object-cover object-top"
             sizes="(min-width: 1024px) 688px, (min-width: 640px) 620px, calc(100vw - 40px)"
             unoptimized
           />

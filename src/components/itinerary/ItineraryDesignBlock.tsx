@@ -18,7 +18,7 @@ export function ItineraryDesignBlock() {
           alt="Final TAAP Share itinerary design"
           width={2560}
           height={4578}
-          className="block h-auto w-full media-parallax"
+          className="block h-auto w-full"
           sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
           unoptimized
         />

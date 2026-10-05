@@ -41,7 +41,7 @@ export function TaapGen1Block() {
             src="/images/taap/gen1-shot.webp"
             alt="Generation 1 Trips page redesigned as a sortable data table"
             fill
-            className="object-cover object-top media-parallax"
+            className="object-cover object-top"
             sizes="(min-width: 1024px) 753px, (min-width: 640px) 620px, calc(100vw - 40px)"
             unoptimized
           />

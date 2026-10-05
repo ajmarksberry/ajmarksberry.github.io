@@ -17,7 +17,7 @@ export function BookingIntroBlock() {
             alt="Smiling salon client in a bright studio"
             width={936}
             height={936}
-            className="h-auto w-full rounded-full media-parallax"
+            className="h-auto w-full rounded-full"
             sizes="(min-width: 1024px) 468px, min(468px, 100vw)"
             unoptimized
           />
