@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { DownloadIcon } from "@/components/Icons";
 import { MarketingPage } from "@/components/MarketingPage";
@@ -43,6 +44,18 @@ export default function AboutPage() {
       title="AJ Marksberry"
       description="I'm a Senior Product Designer with 27+ years of experience helping organizations transform complex business challenges into intuitive, human-centered digital products."
       showFooter={false}
+      afterTitle={
+        <Image
+          src="/images/about/portrait.webp"
+          alt="Portrait of AJ Marksberry, in black and white, glancing off to the side"
+          width={800}
+          height={800}
+          className="block aspect-square w-full max-w-[320px] rounded-lg object-cover"
+          sizes="320px"
+          priority
+          unoptimized
+        />
+      }
     >
       <div className="flex w-full max-w-[640px] flex-col gap-10 lg:max-w-full">
         <div className="flex w-full max-w-[640px] flex-col gap-6 text-base leading-7 text-ink">

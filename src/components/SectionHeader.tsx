@@ -1,8 +1,12 @@
+import type { ReactNode } from "react";
+
 type SectionHeaderProps = {
   overline?: string;
   title: string;
   subtitle?: string;
   description?: string;
+  /** Sits between the title and the description, e.g. a portrait. */
+  afterTitle?: ReactNode;
   className?: string;
   inverse?: boolean;
   /**
@@ -17,6 +21,7 @@ export function SectionHeader({
   title,
   subtitle,
   description,
+  afterTitle,
   className = "",
   inverse = false,
   reveal = false,
@@ -41,6 +46,11 @@ export function SectionHeader({
         >
           {title}
         </h2>
+        {afterTitle ? (
+          <div className={`py-2 ${rise}`} style={delay(190)}>
+            {afterTitle}
+          </div>
+        ) : null}
         {subtitle ? (
           <p
             className={`font-bold text-base leading-none w-full ${inverse ? "text-white" : "text-ink"}`}

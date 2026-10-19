@@ -8,6 +8,7 @@ export function MarketingPage({
   overline,
   title,
   description,
+  afterTitle,
   children,
   showFooter = true,
   showCaseStudies,
@@ -16,6 +17,8 @@ export function MarketingPage({
   overline?: string;
   title: string;
   description?: string;
+  /** Shown between the title and the description. */
+  afterTitle?: ReactNode;
   children?: ReactNode;
   showFooter?: boolean;
   showCaseStudies?: boolean;
@@ -31,6 +34,7 @@ export function MarketingPage({
             overline={overline}
             title={title}
             description={description}
+            afterTitle={afterTitle}
             className="w-full max-w-[640px]"
             reveal
           />
