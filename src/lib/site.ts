@@ -8,6 +8,8 @@ export const RESUME_FILENAME = "AJ-Marksberry-Resume-2026.pdf";
 export const SHOW_ABOUT = true;
 /** Gates both the nav link and the page itself, like SHOW_ABOUT. */
 export const SHOW_EXPEDIA_WORK = true;
+/** Gates the Visual design page and its rows in the menu and More work list. */
+export const SHOW_VISUAL_DESIGN = true;
 
 /**
  * The Expedia work page as a list row, for the mobile menu. `hero` is the
@@ -20,10 +22,22 @@ export const expediaWorkLink = {
   hero: "/images/expedia-work/expedia-thumb.webp",
 } as const;
 
+/** The Visual design page as a list row. `hero` is cropped from the Cowtown
+ * homepage. */
+export const visualDesignLink = {
+  href: "/visual-design",
+  title: "Visual design",
+  description: "A selection of websites and interfaces I've designed.",
+  hero: "/images/visual-design/thumb.webp",
+} as const;
+
 export const navLinks = [
   { href: "/projects", label: "Case studies" },
   ...(SHOW_EXPEDIA_WORK
     ? [{ href: "/expedia-work", label: "Expedia work" }]
+    : []),
+  ...(SHOW_VISUAL_DESIGN
+    ? [{ href: "/visual-design", label: "Visual design" }]
     : []),
   ...(SHOW_ABOUT ? [{ href: "/about", label: "About" }] : []),
 ];

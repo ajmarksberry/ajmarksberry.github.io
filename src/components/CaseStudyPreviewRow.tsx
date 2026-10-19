@@ -37,9 +37,9 @@ export function CaseStudyPreviewRow({
     <Link
       href={study.href}
       aria-current={current ? "page" : undefined}
-      className={`group flex w-full items-center gap-4 border-b py-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent sm:gap-6 ${
-        compact ? "sm:py-4" : "py-4 sm:py-5"
-      } ${dividerClassName} ${
+      className={`group flex w-full items-center border-b py-3 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent sm:gap-6 ${
+        compact ? "gap-3" : "gap-4"
+      } ${compact ? "sm:py-4" : "py-4 sm:py-5"} ${dividerClassName} ${
         current
           ? "opacity-60"
           : "transition-opacity duration-200 ease-out hover:opacity-80"
@@ -48,7 +48,7 @@ export function CaseStudyPreviewRow({
       <span
         className={`relative block shrink-0 overflow-clip rounded-md bg-panel-dark ${
           compact
-            ? "h-[52px] w-[84px] sm:h-[60px] sm:w-[96px]"
+            ? "h-[40px] w-[64px] sm:h-[60px] sm:w-[96px]"
             : "h-[64px] w-[104px] sm:h-[88px] sm:w-[148px] lg:h-[100px] lg:w-[168px]"
         }`}
       >
@@ -66,7 +66,7 @@ export function CaseStudyPreviewRow({
         <span
           className={`font-extrabold leading-6 text-heading ${
             compact
-              ? "line-clamp-2 text-sm sm:text-base"
+              ? "truncate text-[clamp(10px,3.3vw,14px)] sm:text-base"
               : "truncate text-base sm:text-lg"
           }`}
           style={{ fontFeatureSettings: '"liga" 0' }}

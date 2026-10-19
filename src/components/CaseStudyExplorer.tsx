@@ -6,12 +6,20 @@ import {
   CaseStudyPreviewRow,
   type PreviewItem,
 } from "@/components/CaseStudyPreviewRow";
-import { caseStudies, expediaWorkLink, SHOW_EXPEDIA_WORK } from "@/lib/site";
+import {
+  caseStudies,
+  expediaWorkLink,
+  SHOW_EXPEDIA_WORK,
+  SHOW_VISUAL_DESIGN,
+  visualDesignLink,
+} from "@/lib/site";
 
-/** The case studies, then the Expedia work page as the last row. */
-const items: readonly PreviewItem[] = SHOW_EXPEDIA_WORK
-  ? [...caseStudies, expediaWorkLink]
-  : caseStudies;
+/** The case studies, then the Expedia work and Visual design pages. */
+const items: readonly PreviewItem[] = [
+  ...caseStudies,
+  ...(SHOW_EXPEDIA_WORK ? [expediaWorkLink] : []),
+  ...(SHOW_VISUAL_DESIGN ? [visualDesignLink] : []),
+];
 
 /** Static export serves trailing-slash URLs; hrefs in site.ts have none. */
 function samePath(a: string, b: string) {

@@ -44,7 +44,7 @@ export type ExpediaWorkItem = {
   id: string;
   title: string;
   /** A sentence or two of framing. Put the detail in `points`. */
-  description: string;
+  description?: string;
   /** Optional bullets, shown under the description. */
   points?: readonly string[];
   /** Keep the images in one column, even with several. Default is two-up on desktop. */

@@ -3,34 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import {
-  CaseStudyPreviewRow,
-  type PreviewItem,
-} from "@/components/CaseStudyPreviewRow";
+import { CaseStudyPreviewRow } from "@/components/CaseStudyPreviewRow";
 import { CloseIcon, MenuIcon } from "@/components/Icons";
-import {
-  caseStudies,
-  expediaWorkLink,
-  navLinks,
-  SHOW_EXPEDIA_WORK,
-} from "@/lib/site";
+import { caseStudies, navLinks } from "@/lib/site";
 
 const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
 /** Shared nav link treatment, so the two navs cannot drift apart. */
 const navLinkBase =
-  "font-semibold uppercase leading-none tracking-[0.04em] text-white";
+  "whitespace-nowrap font-semibold uppercase leading-none tracking-[0.04em] text-chrome-fg";
 const desktopLinkClass = `${navLinkBase} text-xs sm:text-sm`;
 /** The selected page link is dimmed. Its line is the sliding indicator below
  * the nav, which the Case studies trigger never gets: it is not a page. */
 const selectedLinkClass = "opacity-60";
-/** The menu is sm:hidden, so it takes the desktop's 14px directly rather than
- * at a breakpoint that never fires for it. */
-const menuLinkClass = `${navLinkBase} text-sm sm:hidden`;
-
-/** The case studies, with Expedia work as the last row. */
-const menuItems: readonly PreviewItem[] = SHOW_EXPEDIA_WORK
-  ? [...caseStudies, expediaWorkLink]
-  : caseStudies;
+/** The hamburger menu is md:hidden, so it takes the desktop's 14px directly
+ * rather than at a breakpoint that never fires for it. */
+const menuLinkClass = `${navLinkBase} text-sm`;
 
 function isCurrentPath(pathname: string, href: string) {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
@@ -220,7 +207,7 @@ export function TopBar() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 left-0 z-50 w-full border-b border-white/10 bg-black/90 will-change-transform backdrop-blur-md"
+      className="sticky top-0 left-0 z-50 w-full border-b border-chrome-line bg-chrome will-change-transform backdrop-blur-md"
     >
       <div className="mx-auto w-full max-w-[1140px]">
         <div
@@ -230,14 +217,14 @@ export function TopBar() {
           {pathname === "/" ? (
             <span
               aria-current="page"
-              className="font-bold text-lg leading-none tracking-[-0.72px] text-white opacity-60 sm:text-[22px] sm:tracking-[-0.88px]"
+              className="font-bold text-lg leading-none tracking-[-0.72px] text-chrome-fg opacity-60 sm:text-[22px] sm:tracking-[-0.88px]"
             >
               AJ Marksberry
             </span>
           ) : (
             <Link
               href="/"
-              className={`font-bold text-lg leading-none tracking-[-0.72px] text-white sm:text-[22px] sm:tracking-[-0.88px] ${fade}`}
+              className={`font-bold text-lg leading-none tracking-[-0.72px] text-chrome-fg sm:text-[22px] sm:tracking-[-0.88px] ${fade}`}
             >
               AJ Marksberry
             </Link>
@@ -245,13 +232,13 @@ export function TopBar() {
           <div className="flex items-center gap-3 sm:gap-6">
             <nav
               ref={navRef}
-              className="relative hidden items-center gap-6 sm:flex"
+              className="relative hidden items-center gap-6 md:flex"
               aria-label="Primary"
             >
               <span
                 ref={indicatorRef}
                 aria-hidden="true"
-                className="pointer-events-none absolute left-0 h-0.5 w-0 bg-white opacity-0 data-[ready=true]:transition-[transform,width,opacity] data-[ready=true]:duration-300 data-[ready=true]:ease-out motion-reduce:transition-none"
+                className="pointer-events-none absolute left-0 h-0.5 w-0 bg-chrome-fg opacity-0 data-[ready=true]:transition-[transform,width,opacity] data-[ready=true]:duration-300 data-[ready=true]:ease-out motion-reduce:transition-none"
               />
               {navLinks.map((link) => {
                 if (link.href === "/projects") {
@@ -303,7 +290,7 @@ export function TopBar() {
             <button
               ref={menuButtonRef}
               type="button"
-              className={`relative z-10 flex size-11 items-center justify-center text-white pointer-events-auto sm:hidden ${fade}`}
+              className={`relative z-10 flex size-11 items-center justify-center text-chrome-fg pointer-events-auto md:hidden ${fade}`}
               aria-expanded={open}
               aria-controls={menuId}
               aria-haspopup="dialog"
@@ -347,53 +334,50 @@ function WorkIndexPanel({
           aria-modal={open}
           aria-label="Case studies"
           inert={!open || undefined}
-          className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-white/10 bg-black/90 px-5 pb-10 pt-4 backdrop-blur-md sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
+          className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-chrome-line bg-chrome px-5 pb-10 pt-4 backdrop-blur-md sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
         >
           <div className="mx-auto flex w-full max-w-[1140px] flex-col">
-            <div className="mb-6 flex flex-col gap-3 sm:hidden">
-              {navLinks
-                // Case studies is the dropdown itself, and Expedia work is a row
-                // in the list below rather than a button.
-                .filter(
-                  (link) =>
-                    link.href !== "/projects" &&
-                    link.href !== expediaWorkLink.href,
-                )
-                .map((link) => {
-                  const current = isCurrentPath(pathname, link.href);
-                  // A filled pill rather than one more divided row, so it reads
-                  // as an action distinct from the case-study list beneath it.
-                  // sm:hidden: this stands out on the phone-width menu only —
-                  // the desktop nav above (line ~187) is untouched.
-                  const button =
-                    "flex w-full items-center justify-center rounded-full bg-primary-600 px-6 py-4 font-semibold text-sm uppercase leading-none tracking-[0.04em] text-on-primary";
-                  return current ? (
-                    <span
-                      key={link.href}
-                      aria-current="page"
-                      className={`${button} opacity-60`}
-                    >
-                      {link.label}
-                    </span>
-                  ) : (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`${button} ${fade}`}
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                })}
+            <div className="mb-2 flex flex-col items-start md:hidden">
+              {[
+                ...navLinks
+                  // Every other nav item. Case studies is the dropdown itself: the
+                  // list below it is what that link opens on desktop.
+                  .filter((link) => link.href !== "/projects"),
+                // Home sits last; on desktop the logo is the way back.
+                { href: "/", label: "Home" },
+              ].map((link) => {
+                const current = isCurrentPath(pathname, link.href);
+                // The desktop nav's own link treatment, so the two read as one
+                // control: same type, dimmed with a line under it when it is
+                // the current page, a plain fading link otherwise.
+                const button = `${menuLinkClass} inline-block py-3`;
+                return current ? (
+                  <span
+                    key={link.href}
+                    aria-current="page"
+                    className={`${button} ${selectedLinkClass} underline decoration-2 underline-offset-[10px]`}
+                  >
+                    {link.label}
+                  </span>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`${button} ${fade}`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
             <ul className="flex flex-col">
-              {menuItems.map((study) => (
+              {caseStudies.map((study) => (
                 <li key={study.href}>
                   <CaseStudyPreviewRow
                     study={study}
                     current={isCurrentPath(pathname, study.href)}
                     compact
-                    dividerClassName="border-white/10"
+                    dividerClassName="border-chrome-line"
                   />
                 </li>
               ))}

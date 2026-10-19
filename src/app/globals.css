@@ -44,8 +44,9 @@
   /* The two typeface options. Switch the site by pointing --app-font at the
    * other stack — that one line is the whole change.
    * Inter is still imported in layout.tsx, so it stays available. */
-  --font-stack-system: system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-stack-system:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
   --font-stack-inter: var(--font-inter), var(--font-stack-system);
 
   --app-font: var(--font-stack-system);
@@ -95,8 +96,49 @@
   --footer-bg: #faf9f5;
   --footer-fg: var(--figma-neutral-900);
   --footer-muted: var(--figma-primary-600);
-  --footer-border: color-mix(in srgb, var(--figma-neutral-900) 14%, transparent);
+  --footer-border: color-mix(
+    in srgb,
+    var(--figma-neutral-900) 14%,
+    transparent
+  );
+  /* The top bar and its menu: a translucent slab over the page, with its own
+   * text and line colours so the light theme can flip them together. */
+  --chrome-bg: rgb(0 0 0 / 0.9);
+  --chrome-fg: #ffffff;
+  --chrome-line: rgb(255 255 255 / 0.1);
   color-scheme: dark;
+}
+
+/* ---------------------------------------------------------------------------
+ * Light theme — opt-in, per page. A page sets data-theme="light" on <html>
+ * (see ThemeToggle); the dark tokens above remain the default and the design.
+ * Only the semantic tokens are overridden, so every component follows.
+ * ------------------------------------------------------------------------- */
+:root[data-theme="light"] {
+  --background: var(--figma-white);
+  --foreground: #374151;
+  --ink: var(--foreground);
+  --heading: var(--figma-neutral-900);
+  /* Highlights, darkened a step so the small uppercase overlines keep contrast
+   * on white. */
+  --accent: color-mix(in oklab, var(--figma-highlights) 80%, black);
+  --muted: var(--figma-neutral-500);
+  --neutral-900: var(--figma-neutral-900);
+  --neutral-600: var(--figma-neutral-500);
+  --primary-600: var(--figma-primary-600);
+  --primary-100: var(--figma-primary-100);
+  --on-primary: var(--figma-white);
+  --surface: #f3f4f6;
+  --surface-muted: #e5e7eb;
+  --border: #e5e7eb;
+  --rule: #e5e7eb;
+  --rule-strong: var(--figma-neutral-400);
+  --mat: #f3f4f6;
+  --panel-dark: #e5e7eb;
+  --chrome-bg: rgb(255 255 255 / 0.9);
+  --chrome-fg: var(--figma-neutral-900);
+  --chrome-line: rgb(17 24 39 / 0.1);
+  color-scheme: light;
 }
 
 @theme inline {
@@ -124,6 +166,9 @@
   --color-footer-border: var(--footer-border);
   --color-panel-dark: var(--panel-dark);
   --color-secondary-600: var(--secondary-600);
+  --color-chrome: var(--chrome-bg);
+  --color-chrome-fg: var(--chrome-fg);
+  --color-chrome-line: var(--chrome-line);
   --font-sans: var(--app-font);
 }
 
@@ -135,6 +180,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--app-font);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 @keyframes fade-up {

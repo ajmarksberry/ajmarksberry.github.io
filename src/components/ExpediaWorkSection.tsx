@@ -27,12 +27,14 @@ export function ExpediaWorkSection({ item }: { item: ExpediaWorkItem }) {
         >
           {item.title}
         </h3>
-        <p
-          className="text-base leading-7 text-ink"
-          style={{ fontFeatureSettings: '"liga" 0' }}
-        >
-          {item.description}
-        </p>
+        {item.description ? (
+          <p
+            className="text-base leading-7 text-ink"
+            style={{ fontFeatureSettings: '"liga" 0' }}
+          >
+            {item.description}
+          </p>
+        ) : null}
         {item.points && item.points.length > 0 ? (
           <ul
             className="w-full list-disc text-base leading-7 text-ink"
