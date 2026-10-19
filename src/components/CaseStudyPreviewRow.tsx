@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "@/components/Icons";
-import type { caseStudies } from "@/lib/site";
 
-type Study = (typeof caseStudies)[number];
+/** What the row actually reads — satisfied by a case study or any other link. */
+export type PreviewItem = {
+  href: string;
+  title: string;
+  description: string;
+  hero: string | null;
+};
 
 /** Landscape, no transparency — safe as a small rectangular thumbnail, unlike
  * the circle-cropped fallback the homepage's round treatment uses. */
@@ -21,7 +26,7 @@ export function CaseStudyPreviewRow({
   compact = false,
   dividerClassName = "border-rule",
 }: {
-  study: Study;
+  study: PreviewItem;
   current: boolean;
   /** Tighter row, no description — the mobile nav has little room to spare. */
   compact?: boolean;

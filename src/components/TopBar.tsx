@@ -3,9 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { CaseStudyPreviewRow } from "@/components/CaseStudyPreviewRow";
+import {
+  CaseStudyPreviewRow,
+  type PreviewItem,
+} from "@/components/CaseStudyPreviewRow";
 import { CloseIcon, MenuIcon } from "@/components/Icons";
-import { caseStudies, navLinks } from "@/lib/site";
+import {
+  caseStudies,
+  expediaWorkLink,
+  navLinks,
+  SHOW_EXPEDIA_WORK,
+} from "@/lib/site";
 
 const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
 /** Shared nav link treatment, so the two navs cannot drift apart. */
@@ -15,6 +23,11 @@ const desktopLinkClass = `${navLinkBase} text-xs sm:text-sm`;
 /** The menu is sm:hidden, so it takes the desktop's 14px directly rather than
  * at a breakpoint that never fires for it. */
 const menuLinkClass = `${navLinkBase} text-sm sm:hidden`;
+
+/** The case studies, with Expedia work as the last row. */
+const menuItems: readonly PreviewItem[] = SHOW_EXPEDIA_WORK
+  ? [...caseStudies, expediaWorkLink]
+  : caseStudies;
 
 function isCurrentPath(pathname: string, href: string) {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
@@ -275,40 +288,48 @@ function WorkIndexPanel({
           className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-white/10 bg-black/90 px-5 pb-10 pt-4 backdrop-blur-md sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
         >
           <div className="mx-auto flex w-full max-w-[1140px] flex-col">
-            {navLinks
-              .filter((link) => link.href !== "/projects")
-              .map((link) => {
-                const current = isCurrentPath(pathname, link.href);
-                // A filled pill rather than one more divided row, so it reads
-                // as an action distinct from the case-study list beneath it.
-                // sm:hidden: this stands out on the phone-width menu only —
-                // the desktop nav above (line ~187) is untouched.
-                const button =
-                  "mb-6 flex sm:hidden w-full items-center justify-center rounded-full bg-primary-600 px-6 py-4 font-semibold text-sm uppercase leading-none tracking-[0.04em] text-on-primary";
-                return current ? (
-                  <span
-                    key={link.href}
-                    aria-current="page"
-                    className={`${button} opacity-60`}
-                  >
-                    {link.label}
-                  </span>
-                ) : (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`${button} ${fade}`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
+            <div className="mb-6 flex flex-col gap-3 sm:hidden">
+              {navLinks
+                // Case studies is the dropdown itself, and Expedia work is a row
+                // in the list below rather than a button.
+                .filter(
+                  (link) =>
+                    link.href !== "/projects" &&
+                    link.href !== expediaWorkLink.href,
+                )
+                .map((link) => {
+                  const current = isCurrentPath(pathname, link.href);
+                  // A filled pill rather than one more divided row, so it reads
+                  // as an action distinct from the case-study list beneath it.
+                  // sm:hidden: this stands out on the phone-width menu only —
+                  // the desktop nav above (line ~187) is untouched.
+                  const button =
+                    "flex w-full items-center justify-center rounded-full bg-primary-600 px-6 py-4 font-semibold text-sm uppercase leading-none tracking-[0.04em] text-on-primary";
+                  return current ? (
+                    <span
+                      key={link.href}
+                      aria-current="page"
+                      className={`${button} opacity-60`}
+                    >
+                      {link.label}
+                    </span>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`${button} ${fade}`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+            </div>
             <ul className="flex flex-col">
-              {caseStudies.map((study) => (
+              {menuItems.map((study) => (
                 <li key={study.href}>
                   <CaseStudyPreviewRow
                     study={study}
-                    current={pathname === study.href}
+                    current={isCurrentPath(pathname, study.href)}
                     compact
                     dividerClassName="border-white/10"
                   />

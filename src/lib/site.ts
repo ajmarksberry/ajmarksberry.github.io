@@ -6,9 +6,25 @@ export const RESUME_PATH = "/AJ_Marksberry_Resume_2026.pdf";
 export const RESUME_FILENAME = "AJ-Marksberry-Resume-2026.pdf";
 
 export const SHOW_ABOUT = true;
+/** Gates both the nav link and the page itself, like SHOW_ABOUT. */
+export const SHOW_EXPEDIA_WORK = true;
+
+/**
+ * The Expedia work page as a list row, for the mobile menu. `hero` is the
+ * Expedia wordmark on a dark tile, cropped from the page's own screenshots.
+ */
+export const expediaWorkLink = {
+  href: "/expedia-work",
+  title: "Other Expedia work",
+  description: "More of the work I've done at Expedia Group.",
+  hero: "/images/expedia-work/expedia-thumb.webp",
+} as const;
 
 export const navLinks = [
   { href: "/projects", label: "Case studies" },
+  ...(SHOW_EXPEDIA_WORK
+    ? [{ href: "/expedia-work", label: "Expedia work" }]
+    : []),
   ...(SHOW_ABOUT ? [{ href: "/about", label: "About" }] : []),
 ];
 
@@ -44,7 +60,8 @@ export const caseStudies = [
   {
     href: "/projects/reach-booking",
     title: "REACH.ai booking experience",
-    description: "Filling last-minute appointments to capture lost revenue for service providers, built from the ground up",
+    description:
+      "Filling last-minute appointments to capture lost revenue for service providers, built from the ground up",
     thumb: "/images/booking/hero-tray.webp",
     hero: "/images/booking/experience-hero.webp",
   },
