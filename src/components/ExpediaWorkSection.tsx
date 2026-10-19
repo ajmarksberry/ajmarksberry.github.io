@@ -64,7 +64,14 @@ export function ExpediaWorkSection({ item }: { item: ExpediaWorkItem }) {
           );
 
           return (
-            <li key={`${image.src}-${index}`}>
+            <li
+              key={`${image.src}-${index}`}
+              // A rule between stacked sub-projects; side by side they sit in
+              // their own columns and need none.
+              className={
+                index > 0 && !multiple ? "border-t border-rule pt-8" : ""
+              }
+            >
               <figure className="flex flex-col gap-2">
                 {image.heading ? (
                   <h4

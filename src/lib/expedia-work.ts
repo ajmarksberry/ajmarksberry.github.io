@@ -120,6 +120,16 @@ export const expediaWork: readonly ExpediaWorkItem[] = [
         caption:
           "Quote flights, hotels, cars, transfers, and activities together in one quote.",
       },
+      {
+        heading: "Checkout",
+        src: "/images/expedia-work/checkout.webp",
+        alt: "The Expedia TAAP checkout, Finish booking your trip: three desktop screens stepping through traveler information, payment, and review, with a price summary on the right",
+        width: 1442,
+        height: 1947,
+        bare: true,
+        caption:
+          "Booking a trip in three steps: traveler information, payment, and review.",
+      },
     ],
   },
 ];

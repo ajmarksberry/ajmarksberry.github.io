@@ -20,6 +20,9 @@ const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
 const navLinkBase =
   "font-semibold uppercase leading-none tracking-[0.04em] text-white";
 const desktopLinkClass = `${navLinkBase} text-xs sm:text-sm`;
+/** The selected page link is dimmed. Its line is the sliding indicator below
+ * the nav, which the Case studies trigger never gets: it is not a page. */
+const selectedLinkClass = "opacity-60";
 /** The menu is sm:hidden, so it takes the desktop's 14px directly rather than
  * at a breakpoint that never fires for it. */
 const menuLinkClass = `${navLinkBase} text-sm sm:hidden`;
@@ -41,12 +44,59 @@ export function TopBar() {
   const barRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const workButtonRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const indicatorRef = useRef<HTMLSpanElement>(null);
+  const linkRefs = useRef<Record<string, HTMLElement | null>>({});
   const openRef = useRef(open);
   openRef.current = open;
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  // The line under the selected page link. It is moved by hand rather than
+  // rendered under each link so that it can slide from the old link to the new
+  // one when the page changes; the first placement is not animated.
+  const activeHref = navLinks.find(
+    (link) => link.href !== "/projects" && isCurrentPath(pathname, link.href),
+  )?.href;
+
+  useEffect(() => {
+    const nav = navRef.current;
+    const line = indicatorRef.current;
+    if (!nav || !line) return;
+
+    function place() {
+      const target = activeHref ? linkRefs.current[activeHref] : null;
+      if (!line) return;
+      if (!target) {
+        line.style.opacity = "0";
+        return;
+      }
+      line.style.opacity = "0.6";
+      line.style.width = `${target.offsetWidth}px`;
+      line.style.top = `${target.offsetTop + target.offsetHeight + 10}px`;
+      line.style.transform = `translateX(${target.offsetLeft}px)`;
+    }
+
+    place();
+    const frame = window.requestAnimationFrame(() => {
+      line.dataset.ready = "true";
+    });
+    // The nav is display:none below sm and its width shifts as the font loads.
+    // Re-place without sliding: a resize is not a page change.
+    const observer = new ResizeObserver(() => {
+      line.dataset.ready = "false";
+      place();
+      void line.offsetWidth;
+      line.dataset.ready = "true";
+    });
+    observer.observe(nav);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [activeHref]);
 
   useEffect(() => {
     if (!open) return;
@@ -194,9 +244,15 @@ export function TopBar() {
           )}
           <div className="flex items-center gap-3 sm:gap-6">
             <nav
-              className="hidden items-center gap-6 sm:flex"
+              ref={navRef}
+              className="relative hidden items-center gap-6 sm:flex"
               aria-label="Primary"
             >
+              <span
+                ref={indicatorRef}
+                aria-hidden="true"
+                className="pointer-events-none absolute left-0 h-0.5 w-0 bg-white opacity-0 data-[ready=true]:transition-[transform,width,opacity] data-[ready=true]:duration-300 data-[ready=true]:ease-out motion-reduce:transition-none"
+              />
               {navLinks.map((link) => {
                 if (link.href === "/projects") {
                   return (
@@ -219,8 +275,11 @@ export function TopBar() {
                   return (
                     <span
                       key={link.href}
+                      ref={(el) => {
+                        linkRefs.current[link.href] = el;
+                      }}
                       aria-current="page"
-                      className={`${desktopLinkClass} opacity-60`}
+                      className={`${desktopLinkClass} ${selectedLinkClass}`}
                     >
                       {link.label}
                     </span>
@@ -230,6 +289,9 @@ export function TopBar() {
                 return (
                   <Link
                     key={link.href}
+                    ref={(el) => {
+                      linkRefs.current[link.href] = el;
+                    }}
                     href={link.href}
                     className={`${desktopLinkClass} ${fade}`}
                   >

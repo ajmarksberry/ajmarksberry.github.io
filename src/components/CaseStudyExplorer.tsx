@@ -2,8 +2,16 @@
 
 import { usePathname } from "next/navigation";
 import { useId } from "react";
-import { CaseStudyPreviewRow } from "@/components/CaseStudyPreviewRow";
-import { caseStudies } from "@/lib/site";
+import {
+  CaseStudyPreviewRow,
+  type PreviewItem,
+} from "@/components/CaseStudyPreviewRow";
+import { caseStudies, expediaWorkLink, SHOW_EXPEDIA_WORK } from "@/lib/site";
+
+/** The case studies, then the Expedia work page as the last row. */
+const items: readonly PreviewItem[] = SHOW_EXPEDIA_WORK
+  ? [...caseStudies, expediaWorkLink]
+  : caseStudies;
 
 /** Static export serves trailing-slash URLs; hrefs in site.ts have none. */
 function samePath(a: string, b: string) {
@@ -15,8 +23,8 @@ export function CaseStudyExplorer() {
   const pathname = usePathname();
   const groupId = useId();
 
-  // On a case study page this leaves the other three; elsewhere, all of them.
-  const others = caseStudies.filter((study) => !samePath(study.href, pathname));
+  // On a case study page this leaves the others; elsewhere, all of them.
+  const others = items.filter((study) => !samePath(study.href, pathname));
   if (others.length === 0) return null;
 
   return (
