@@ -23,6 +23,7 @@ const expertise = [
   "User Research & Validation",
   "Information Architecture",
   "Interaction Design",
+  "AI-Assisted Design Exploration",
   "Accessibility",
   "Design Systems",
   "Enterprise SaaS Platforms",
@@ -66,10 +67,14 @@ export default function AboutPage() {
             outcomes while supporting business goals.
           </p>
           <p>
-            Currently, I design enterprise experiences for Expedia Group&rsquo;s
-            Travel Agent Affiliate Program (TAAP), where I lead UX initiatives
-            focused on trip management, itinerary creation, post-booking
-            experiences, advisor productivity tools, and workflow optimization.
+            Most recently, I was a contract product designer at Expedia, working
+            on the Travel Agent Affiliate Program (TAAP), which supports over
+            200,000 travel advisors across 35 countries. It was exciting to be
+            part of Expedia&rsquo;s fast-growing B2B business, where revenue was
+            growing around 25% year-over-year. My work focused on improving
+            itinerary management, booking workflows, and post-booking
+            experiences, working closely with Product, Engineering, Research,
+            and Content teams along the way.
           </p>
         </div>
 
@@ -104,7 +109,8 @@ export default function AboutPage() {
             <p>
               I enjoy simplifying complexity, aligning teams around customer
               needs, and creating experiences that are useful, usable,
-              accessible, and valuable.
+              accessible, and valuable. I use AI tools to explore concepts and
+              prototype ideas faster, then validate them with users.
             </p>
             <p>
               Over the years, I&rsquo;ve worked across travel, healthcare,
