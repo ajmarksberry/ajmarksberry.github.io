@@ -105,6 +105,8 @@
    * text and line colors so the light theme can flip them together. */
   --chrome-bg: rgb(0 0 0 / 0.9);
   --chrome-fg: #ffffff;
+  /* The dropdown menu panel: the same color as the bar, fully opaque. */
+  --chrome-solid: #000000;
   --chrome-line: rgb(255 255 255 / 0.1);
   color-scheme: dark;
 }
@@ -138,6 +140,7 @@
   --mat: #f3f4f6;
   --chrome-bg: rgb(255 255 255 / 0.9);
   --chrome-fg: var(--figma-neutral-900);
+  --chrome-solid: #ffffff;
   --chrome-line: rgb(17 24 39 / 0.1);
   color-scheme: light;
 }
@@ -169,6 +172,7 @@
   --color-secondary-600: var(--secondary-600);
   --color-chrome: var(--chrome-bg);
   --color-chrome-fg: var(--chrome-fg);
+  --color-chrome-solid: var(--chrome-solid);
   --color-chrome-line: var(--chrome-line);
   --font-sans: var(--app-font);
 }

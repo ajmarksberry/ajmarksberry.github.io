@@ -334,7 +334,7 @@ function WorkIndexPanel({
           aria-modal={open}
           aria-label="Case studies"
           inert={!open || undefined}
-          className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-chrome-line bg-chrome px-5 pb-10 pt-4 backdrop-blur-md sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
+          className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-chrome-line bg-chrome-solid px-5 pb-10 pt-4 sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
         >
           <div className="mx-auto flex w-full max-w-[1140px] flex-col">
             <div className="mb-2 flex flex-col items-start md:hidden">
