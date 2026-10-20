@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { CaseStudyShell } from "@/components/CaseStudyShell";
+import { DEFAULT_THEME, SHOW_THEME_TOGGLE } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,7 +18,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`dark ${inter.variable} h-full antialiased`}>
+    // suppressHydrationWarning: the inline script below may change data-theme on
+    // <html> before React hydrates it.
+    <html
+      lang="en"
+      data-theme={DEFAULT_THEME}
+      className={`dark ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      {SHOW_THEME_TOGGLE ? (
+        <head>
+          {/* Applies a saved choice before first paint, so a returning visitor
+           * never sees a flash of the default theme. */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`,
+            }}
+          />
+        </head>
+      ) : null}
       <body className="min-h-full bg-background text-ink">
         <CaseStudyShell>{children}</CaseStudyShell>
       </body>

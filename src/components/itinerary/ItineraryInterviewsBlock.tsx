@@ -52,7 +52,7 @@ export function ItineraryInterviewsBlock() {
         >
           Findings
         </h3>
-        <ul className="w-full max-w-[632px] list-disc ps-6 text-base leading-6 text-white">
+        <ul className="w-full max-w-[632px] list-disc ps-6 text-base leading-6 text-heading">
           {findings.map((item) => (
             <li key={item}>{item}</li>
           ))}

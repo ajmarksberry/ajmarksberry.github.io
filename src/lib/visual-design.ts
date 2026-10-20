@@ -17,8 +17,9 @@ export const visualDesign: readonly ExpediaWorkItem[] = [
         src: "/images/visual-design/workbench.webp",
         alt: "A dark analytics workbench: a search bar and filters above an activity histogram, with a table of devices listing type, operating system, activity, and a notable-artifacts count",
         width: 2000,
-        height: 1096,
+        height: 1172,
         bare: true,
+        captionPull: 3.4,
         caption:
           "A workbench for investigating the devices, domains, and activity on a network.",
       },
@@ -32,8 +33,9 @@ export const visualDesign: readonly ExpediaWorkItem[] = [
         src: "/images/visual-design/rockin-refuel.webp",
         alt: "The Rockin’ Refuel homepage: a rotating banner of athletes and protein milk bottles, upcoming events, a product locator, and a featured team member",
         width: 1380,
-        height: 1936,
+        height: 2000,
         bare: true,
+        captionPull: 4.2,
         caption:
           "Homepage for a protein milk brand, built around its athletes, events, and a product locator.",
       },
@@ -61,25 +63,12 @@ export const visualDesign: readonly ExpediaWorkItem[] = [
       {
         src: "/images/visual-design/m3-snowboards.webp",
         alt: "A Millennium Three product page for women’s snowboards: each board shown with its graphics, a short description, and a table of construction features",
-        width: 798,
-        height: 1966,
+        width: 790,
+        height: 2000,
         bare: true,
+        captionPull: 2.1,
         caption:
           "The women’s snowboard line, with each board’s graphics and construction features side by side.",
-      },
-    ],
-  },
-  {
-    id: "hardware-mobile",
-    title: "Madesmart website",
-    images: [
-      {
-        src: "/images/visual-design/hardware-mobile.webp",
-        alt: "Two phone screens: a menu of color-coded product collections for kitchen and office, and an About us page with a portrait and a welcome message",
-        width: 1396,
-        height: 1348,
-        bare: true,
-        caption: "Mobile views of the Madesmart website.",
       },
     ],
   },
@@ -89,11 +78,21 @@ export const visualDesign: readonly ExpediaWorkItem[] = [
     stacked: true,
     images: [
       {
+        src: "/images/visual-design/revolution-logo.webp",
+        alt: "The Revolution Parts logo: the main logo at the top, with four smaller versions below, in black, black with a gray accent, white on black, and white on red",
+        width: 1478,
+        height: 860,
+        bare: true,
+        captionPull: 2.9,
+        caption: "The Revolution Parts logo and its color variations.",
+      },
+      {
         src: "/images/visual-design/revolution-parts.webp",
         alt: "The Revolution Parts marketing homepage: a headline about selling auto parts online, a row of usage stats, and three reasons to choose the platform",
-        width: 1685,
-        height: 1906,
+        width: 1746,
+        height: 2072,
         bare: true,
+        captionPull: 5.6,
         caption:
           "Marketing site for an online auto parts platform, leading with its numbers.",
       },
@@ -101,8 +100,9 @@ export const visualDesign: readonly ExpediaWorkItem[] = [
         src: "/images/visual-design/revolution-nissan.webp",
         alt: "A branded Revolution Parts storefront for an official Nissan parts center, with a year, make, and model picker, vehicle types, and popular parts categories",
         width: 1396,
-        height: 1923,
+        height: 2000,
         bare: true,
+        captionPull: 4.9,
         caption:
           "A branded storefront for an official Nissan parts center, with vehicle lookup and popular categories.",
       },

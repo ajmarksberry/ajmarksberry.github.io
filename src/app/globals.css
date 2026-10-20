@@ -62,7 +62,7 @@
 :root {
   /* Neutral/900 verbatim: the frame's page background. */
   --background: var(--figma-neutral-900);
-  /* Accessible/On Dark Muted — the frame's prose colour. */
+  /* Accessible/On Dark Muted — the frame's prose color. */
   --foreground: var(--figma-on-dark-muted);
   --ink: var(--foreground);
   /* Accessible/On Dark — display type sits a step brighter than prose. */
@@ -87,7 +87,7 @@
   /* Brighter rule the dark frame uses above the Interviews stats. */
   --rule-strong: var(--figma-neutral-500);
   /* Screenshot mat. The dark frame stands its "Screens" blocks on Neutral/800,
-   * so the mat is that colour exactly. The trays are transparent PNGs now, so
+   * so the mat is that color exactly. The trays are transparent PNGs now, so
    * this is free to move; only the case-study card thumbnail bakes it, via MAT in
    * scripts/build-trays.mjs. */
   --mat: var(--figma-neutral-800);
@@ -102,7 +102,7 @@
     transparent
   );
   /* The top bar and its menu: a translucent slab over the page, with its own
-   * text and line colours so the light theme can flip them together. */
+   * text and line colors so the light theme can flip them together. */
   --chrome-bg: rgb(0 0 0 / 0.9);
   --chrome-fg: #ffffff;
   --chrome-line: rgb(255 255 255 / 0.1);
@@ -110,9 +110,11 @@
 }
 
 /* ---------------------------------------------------------------------------
- * Light theme — opt-in, per page. A page sets data-theme="light" on <html>
- * (see ThemeToggle); the dark tokens above remain the default and the design.
- * Only the semantic tokens are overridden, so every component follows.
+ * Light theme — a choice the visitor makes with ThemeToggle, which sets
+ * data-theme="light" on <html> (layout.tsx re-applies it before first paint).
+ * The dark tokens above remain the default and the design. Only the semantic
+ * tokens are overridden, so every component follows. --panel-dark is left
+ * alone on purpose: it backs panels whose text is white.
  * ------------------------------------------------------------------------- */
 :root[data-theme="light"] {
   --background: var(--figma-white);
@@ -134,7 +136,6 @@
   --rule: #e5e7eb;
   --rule-strong: var(--figma-neutral-400);
   --mat: #f3f4f6;
-  --panel-dark: #e5e7eb;
   --chrome-bg: rgb(255 255 255 / 0.9);
   --chrome-fg: var(--figma-neutral-900);
   --chrome-line: rgb(17 24 39 / 0.1);
@@ -174,6 +175,13 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* The logos ship a light-text and a dark-text version; show the one that suits
+ * the current theme. See TaapLogo and ReachLogo. */
+:root[data-theme="light"] .logo-on-dark,
+:root:not([data-theme="light"]) .logo-on-light {
+  display: none;
 }
 
 body {

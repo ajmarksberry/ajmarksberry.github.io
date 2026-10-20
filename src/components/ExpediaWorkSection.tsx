@@ -56,7 +56,7 @@ export function ExpediaWorkSection({ item }: { item: ExpediaWorkItem }) {
       >
         {item.images.map((image, index) => {
           // A portrait image at full column width would run to well over a
-          // screen tall. Cap its height, which narrows it, and centre it on the
+          // screen tall. Cap its height, which narrows it, and center it on the
           // panel; landscape images never reach the cap and stay full width.
           // `bare` opts out of all of it: no panel, no cap.
           const bare = image.bare === true;
@@ -110,7 +110,16 @@ export function ExpediaWorkSection({ item }: { item: ExpediaWorkItem }) {
                   />
                 </div>
                 {image.caption ? (
-                  <figcaption className="text-sm leading-6 text-muted">
+                  <figcaption
+                    className="text-sm leading-6 text-muted"
+                    // A percentage margin is relative to the figure's width,
+                    // which is the image's width.
+                    style={
+                      image.captionPull
+                        ? { marginTop: `-${image.captionPull}%` }
+                        : undefined
+                    }
+                  >
                     {image.caption}
                   </figcaption>
                 ) : null}

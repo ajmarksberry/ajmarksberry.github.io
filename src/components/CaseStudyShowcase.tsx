@@ -126,6 +126,9 @@ const logoFor: Record<string, "taap" | "reach"> = {
  * The design put the copy at x=720 w=620 in a 1440 frame with 100px gutters —
  * which is exactly the right half of the 1240 content box, so `ml-auto w-1/2`
  * reproduces it without hard-coding percentages. Below lg it goes full width.
+ *
+ * It stays a dark panel in both themes, so its copy uses the fixed on-dark
+ * colors rather than the theme-aware --ink.
  */
 function CaseStudyBanner({
   study,
@@ -167,7 +170,7 @@ function CaseStudyBanner({
           >
             Case Study
           </p>
-          {brand === "taap" ? <TaapLogo /> : <ReachLogo />}
+          {brand === "taap" ? <TaapLogo onDark /> : <ReachLogo onDark />}
         </div>
 
         <p
@@ -178,7 +181,7 @@ function CaseStudyBanner({
         </p>
 
         <p
-          className={`card-rise card-rise-3 max-w-[620px] font-medium text-base leading-7 text-ink sm:text-lg ${textShadow}`}
+          className={`card-rise card-rise-3 max-w-[620px] font-medium text-base leading-7 text-[var(--figma-on-dark-muted)] sm:text-lg ${textShadow}`}
           style={{ fontFeatureSettings: '"liga" 0' }}
         >
           {study.description}
@@ -198,7 +201,7 @@ function CaseStudyBanner({
 }
 
 /**
- * One project as a circle. The forward/back behaviour is sibling-aware, so it
+ * One project as a circle. The forward/back behavior is sibling-aware, so it
  * lives in globals.css as .circle-row / .circle-item rather than here.
  */
 function CaseStudyCircle({

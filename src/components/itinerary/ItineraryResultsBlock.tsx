@@ -4,7 +4,7 @@ import { TaapCheckItem, TaapClockItem } from "@/components/taap/TaapListItems";
 const shipped = [
   "Preview and Share with Traveler consistently discovered and used correctly",
   "Layout rated clean and professional by all 6 participants",
-  "Show/hide section controls rated highly valuable for customisation",
+  "Show/hide section controls rated highly valuable for customization",
   "Fully accessible dev handoff delivered with WCAG annotations",
 ] as const;
 

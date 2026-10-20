@@ -11,6 +11,12 @@ export const SHOW_EXPEDIA_WORK = true;
 /** Gates the Visual design page and its rows in the menu and More work list. */
 export const SHOW_VISUAL_DESIGN = true;
 
+/** Show the light/dark switch in the corner. While it is off, every visitor gets
+ * DEFAULT_THEME and any choice saved by an earlier visit is ignored. */
+export const SHOW_THEME_TOGGLE = false;
+/** The theme a visitor starts on (and always gets, while the switch is hidden). */
+export const DEFAULT_THEME: "light" | "dark" = "light";
+
 /**
  * The Expedia work page as a list row, for the mobile menu. `hero` is the
  * Expedia wordmark on a dark tile, cropped from the page's own screenshots.

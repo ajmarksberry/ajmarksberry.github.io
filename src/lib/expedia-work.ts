@@ -15,7 +15,7 @@
  *
  * - Single image: a title, a description, and one image on a `bg-mat` panel with
  *   a caption. Landscape images fill the column; portrait ones are capped at
- *   1000px tall and centred on the panel. Add `bare: true` to drop the panel
+ *   1000px tall and centered on the panel. Add `bare: true` to drop the panel
  *   and cap (as the itinerary entries do).
  * - Two images: a title, a description, and two images side by side on
  *   desktop (one column below `lg`), each on its own panel with its own
@@ -32,6 +32,12 @@ export type ExpediaWorkImage = {
   caption?: string;
   /** A small heading above the image. */
   heading?: string;
+  /**
+   * Pulls the caption up over empty transparent space at the bottom of the
+   * image (a soft shadow's margin), as a percentage of the image's width.
+   * Measure it as the transparent rows under the image divided by its width.
+   */
+  captionPull?: number;
   /**
    * Show the image straight on the page: no panel behind it, and no cap on how
    * tall it can get. It fills the column (up to the page's own max width). For
