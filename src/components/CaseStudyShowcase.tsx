@@ -121,11 +121,9 @@ const logoFor: Record<string, "taap" | "reach"> = {
 
 /**
  * Figma 7821:4320, minus the product shot: the photograph now carries the whole
- * frame at 40% opacity and the copy sits in the right half.
- *
- * The design put the copy at x=720 w=620 in a 1440 frame with 100px gutters —
- * which is exactly the right half of the 1240 content box, so `ml-auto w-1/2`
- * reproduces it without hard-coding percentages. Below lg it goes full width.
+ * frame at 40% opacity. From sm up the copy starts a third of the way across the
+ * banner (the left padding) and keeps 40px of its own padding on the right;
+ * below sm it runs the full width.
  *
  * It stays a dark panel in both themes, so its copy uses the fixed on-dark
  * colors rather than the theme-aware --ink.
@@ -144,7 +142,7 @@ function CaseStudyBanner({
       href={study.href}
       aria-current={current ? "page" : undefined}
       draggable={false}
-      className={`group relative flex h-full w-full items-center touch-pan-y overflow-clip bg-panel-dark px-5 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent sm:px-10 lg:px-[6.94%] ${current ? "opacity-60" : ""}`}
+      className={`group relative flex h-full w-full items-center touch-pan-y overflow-clip bg-panel-dark px-5 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent sm:pl-[33.333%] sm:pr-10 lg:pr-[6.94%] ${current ? "opacity-60" : ""}`}
     >
       <span
         aria-hidden
@@ -163,7 +161,7 @@ function CaseStudyBanner({
         />
       </span>
 
-      <div className="relative flex w-full min-w-0 flex-col gap-6 lg:ml-auto lg:w-1/2">
+      <div className="relative flex w-full min-w-0 flex-col gap-6 sm:pr-10">
         <div className="card-rise flex flex-col gap-5">
           <p
             className={`font-extrabold text-xs uppercase leading-none text-white ${textShadow}`}
@@ -248,51 +246,36 @@ export function CaseStudyShowcase() {
 
   return (
     <section
-      aria-labelledby={`${groupId}-heading`}
-      className="flex w-full flex-col gap-8 pb-16 sm:gap-10 sm:pb-20"
+      aria-label="Case studies"
+      className="flex w-full flex-col gap-8 sm:gap-10"
     >
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
-        <div className="flex flex-col gap-3">
-          <p className="font-extrabold text-xs uppercase leading-none text-accent">
-            Selected work
-          </p>
-          <h2
-            id={`${groupId}-heading`}
-            className="font-extrabold text-[28px] leading-9 tracking-[-0.7px] text-heading sm:text-[36px] sm:leading-[48px] sm:tracking-[-0.9px]"
-            style={{ fontFeatureSettings: '"liga" 0' }}
-          >
-            Case studies
-          </h2>
+      {SHOW_LAYOUT_TOGGLE ? (
+        <div
+          role="group"
+          aria-label="Case study layout"
+          className="flex shrink-0 items-center gap-1 self-start border border-border p-1"
+        >
+          {treatments.map((option) => {
+            const active = treatment === option.value;
+            return (
+              <button
+                key={option.value}
+                type="button"
+                aria-pressed={active}
+                aria-controls={listId}
+                className={`flex h-9 items-center px-4 font-semibold text-xs uppercase tracking-[0.04em] transition-colors duration-200 ease-out motion-reduce:transition-none ${
+                  active
+                    ? "bg-surface text-heading"
+                    : "text-muted hover:text-ink"
+                }`}
+                onClick={() => setTreatment(option.value)}
+              >
+                {option.label}
+              </button>
+            );
+          })}
         </div>
-
-        {SHOW_LAYOUT_TOGGLE ? (
-          <div
-            role="group"
-            aria-label="Case study layout"
-            className="flex shrink-0 items-center gap-1 self-start border border-border p-1 sm:self-auto"
-          >
-            {treatments.map((option) => {
-              const active = treatment === option.value;
-              return (
-                <button
-                  key={option.value}
-                  type="button"
-                  aria-pressed={active}
-                  aria-controls={listId}
-                  className={`flex h-9 items-center px-4 font-semibold text-xs uppercase tracking-[0.04em] transition-colors duration-200 ease-out motion-reduce:transition-none ${
-                    active
-                      ? "bg-surface text-heading"
-                      : "text-muted hover:text-ink"
-                  }`}
-                  onClick={() => setTreatment(option.value)}
-                >
-                  {option.label}
-                </button>
-              );
-            })}
-          </div>
-        ) : null}
-      </div>
+      ) : null}
 
       {/* Cards sit one after another at full height — no overlap. The movement
        * comes from globals.css: the photograph parallaxes against the scroll and

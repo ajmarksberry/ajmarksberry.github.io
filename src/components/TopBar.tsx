@@ -4,7 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { CaseStudyPreviewRow } from "@/components/CaseStudyPreviewRow";
+import { ContactLinks } from "@/components/ContactLinks";
 import { CloseIcon, MenuIcon } from "@/components/Icons";
+import { SectionHeader } from "@/components/SectionHeader";
 import { caseStudies, navLinks } from "@/lib/site";
 
 const fade = "transition-opacity duration-200 ease-out hover:opacity-60";
@@ -24,14 +26,19 @@ function isCurrentPath(pathname: string, href: string) {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 }
 
+/** What the dropdown holds: the case studies, or the Contact content. */
+type Panel = "work" | "contact";
+
 export function TopBar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [panel, setPanel] = useState<Panel>("work");
   const menuId = useId();
   const headerRef = useRef<HTMLElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const workButtonRef = useRef<HTMLButtonElement>(null);
+  const contactButtonRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const indicatorRef = useRef<HTMLSpanElement>(null);
   const linkRefs = useRef<Record<string, HTMLElement | null>>({});
@@ -41,6 +48,18 @@ export function TopBar() {
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  /** One dropdown, two contents: a trigger opens it on its own content, closes it
+   * if its content is already showing, and swaps the content if the other
+   * trigger's is. */
+  function toggle(next: Panel) {
+    if (open && panel === next) {
+      setOpen(false);
+      return;
+    }
+    setPanel(next);
+    setOpen(true);
+  }
 
   // The line under the selected page link. It is moved by hand rather than
   // rendered under each link so that it can slide from the old link to the new
@@ -104,7 +123,10 @@ export function TopBar() {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
-        (workButtonRef.current ?? menuButtonRef.current)?.focus();
+        (
+          (panel === "contact" ? contactButtonRef : workButtonRef).current ??
+          menuButtonRef.current
+        )?.focus();
         return;
       }
 
@@ -136,7 +158,7 @@ export function TopBar() {
       document.body.style.overflow = previousOverflow;
       document.body.style.touchAction = previousTouchAction;
     };
-  }, [open]);
+  }, [open, panel]);
 
   useEffect(() => {
     if (!headerRef.current || !barRef.current) return;
@@ -218,14 +240,14 @@ export function TopBar() {
           {pathname === "/" ? (
             <span
               aria-current="page"
-              className="font-bold text-lg leading-none tracking-[-0.72px] text-chrome-fg opacity-60 sm:text-[22px] sm:tracking-[-0.88px]"
+              className="shrink-0 whitespace-nowrap font-bold text-lg leading-none tracking-[-0.72px] text-chrome-fg opacity-60 sm:text-[22px] sm:tracking-[-0.88px]"
             >
               AJ Marksberry
             </span>
           ) : (
             <Link
               href="/"
-              className={`font-bold text-lg leading-none tracking-[-0.72px] text-chrome-fg sm:text-[22px] sm:tracking-[-0.88px] ${fade}`}
+              className={`shrink-0 whitespace-nowrap font-bold text-lg leading-none tracking-[-0.72px] text-chrome-fg sm:text-[22px] sm:tracking-[-0.88px] ${fade}`}
             >
               AJ Marksberry
             </Link>
@@ -248,11 +270,11 @@ export function TopBar() {
                       key={link.href}
                       ref={workButtonRef}
                       type="button"
-                      aria-expanded={open}
+                      aria-expanded={open && panel === "work"}
                       aria-controls={menuId}
                       aria-haspopup="dialog"
-                      className={`${desktopLinkClass} ${open || isCurrentPath(pathname, link.href) ? "opacity-60" : fade}`}
-                      onClick={() => setOpen((current) => !current)}
+                      className={`${desktopLinkClass} ${(open && panel === "work") || isCurrentPath(pathname, link.href) ? "opacity-60" : fade}`}
+                      onClick={() => toggle("work")}
                     >
                       {link.label}
                     </button>
@@ -287,6 +309,19 @@ export function TopBar() {
                   </Link>
                 );
               })}
+              {/* Last in the nav. Like Case studies it opens the dropdown rather
+               * than going to a page, so it never gets the current-page line. */}
+              <button
+                ref={contactButtonRef}
+                type="button"
+                aria-expanded={open && panel === "contact"}
+                aria-controls={menuId}
+                aria-haspopup="dialog"
+                className={`${desktopLinkClass} ${open && panel === "contact" ? "opacity-60" : fade}`}
+                onClick={() => toggle("contact")}
+              >
+                Contact
+              </button>
             </nav>
             <button
               ref={menuButtonRef}
@@ -296,7 +331,7 @@ export function TopBar() {
               aria-controls={menuId}
               aria-haspopup="dialog"
               aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((current) => !current)}
+              onClick={() => (open ? setOpen(false) : toggle("work"))}
             >
               {open ? <CloseIcon /> : <MenuIcon />}
             </button>
@@ -304,7 +339,13 @@ export function TopBar() {
         </div>
       </div>
 
-      <WorkIndexPanel id={menuId} open={open} pathname={pathname} />
+      <WorkIndexPanel
+        id={menuId}
+        open={open}
+        panel={panel}
+        onPanel={setPanel}
+        pathname={pathname}
+      />
     </header>
   );
 }
@@ -312,10 +353,14 @@ export function TopBar() {
 function WorkIndexPanel({
   id,
   open,
+  panel,
+  onPanel,
   pathname,
 }: {
   id: string;
   open: boolean;
+  panel: Panel;
+  onPanel: (panel: Panel) => void;
   pathname: string;
 }) {
   return (
@@ -333,57 +378,81 @@ function WorkIndexPanel({
           id={id}
           role="dialog"
           aria-modal={open}
-          aria-label="Case studies"
+          aria-label={panel === "contact" ? "Contact" : "Case studies"}
           inert={!open || undefined}
           className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-chrome-line bg-chrome-solid px-5 pb-10 pt-4 sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
         >
-          <div className="mx-auto flex w-full max-w-[1140px] flex-col">
-            <div className="mb-4 flex flex-col items-start md:hidden">
-              {[
-                // Home leads; on desktop the logo is the way back.
-                { href: "/", label: "Home" },
-                ...navLinks
-                  // Every other nav item. Case studies is the dropdown itself: the
-                  // list below it is what that link opens on desktop.
-                  .filter((link) => link.href !== "/projects"),
-              ].map((link) => {
-                const current = isCurrentPath(pathname, link.href);
-                // The desktop nav's own link treatment, so the two read as one
-                // control: same type, dimmed with a line under it when it is
-                // the current page, a plain fading link otherwise.
-                const button = `${menuLinkClass} inline-block py-4`;
-                return current ? (
-                  <span
-                    key={link.href}
-                    aria-current="page"
-                    className={`${button} ${selectedLinkClass} underline decoration-[3px] underline-offset-[10px]`}
-                  >
-                    {link.label}
-                  </span>
-                ) : (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`${button} ${fade}`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
+          {panel === "contact" ? (
+            <div className="mx-auto flex w-full max-w-[1140px] flex-col items-start gap-10 pt-4 sm:pt-6">
+              {/* On a phone the menu is where you came from: offer the way back. */}
+              <button
+                type="button"
+                className={`${navLinkBase} text-sm md:hidden ${fade}`}
+                onClick={() => onPanel("work")}
+              >
+                ← Menu
+              </button>
+              <SectionHeader title="Let’s work together" />
+              <ContactLinks />
             </div>
-            <ul className="flex flex-col">
-              {caseStudies.map((study) => (
-                <li key={study.href}>
-                  <CaseStudyPreviewRow
-                    study={study}
-                    current={isCurrentPath(pathname, study.href)}
-                    compact
-                    dividerClassName="border-chrome-line"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          ) : (
+            <div className="mx-auto flex w-full max-w-[1140px] flex-col">
+              <div className="mb-4 flex flex-col items-start md:hidden">
+                {[
+                  // Home leads; on desktop the logo is the way back.
+                  { href: "/", label: "Home" },
+                  ...navLinks
+                    // Every other nav item. Case studies is the dropdown itself: the
+                    // list below it is what that link opens on desktop.
+                    .filter((link) => link.href !== "/projects"),
+                ].map((link) => {
+                  const current = isCurrentPath(pathname, link.href);
+                  // The desktop nav's own link treatment, so the two read as one
+                  // control: same type, dimmed with a line under it when it is
+                  // the current page, a plain fading link otherwise.
+                  const button = `${menuLinkClass} inline-block py-4`;
+                  return current ? (
+                    <span
+                      key={link.href}
+                      aria-current="page"
+                      className={`${button} ${selectedLinkClass} underline decoration-[3px] underline-offset-[10px]`}
+                    >
+                      {link.label}
+                    </span>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`${button} ${fade}`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+                {/* Contact is a dropdown on desktop; on a phone it swaps this menu
+                 * for the same content. */}
+                <button
+                  type="button"
+                  className={`${menuLinkClass} inline-block py-4 ${fade}`}
+                  onClick={() => onPanel("contact")}
+                >
+                  Contact
+                </button>
+              </div>
+              <ul className="flex flex-col">
+                {caseStudies.map((study) => (
+                  <li key={study.href}>
+                    <CaseStudyPreviewRow
+                      study={study}
+                      current={isCurrentPath(pathname, study.href)}
+                      compact
+                      dividerClassName="border-chrome-line"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </nav>
       </div>
     </div>

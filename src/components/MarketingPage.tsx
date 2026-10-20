@@ -13,6 +13,7 @@ export function MarketingPage({
   showFooter = true,
   showCaseStudies,
   caseStudyLayout = "list",
+  caseStudiesFirst = false,
 }: {
   overline?: string;
   title: string;
@@ -23,12 +24,22 @@ export function MarketingPage({
   showFooter?: boolean;
   showCaseStudies?: boolean;
   caseStudyLayout?: "list" | "stack";
+  /** Put the case studies above the page's own section instead of below it. */
+  caseStudiesFirst?: boolean;
 }) {
   const explorer = showCaseStudies ?? showFooter;
+  const caseStudies = explorer ? (
+    caseStudyLayout === "stack" ? (
+      <CaseStudyShowcase />
+    ) : (
+      <CaseStudyExplorer />
+    )
+  ) : null;
 
   return (
     <main id="top">
       <div className="px-5 sm:px-10 lg:px-20">
+        {caseStudiesFirst ? caseStudies : null}
         <section className="flex w-full max-w-[640px] flex-col items-start gap-10 py-16 sm:py-20 lg:max-w-full lg:py-24">
           <SectionHeader
             overline={overline}
@@ -47,13 +58,7 @@ export function MarketingPage({
             </div>
           ) : null}
         </section>
-        {explorer ? (
-          caseStudyLayout === "stack" ? (
-            <CaseStudyShowcase />
-          ) : (
-            <CaseStudyExplorer />
-          )
-        ) : null}
+        {caseStudiesFirst ? null : caseStudies}
       </div>
       {showFooter ? <Footer /> : null}
     </main>
