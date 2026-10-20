@@ -23,6 +23,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme={DEFAULT_THEME}
+      // Next 16 stops overriding the global scroll-behavior: smooth on route changes
+      // unless told to; with this, a new page opens at the top instantly instead of
+      // visibly scrolling up. Smooth scrolling is kept for in-page jumps.
+      data-scroll-behavior="smooth"
       className={`dark ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >

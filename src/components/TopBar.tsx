@@ -15,9 +15,10 @@ const desktopLinkClass = `${navLinkBase} text-xs sm:text-sm`;
 /** The selected page link is dimmed. Its line is the sliding indicator below
  * the nav, which the Case studies trigger never gets: it is not a page. */
 const selectedLinkClass = "opacity-60";
-/** The hamburger menu is md:hidden, so it takes the desktop's 14px directly
- * rather than at a breakpoint that never fires for it. */
-const menuLinkClass = `${navLinkBase} text-sm`;
+/** The hamburger menu's page links: bigger and heavier than the desktop nav's,
+ * since they are the main way around on a phone. */
+const menuLinkClass =
+  "whitespace-nowrap text-[28px] font-extrabold leading-none tracking-[-0.5px] text-chrome-fg";
 
 function isCurrentPath(pathname: string, href: string) {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
@@ -337,25 +338,25 @@ function WorkIndexPanel({
           className="flex min-h-[calc(100svh-72px)] w-full flex-col overflow-y-auto border-t border-chrome-line bg-chrome-solid px-5 pb-10 pt-4 sm:min-h-[calc(100svh-104px)] sm:px-10 sm:pb-16 sm:pt-6 lg:px-20"
         >
           <div className="mx-auto flex w-full max-w-[1140px] flex-col">
-            <div className="mb-2 flex flex-col items-start md:hidden">
+            <div className="mb-4 flex flex-col items-start md:hidden">
               {[
+                // Home leads; on desktop the logo is the way back.
+                { href: "/", label: "Home" },
                 ...navLinks
                   // Every other nav item. Case studies is the dropdown itself: the
                   // list below it is what that link opens on desktop.
                   .filter((link) => link.href !== "/projects"),
-                // Home sits last; on desktop the logo is the way back.
-                { href: "/", label: "Home" },
               ].map((link) => {
                 const current = isCurrentPath(pathname, link.href);
                 // The desktop nav's own link treatment, so the two read as one
                 // control: same type, dimmed with a line under it when it is
                 // the current page, a plain fading link otherwise.
-                const button = `${menuLinkClass} inline-block py-3`;
+                const button = `${menuLinkClass} inline-block py-4`;
                 return current ? (
                   <span
                     key={link.href}
                     aria-current="page"
-                    className={`${button} ${selectedLinkClass} underline decoration-2 underline-offset-[10px]`}
+                    className={`${button} ${selectedLinkClass} underline decoration-[3px] underline-offset-[10px]`}
                   >
                     {link.label}
                   </span>
