@@ -254,14 +254,12 @@ body {
   z-index: 10;
 }
 
+/* Only a "from": the element settles on its own styles, so a dimmed current-page
+ * link or a hover fade is not pinned open by a forwards-filled animation. */
 @keyframes menu-item-in {
   from {
     opacity: 0;
     transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -274,8 +272,22 @@ body {
   animation: fade-up 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
+/* The dropdown's contents rise in one after another when it opens. --i is the
+ * item's place in the order; --after holds back the items that sit below others
+ * that are only shown on a phone (the page links), so the stagger stays tight. */
 .menu-item-in {
-  animation: menu-item-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: menu-item-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(100ms + var(--i, 0) * 55ms + var(--after, 0ms));
+}
+
+.menu-item-after-links {
+  --after: 275ms;
+}
+
+@media (min-width: 768px) {
+  .menu-item-after-links {
+    --after: 0ms;
+  }
 }
 
 @supports (animation-timeline: view()) {

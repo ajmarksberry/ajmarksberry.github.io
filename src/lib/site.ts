@@ -46,6 +46,7 @@ export const navLinks = [
     ? [{ href: "/visual-design", label: "Visual design" }]
     : []),
   ...(SHOW_ABOUT ? [{ href: "/about", label: "About" }] : []),
+  { href: "/contact", label: "Contact" },
 ];
 
 /**

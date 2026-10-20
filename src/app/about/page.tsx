@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { DownloadIcon } from "@/components/Icons";
 import { MarketingPage } from "@/components/MarketingPage";
-import {
-  EMAIL,
-  MAILTO,
-  RESUME_FILENAME,
-  RESUME_PATH,
-  SHOW_ABOUT,
-} from "@/lib/site";
+import { OpenToWorkCard } from "@/components/OpenToWorkCard";
+import { SHOW_ABOUT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About | AJ Marksberry",
@@ -31,10 +25,6 @@ const expertise = [
   "Stakeholder Facilitation",
   "Visual Design",
 ] as const;
-
-/** Same treatment as the homepage's contact row. */
-const linkClass =
-  "font-semibold text-base leading-7 text-ink transition-opacity duration-200 ease-out hover:opacity-60";
 
 export default function AboutPage() {
   if (!SHOW_ABOUT) notFound();
@@ -103,35 +93,7 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <div className="flex w-full max-w-[640px] flex-col items-start gap-4 rounded-lg bg-surface p-6 sm:p-8 lg:max-w-[760px]">
-          <p className="font-extrabold text-xs uppercase leading-none text-accent">
-            Open to work
-          </p>
-          <p
-            className="text-base leading-7 text-heading sm:text-lg sm:leading-8"
-            style={{ fontFeatureSettings: '"liga" 0' }}
-          >
-            I&rsquo;m currently open to Senior Product Designer, Lead Product
-            Designer, Principal Product Designer, and UX Leadership
-            opportunities.
-          </p>
-          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-            <a
-              href={MAILTO}
-              className={`${linkClass} underline underline-offset-4`}
-            >
-              {EMAIL}
-            </a>
-            <a
-              href={RESUME_PATH}
-              download={RESUME_FILENAME}
-              className={`group inline-flex items-center gap-2 ${linkClass}`}
-            >
-              <DownloadIcon className="size-5 shrink-0" />
-              <span className="underline underline-offset-4">Resume</span>
-            </a>
-          </div>
-        </div>
+        <OpenToWorkCard />
       </div>
     </MarketingPage>
   );
