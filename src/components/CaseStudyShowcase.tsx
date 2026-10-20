@@ -119,6 +119,9 @@ const logoFor: Record<string, "taap" | "reach"> = {
   "/projects/reach-booking": "reach",
 };
 
+/** The banner logos run a little smaller than on the case study pages. */
+const BANNER_LOGO_SCALE = 0.8;
+
 /**
  * Figma 7821:4320, minus the product shot: the photograph now carries the whole
  * frame at 40% opacity. From sm up the copy starts a third of the way across the
@@ -163,12 +166,11 @@ function CaseStudyBanner({
 
       <div className="relative flex w-full min-w-0 flex-col gap-6 sm:pr-10">
         <div className="card-rise flex flex-col gap-5">
-          <p
-            className={`font-extrabold text-xs uppercase leading-none text-white ${textShadow}`}
-          >
-            Case Study
-          </p>
-          {brand === "taap" ? <TaapLogo onDark /> : <ReachLogo onDark />}
+          {brand === "taap" ? (
+            <TaapLogo onDark scale={BANNER_LOGO_SCALE} />
+          ) : (
+            <ReachLogo onDark scale={BANNER_LOGO_SCALE} />
+          )}
         </div>
 
         <p

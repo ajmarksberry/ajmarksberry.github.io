@@ -20,19 +20,22 @@ export function TaapOriginsBlock() {
         className="w-full max-w-[620px] pb-6 lg:max-w-full"
       />
 
-      <div className="flex w-full min-w-0 max-w-[620px] flex-col items-center gap-10 overflow-clip rounded-lg bg-mat px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-end lg:justify-center lg:gap-10 lg:px-10">
-        <div className="relative aspect-[733/489] w-full min-w-0 overflow-clip rounded-none lg:max-w-[733px] lg:flex-1">
+      {/* Figma 7571:4091: the screen takes two thirds of the row with the list
+       * centered beside it, straight on the page; stacked below lg. */}
+      <div className="flex w-full min-w-0 max-w-[620px] flex-col gap-10 lg:max-w-full lg:flex-row lg:items-center">
+        <div className="w-full min-w-0 lg:w-[66.64%] lg:shrink-0">
           <Image
-            src="/images/taap/origins-shot.webp"
+            src="/images/taap/origins-table.webp"
             alt="Original My Trips page with a flat list of hyperlinks"
-            fill
-            className="object-cover object-top"
-            sizes="(min-width: 1024px) 733px, (min-width: 640px) 620px, calc(100vw - 40px)"
+            width={1702}
+            height={1608}
+            className="block h-auto w-full"
+            sizes="(min-width: 1140px) 653px, calc(100vw - 40px)"
             unoptimized
           />
         </div>
 
-        <div className="flex w-full flex-col items-start gap-3 pb-8 sm:pb-10 lg:max-w-[397px] lg:flex-none">
+        <div className="flex w-full min-w-0 flex-col items-start gap-3 lg:flex-1">
           {gaps.map((item) => (
             <TaapXItem key={item}>{item}</TaapXItem>
           ))}

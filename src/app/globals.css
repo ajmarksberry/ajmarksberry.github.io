@@ -134,14 +134,16 @@
   --on-primary: var(--figma-white);
   --surface: #f3f4f6;
   --surface-muted: #e5e7eb;
-  --border: #e5e7eb;
-  --rule: #e5e7eb;
+  /* Hairlines and dividers: about 1.8:1 against white, up from 1.2:1, so they
+   * can be seen without competing with the content. */
+  --border: #bcc3cd;
+  --rule: #bcc3cd;
   --rule-strong: var(--figma-neutral-400);
   --mat: #f3f4f6;
   --chrome-bg: rgb(255 255 255 / 0.9);
   --chrome-fg: var(--figma-neutral-900);
   --chrome-solid: #ffffff;
-  --chrome-line: rgb(17 24 39 / 0.1);
+  --chrome-line: rgb(17 24 39 / 0.25);
   color-scheme: light;
 }
 

@@ -1,17 +1,13 @@
 type DividerProps = {
   className?: string;
-  thin?: boolean;
   padded?: boolean;
 };
 
-export function Divider({
-  className = "",
-  thin = false,
-  padded = false,
-}: DividerProps) {
+/** A hairline: rules across the site are never thicker than 1px. */
+export function Divider({ className = "", padded = false }: DividerProps) {
   const line = (
     <div
-      className={`w-full bg-rule ${thin ? "h-px" : "h-0.5"} ${padded ? "" : className}`}
+      className={`h-px w-full bg-rule ${padded ? "" : className}`}
       aria-hidden
     />
   );

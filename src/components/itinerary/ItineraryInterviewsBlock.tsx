@@ -27,7 +27,7 @@ export function ItineraryInterviewsBlock() {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="flex w-full max-w-[620px] flex-col items-start border-t-2 border-rule-strong pt-6 lg:max-w-none lg:min-w-0 lg:flex-1"
+            className="flex w-full max-w-[620px] flex-col items-start border-t border-rule-strong pt-6 lg:max-w-none lg:min-w-0 lg:flex-1"
           >
             <p
               className="w-full font-extrabold text-[48px] leading-[60px] tracking-[-1.2px] text-accent sm:text-[60px] sm:leading-[72px] lg:text-[72px] lg:leading-[90px] lg:tracking-[-1.8px]"
@@ -45,7 +45,7 @@ export function ItineraryInterviewsBlock() {
         ))}
       </div>
 
-      <div className="flex w-full max-w-[620px] flex-col items-start gap-2 border-t-2 border-rule-strong pt-6 lg:max-w-full">
+      <div className="flex w-full max-w-[620px] flex-col items-start gap-2 border-t border-rule-strong pt-6 lg:max-w-full">
         <h3
           className="w-full max-w-[632px] font-extrabold text-[32px] leading-10 tracking-[-0.8px] text-heading sm:text-[40px] sm:leading-[50px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-1.2px]"
           style={{ fontFeatureSettings: '"liga" 0' }}

@@ -3,17 +3,21 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+/** Pages with no reading-progress bar: the homepage, and the two short pages. */
+const HIDDEN_ON = ["/", "/about", "/contact"];
+
 export function ScrollProgress() {
   const pathname = usePathname();
+  const hidden = HIDDEN_ON.includes(pathname.replace(/(.)\/+$/, "$1"));
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (pathname === "/") return;
+    if (hidden) return;
 
     function update() {
-      const max =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const next = max <= 0 ? 1 : Math.min(1, Math.max(0, window.scrollY / max));
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const next =
+        max <= 0 ? 1 : Math.min(1, Math.max(0, window.scrollY / max));
       setProgress(next);
     }
 
@@ -24,9 +28,9 @@ export function ScrollProgress() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [pathname]);
+  }, [hidden]);
 
-  if (pathname === "/") return null;
+  if (hidden) return null;
 
   const percent = Math.round(progress * 100);
 

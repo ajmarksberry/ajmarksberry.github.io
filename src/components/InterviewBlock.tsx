@@ -26,7 +26,7 @@ export function InterviewBlock() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex w-full max-w-[620px] flex-col items-start border-t-2 border-ink pt-6 lg:max-w-none lg:min-w-0 lg:flex-1"
+              className="flex w-full max-w-[620px] flex-col items-start border-t border-ink pt-6 lg:max-w-none lg:min-w-0 lg:flex-1"
             >
               <p
                 className="w-full font-extrabold text-[48px] leading-[60px] tracking-[-1.2px] text-primary-600 sm:text-[60px] sm:leading-[72px] lg:text-[72px] lg:leading-[90px] lg:tracking-[-1.8px]"

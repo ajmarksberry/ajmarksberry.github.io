@@ -87,16 +87,6 @@ export const visualDesign: readonly ExpediaWorkItem[] = [
         caption: "The Revolution Parts logo and its color variations.",
       },
       {
-        src: "/images/visual-design/revolution-parts.webp",
-        alt: "The Revolution Parts marketing homepage: a headline about selling auto parts online, a row of usage stats, and three reasons to choose the platform",
-        width: 1746,
-        height: 2072,
-        bare: true,
-        captionPull: 5.6,
-        caption:
-          "Marketing site for an online auto parts platform, leading with its numbers.",
-      },
-      {
         src: "/images/visual-design/revolution-nissan.webp",
         alt: "A branded Revolution Parts storefront for an official Nissan parts center, with a year, make, and model picker, vehicle types, and popular parts categories",
         width: 1396,

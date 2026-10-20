@@ -1,13 +1,5 @@
 import Image from "next/image";
 import { SectionHeader } from "@/components/SectionHeader";
-import { TaapNumberItem } from "@/components/taap/TaapListItems";
-
-const changes = [
-  "4 status tabs: Upcoming, In progress, Past, Canceled",
-  "Sortable data table",
-  "LOB icons per row, paginated results (30/page), universal search",
-  "Full search capability. Search by traveler name, trip name, trip dates or itinerary number",
-] as const;
 
 export function TaapGen1Block() {
   return (
@@ -19,33 +11,16 @@ export function TaapGen1Block() {
         className="w-full max-w-[620px] lg:max-w-full"
       />
 
-      <div className="flex w-full min-w-0 max-w-[620px] flex-col-reverse items-center gap-10 overflow-clip rounded-lg bg-mat px-6 pt-8 sm:px-10 sm:pt-16 lg:max-w-full lg:flex-row lg:items-start lg:justify-center lg:gap-10 lg:px-10">
-        <div className="flex w-full min-w-0 flex-col items-start gap-4 pb-8 sm:pb-10 lg:max-w-[375px] lg:flex-none lg:pb-0">
-          <h3
-            className="w-full font-extrabold text-2xl leading-8 text-heading sm:text-[30px] sm:leading-10"
-            style={{ fontFeatureSettings: '"liga" 0' }}
-          >
-            What changed
-          </h3>
-          <div className="flex w-full flex-col items-start gap-4">
-            {changes.map((item, index) => (
-              <TaapNumberItem key={item} n={index + 1}>
-                {item}
-              </TaapNumberItem>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative aspect-[753/480] w-full min-w-0 overflow-clip rounded-none lg:max-w-[753px] lg:flex-1">
-          <Image
-            src="/images/taap/gen1-shot.webp"
-            alt="Generation 1 Trips page redesigned as a sortable data table"
-            fill
-            className="object-cover object-top"
-            sizes="(min-width: 1024px) 753px, (min-width: 640px) 620px, calc(100vw - 40px)"
-            unoptimized
-          />
-        </div>
+      <div className="w-full min-w-0 max-w-[620px] overflow-clip rounded-lg lg:max-w-full">
+        <Image
+          src="/images/taap/gen1-table.webp"
+          alt="Generation 1 Trips page redesigned as a sortable data table"
+          width={1280}
+          height={1013}
+          className="block h-auto w-full"
+          sizes="(min-width: 1140px) 980px, calc(100vw - 40px)"
+          unoptimized
+        />
       </div>
     </section>
   );
