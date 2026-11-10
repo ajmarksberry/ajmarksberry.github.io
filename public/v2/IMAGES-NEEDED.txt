@@ -1,0 +1,15 @@
+Add these screenshots to the images/ folder with these exact names:
+
+taap-itinerary-builder.html: images/cs1-challenge-a.png  (Before: manual itinerary compiled outside TAAP)
+taap-itinerary-builder.html: images/cs1-challenge-b.png  (TAAP Trips list, bookings with no shareable view)
+taap-itinerary-builder.html: images/cs1-step1.png  (Miro discovery board, competitive audit)
+taap-itinerary-builder.html: images/cs1-step2.png  (Design sprint, 3 concepts + dot voting)
+taap-itinerary-builder.html: images/cs1-step3.png  (Atomic design system, components, tokens, variants)
+taap-itinerary-builder.html: images/cs1-step4.png  (Figma Make, working interactive prototype)
+taap-itinerary-builder.html: images/cs1-step5.png  (Final builder UI, Preview & Share, show/hide controls)
+taap-itinerary-builder.html: images/cs1-step6.png  (Annotated dev handoff, accessibility annotations)
+reach.html: images/cs3-system.png  (Atomic design system, type, color, components)
+reach.html: images/cs3-booking.png  (Consumer booking flow, Find → Review → Confirm)
+reach.html: images/cs3-portal.png  (Waitlist + client account portal)
+reach.html: images/cs3-dashboard.png  (Results dashboard, funnel + revenue bar charts)
+reach.html: images/cs3-providers.png  (My Providers, profile + avatar upload/crop flow)

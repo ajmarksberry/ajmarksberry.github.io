@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TAAP Trips · AJ Marksberry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-dc-tpl="1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" data-dc-tpl="2">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" data-dc-tpl="3">
+<style data-dc-tpl="4">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; font-size:17px; line-height:1.6; }
+    :root, [data-concept="a"] { --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif; --paper:#FBFAF8; --ink:#1C1B19; --muted:#6B6862; --line:#E7E3DC; --card:#F4F1EB; --accent:#3454D1;
+            --g1:#3454D1; --g2:#237A52; --g3:#8C6210; }
+    [data-concept="b"] { --serif:"Inter",system-ui,sans-serif; --sans:"Inter",system-ui,sans-serif; --paper:#111827; --ink:#E5E7EB; --muted:#9CA3AF; --line:#374151; --card:#1F2937; --accent:#FF5A5F; --g1:#FF5A5F; --g2:#58C2A2; --g3:#A08CF5; color-scheme:dark; }
+    [data-concept="b"] h1, [data-concept="b"] h2, [data-concept="b"] h3 { font-weight:800 !important; color:#fff; letter-spacing:-0.025em !important; font-feature-settings:"liga" 0; }
+    [data-concept="b"] h1 { line-height:1.2 !important; }
+    [data-concept="b"] h1 span { font-style:normal !important; font-weight:800 !important; }
+    [data-concept="b"] [data-ov] { font-family:"Inter",sans-serif !important; font-style:normal !important; font-size:12px !important; font-weight:800 !important; text-transform:uppercase; letter-spacing:0.04em; line-height:1; margin-bottom:20px !important; }
+    [data-concept="b"] dt { color:var(--accent) !important; font-weight:800 !important; }
+    [data-concept="b"] dd { font-weight:600 !important; }
+    [data-concept="b"] [data-badge] { color:#111827 !important; }
+    @media (max-width: 860px) {
+      [data-stack] { grid-template-columns:minmax(0,1fr) !important; gap:32px !important; }
+      [data-stack] > img { grid-row:auto !important; }
+      [data-unstick] { position:static !important; }
+      [data-gen] { padding:28px 24px !important; }
+      [data-sec-pad] { padding-top:88px !important; }
+      [data-next] { padding:36px 28px !important; }
+      [data-meta] { flex:1 1 45% !important; padding:20px 16px 20px 0 !important; border-right:0 !important; border-bottom:1px solid var(--line); }
+    }
+    @media (max-width: 600px) {
+      body { font-size:16px; }
+      [data-main], [data-hdr] { padding-left:20px !important; padding-right:20px !important; }
+      [data-hdr] { height:56px !important; gap:16px !important; }
+      [data-nav] { gap:18px !important; }
+      [data-nav] .jump { font-size:13px; }
+      [data-stack2] { grid-template-columns:minmax(0,1fr) !important; }
+      [data-before] { padding:16px 20px !important; }
+      [data-before] + [data-stack] { padding:24px 20px !important; }
+      [data-gen] { padding:24px 20px !important; border-radius:12px !important; }
+      [data-meta] { flex:1 1 100% !important; padding:16px 0 !important; }
+      #overview [data-stack] p, #challenge [data-stack] p { font-size:17px !important; }
+      [data-gen] p, [data-gen] li, [data-before] + [data-stack] li { font-size:15px !important; }
+      [data-next] { border-radius:16px !important; padding:28px 20px !important; }
+      [data-toggle] { right:12px !important; bottom:12px !important; }
+      [data-toggle] button { padding:12px 14px !important; min-height:44px; }
+      footer { flex-direction:column; align-items:flex-start !important; }
+    }
+    [data-concept="b"] .shot { border:0; background:transparent; border-radius:0; }
+    [data-concept] { background:var(--paper); color:var(--ink); font-family:var(--sans); }
+    .shot { display:block; width:100%; height:auto; border-radius:12px; border:1px solid var(--line); background:var(--card); }
+    h1,h2,h3 { font-family:var(--serif); font-optical-sizing:auto; font-weight:500; }
+    ::selection { background:var(--accent); color:#fff; }
+    a { color:inherit; }
+    .skip { position:absolute; left:8px; top:-48px; background:var(--ink); color:var(--paper); padding:8px 16px; border-radius:8px; z-index:100; transition:top .2s; text-decoration:none; font-size:14px; }
+    .skip:focus { top:8px; }
+    .jump { position:relative; text-decoration:none; color:var(--muted); padding:8px 0; font-size:14px; font-weight:500; transition:color .25s; white-space:nowrap; }
+    .jump[aria-current="true"] { color:var(--ink); }
+    .jump::after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s cubic-bezier(.2,.7,.2,1); }
+    .jump[aria-current="true"]::after { transform:scaleX(1); }
+    .jump:hover { color:var(--ink); }
+    :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+    .backlink::before { content:"←"; display:inline-block; margin-right:8px; transition:transform .3s; }
+    .backlink:hover::before { transform:translateX(-4px); }
+    .nextcard { transition:transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s; }
+    .nextcard:hover { transform:translateY(-4px); border-color:var(--accent); }
+    .nextcard:hover .next-arrow { transform:translate(6px,-6px); }
+    .next-arrow { transition:transform .4s cubic-bezier(.2,.7,.2,1); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none !important; animation:none !important; } }
+  </style>
+<style>.img-placeholder{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font:500 14px/1.4 "Inter",system-ui,sans-serif;color:var(--muted,#767676);background:color-mix(in srgb,currentColor 5%,transparent);border:1px dashed color-mix(in srgb,currentColor 25%,transparent);}</style>
+</head>
+<body>
+<div id="page"><div class="page-host"><div data-concept="a" style="--accent: #3454D1;">
+  <div data-toggle="" role="group" aria-label="Design concept" style="position: fixed; right: 20px; bottom: 20px; z-index: 60; display: flex; gap: 4px; padding: 4px; background: var(--ink); border-radius: 100px; box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 24px;">
+    <button type="button" aria-pressed="true" style="border: 0px; cursor: pointer; font: 600 13px/1 var(--sans); padding: 10px 16px; border-radius: 100px; background: var(--paper); color: var(--ink);">Concept A</button>
+    <button type="button" aria-pressed="false" style="border: 0px; cursor: pointer; font: 600 13px/1 var(--sans); padding: 10px 16px; border-radius: 100px; background: transparent; color: var(--paper);">Concept B</button>
+  </div>
+  <a href="#overview" class="skip">Skip to content</a>
+
+  <header style="position: sticky; top: 0px; z-index: 40; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);">
+    <div data-hdr="" style="max-width: 1120px; margin: 0px auto; padding: 0px 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" class="backlink" style="text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: -0.01em;">AJ Marksberry</a>
+      <nav data-nav="" aria-label="Section navigation" style="display: flex; gap: 32px; overflow-x: auto; scrollbar-width: none;">
+        <a href="#overview" class="jump" data-sec="overview" aria-current="true">Overview</a>
+        <a href="#challenge" class="jump" data-sec="challenge">Challenge</a>
+        <a href="#solution" class="jump" data-sec="solution">Solution</a>
+        <a href="#results" class="jump" data-sec="results">Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" data-main="" style="max-width: 1120px; margin: 0px auto; padding: 0px 32px;">
+
+    
+    <section id="overview" aria-labelledby="overview-h" style="padding: clamp(48px, 10vw, 96px) 0px 0px; scroll-margin-top: 96px;">
+      <div style="font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 16px; margin-bottom: 32px;">
+        <span style="width: 32px; height: 1px; background: var(--accent);"></span>Case Study 02
+      </div>
+      <h1 id="overview-h" style="font-size: clamp(40px, 6.5vw, 80px); line-height: 1.02; letter-spacing: -0.02em; margin: 0px; max-width: 15ch;">
+        TAAP <span style="font-style: italic; font-weight: 400; color: var(--accent);">Trips</span>
+      </h1>
+      <p style="font-size: clamp(19px, 2.2vw, 24px); line-height: 1.45; color: var(--muted); max-width: 52ch; margin: 32px 0px 0px; font-weight: 400;">
+        From consumer-borrowed UI to professional-grade agent tool, three generations transforming how travel agents manage, track, and act on every client booking.
+      </p>
+
+      <dl style="display: flex; flex-wrap: wrap; gap: 0px; margin: 56px 0px 0px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div data-meta="" style="flex: 1 1 160px; padding: 24px 32px 24px 0px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Client</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Expedia TAAP</dd>
+        </div>
+        <div data-meta="" style="flex: 1 1 180px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Role</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Design Lead · 3 Generations</dd>
+        </div>
+        <div data-meta="" style="flex: 1 1 160px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Platform</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">B2B Desktop &amp; Mobile</dd>
+        </div>
+        <div data-meta="" style="flex: 1 1 120px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Year</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">2023 – 2026</dd>
+        </div>
+        <div data-meta="" style="flex: 1 1 160px; padding: 24px 0px 24px 32px;">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Tools</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Figma, Miro, Zoom</dd>
+        </div>
+      </dl>
+
+      <div data-stack="" style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; margin: 64px 0px 0px;">
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6;">
+          The TAAP Trips page began as a consumer-borrowed UI, a simple flat list designed for personal travelers, not professional agents managing hundreds of client bookings at once.
+        </p>
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+          Over the course of the project I led and designed three distinct generations, each replacing the last: a table-format redesign that shipped to production, a research-driven pivot to a richer 3-column panel view, and a targeted round of post-launch enhancements. As Design Lead I owned every screen, component, state, and interaction throughout.
+        </p>
+      </div>
+    </section>
+
+    
+    <section data-sec-pad="" id="challenge" aria-labelledby="challenge-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div data-stack="" style="display: grid; grid-template-columns: minmax(0px, 0.85fr) minmax(0px, 1.15fr); gap: 64px; align-items: start;">
+        <div data-unstick="" style="position: sticky; top: 96px;">
+          <div data-ov="" style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">The Challenge</div>
+          <h2 id="challenge-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px;">
+            Built for consumers, not professionals.
+          </h2>
+        </div>
+        <div>
+          <p style="margin: 0px 0px 24px; font-size: 19px; line-height: 1.6;">
+            For agents managing tens or hundreds of client bookings simultaneously, the original experience was a critical gap. There was no way to search for a specific trip, no way to distinguish booking types at a glance, and no way to take action on a booking without navigating away. It treated agents like consumers rather than professionals.
+          </p>
+          <p style="margin: 0px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+            Every generation of this project was driven by the same question: what does a Trips page actually need to be for a professional travel agent, and how do we make it accessible to all users, regardless of ability?
+          </p>
+        </div>
+      </div>
+
+      
+      <div style="margin: 56px 0px 0px; border: 1px solid var(--line); border-radius: 20px; overflow: hidden;">
+        <div data-before="" style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding: 20px 28px; border-bottom: 1px solid var(--line); background: var(--card);">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); background: var(--paper); padding: 5px 12px; border-radius: 100px;">Before</span>
+          <span style="font-family: var(--serif); font-size: 20px;">The original “My Trips”, borrowed from Expedia's consumer product</span>
+        </div>
+        <div data-stack="" style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 40px; padding: 32px 28px; align-items: center;">
+          <img class="shot" src="../images/taap/origins-table.webp" alt="Original My Trips page with a flat list of hyperlinks" loading="lazy">
+          <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 12px;">
+            <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--muted); flex: 0 0 auto;">✕</span>Only two tabs, Upcoming, and Past &amp; Canceled</li>
+            <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--muted); flex: 0 0 auto;">✕</span>A flat list of trip links, no traveler names</li>
+            <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--muted); flex: 0 0 auto;">✕</span>No search, no filtering, no status indicators</li>
+            <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--muted); flex: 0 0 auto;">✕</span>No LOB icons, no earnings visibility</li>
+            <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--muted); flex: 0 0 auto;">✕</span>A consumer Expedia app-download banner in prime real estate</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    
+    <section data-sec-pad="" id="solution" aria-labelledby="solution-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div style="max-width: 52ch;">
+        <div data-ov="" style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">The Solution</div>
+        <h2 id="solution-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px 0px 24px;">
+          Three generations, each replacing the last.
+        </h2>
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+          Each generation was research-informed and accessible by design, with full WCAG annotations delivered at every dev handoff.
+        </p>
+      </div>
+
+      <ol style="list-style: none; margin: 64px 0px 0px; padding: 0px; display: flex; flex-direction: column; gap: 32px;">
+
+        
+        <li data-gen="" style="border-top-color: ; border-top-style: ; border-top-width: ; border-right-color: ; border-right-style: ; border-right-width: ; border-bottom-color: ; border-bottom-style: ; border-bottom-width: ; border-left: 4px solid var(--g1); border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; border-radius: 16px; padding: 40px; background: var(--paper);">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+            <span data-badge="" style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(255, 255, 255); background: var(--g1); padding: 6px 14px; border-radius: 100px;">Gen 1 · 2023</span>
+            <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--muted); border: 1px solid var(--line); padding: 5px 14px; border-radius: 100px;"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--g2);"></span>Shipped to production</span>
+          </div>
+          <div data-stack="" style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 48px; align-items: start;">
+            <div>
+              <h3 style="font-size: 26px; line-height: 1.12; margin: 0px 0px 16px; letter-spacing: -0.01em;">Table-format redesign</h3>
+              <p style="margin: 0px 0px 24px; font-size: 16px; line-height: 1.6; color: var(--muted);">
+                The first major redesign transformed the consumer pattern into a proper professional data tool.
+              </p>
+              <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;">What shipped</div>
+              <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--g1); font-weight: 700; flex: 0 0 auto;">→</span><span>Renamed “My Trips” to <strong style="font-weight: 600;">Trips</strong>: a professional agent workspace</span></li>
+                <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--g1); font-weight: 700; flex: 0 0 auto;">→</span>Four status tabs and a sortable data table</li>
+                <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--g1); font-weight: 700; flex: 0 0 auto;">→</span>LOB icons per row for instant booking-type ID</li>
+                <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--g1); font-weight: 700; flex: 0 0 auto;">→</span>Universal search with full states · paginated results</li>
+              </ul>
+            </div>
+            <img class="shot" src="../images/taap/gen1-table.webp" alt="Generation 1 Trips page redesigned as a sortable data table" loading="lazy">
+          </div>
+        </li>
+
+        
+        <li data-gen="" style="border-top-color: ; border-top-style: ; border-top-width: ; border-right-color: ; border-right-style: ; border-right-width: ; border-bottom-color: ; border-bottom-style: ; border-bottom-width: ; border-left: 4px solid var(--g2); border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; border-radius: 16px; padding: 40px; background: var(--paper);">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+            <span data-badge="" style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(255, 255, 255); background: var(--g2); padding: 6px 14px; border-radius: 100px;">Gen 2 · 2024–25</span>
+            <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--muted); border: 1px solid var(--line); padding: 5px 14px; border-radius: 100px;"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--g2);"></span>Replaced Gen 1 in production</span>
+          </div>
+          <div data-stack="" style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 48px; align-items: start;">
+            <img class="shot" src="../images/taap/gen2-tray.webp" alt="Generation 2 three-panel Trips layout on desktop and mobile" loading="lazy" style="grid-row: 1;">
+            <div>
+              <h3 style="font-size: 26px; line-height: 1.12; margin: 0px 0px 16px; letter-spacing: -0.01em;">3-column Outlook-style panel view</h3>
+              <p style="margin: 0px 0px 24px; font-size: 16px; line-height: 1.6; color: var(--muted);">
+                Post-launch research and a product-direction change drove a full redesign. Before designing, I mapped the live experience as a detailed user flow, annotating every friction point, then designed a panel layout with accessibility built in from the start.
+              </p>
+              <div style="padding: 20px; background: color-mix(in srgb, var(--g2) 7%, var(--paper)); border: 1px solid color-mix(in srgb, var(--g2) 26%, transparent); border-radius: 12px;">
+                <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g2); margin-bottom: 12px;">Friction identified</div>
+                <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 9px;">
+                  <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.4;"><span style="color: var(--g2); flex: 0 0 auto;">·</span>Itinerary number not visible or linked · no cancel button</li>
+                  <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.4;"><span style="color: var(--g2); flex: 0 0 auto;">·</span>No refund status · commission &amp; earnings not visible</li>
+                  <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.4;"><span style="color: var(--g2); flex: 0 0 auto;">·</span>Share flow required leaving the page entirely</li>
+                  <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.4;"><span style="color: var(--g2); flex: 0 0 auto;">·</span>Font sizes too small · hover-only accessibility barriers</li>
+                </ul>
+              </div>
+              <p style="margin: 20px 0px 0px; font-size: 15px; line-height: 1.55; color: var(--muted);">
+                The result: a persistent filterable list on the left, rich trip detail in the center, and contextual actions on the right, redesigned from scratch alongside the Research team.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        
+        <li data-gen="" style="border-top-color: ; border-top-style: ; border-top-width: ; border-right-color: ; border-right-style: ; border-right-width: ; border-bottom-color: ; border-bottom-style: ; border-bottom-width: ; border-left: 4px solid var(--g3); border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; border-radius: 16px; padding: 40px; background: var(--paper);">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+            <span data-badge="" style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(255, 255, 255); background: var(--g3); padding: 6px 14px; border-radius: 100px;">Gen 3 · 2026</span>
+            <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--muted); border: 1px solid var(--line); padding: 5px 14px; border-radius: 100px;"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--g3);"></span>In progress</span>
+          </div>
+          <div data-stack="" style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 48px; align-items: start;">
+            <div>
+              <h3 style="font-size: 26px; line-height: 1.12; margin: 0px 0px 16px; letter-spacing: -0.01em;">Targeted post-launch enhancements</h3>
+              <p style="margin: 0px 0px 24px; font-size: 16px; line-height: 1.6; color: var(--muted);">
+                Further research surfaced 20+ specific refinements, delivered as an annotated side-by-side Figma comparison with soft/hard change categorization for engineering prioritization.
+              </p>
+              <div data-stack2="" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div style="padding: 14px; border: 1px solid var(--line); border-radius: 10px;"><div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">Bug fixes</div><div style="font-size: 13px; color: var(--muted); line-height: 1.4;">Confirmation number, refund status, trip-name editing</div></div>
+                <div style="padding: 14px; border: 1px solid var(--line); border-radius: 10px;"><div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">New features</div><div style="font-size: 13px; color: var(--muted); line-height: 1.4;">Earnings module, price details, ratings &amp; reviews</div></div>
+                <div style="padding: 14px; border: 1px solid var(--line); border-radius: 10px;"><div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">Design updates</div><div style="font-size: 13px; color: var(--muted); line-height: 1.4;">Larger fonts, repositioned itinerary number, contrast</div></div>
+                <div style="padding: 14px; border: 1px solid var(--line); border-radius: 10px;"><div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">Content</div><div style="font-size: 13px; color: var(--muted); line-height: 1.4;">Map replaced with a clickable address link</div></div>
+              </div>
+              <p style="margin: 20px 0px 0px; font-size: 14px; line-height: 1.5; color: var(--muted); font-style: italic;">
+                Removing the map was validated independently across two research studies, a cross-project insight also confirmed in the Itinerary Builder research.
+              </p>
+            </div>
+            <img class="shot" src="../images/taap/gen3-tray.webp" alt="Generation 3 Trips dashboard after post-launch refinements" loading="lazy">
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    
+    <section data-sec-pad="" id="results" aria-labelledby="results-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div data-stack="" style="display: grid; grid-template-columns: minmax(0px, 0.85fr) minmax(0px, 1.15fr); gap: 64px; align-items: start;">
+        <div>
+          <div data-ov="" style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">Results</div>
+          <h2 id="results-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px;">
+            A consumer list, transformed.
+          </h2>
+          <p style="margin: 24px 0px 0px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+            Across three generations spanning 2023 to 2026, TAAP Trips was transformed from a consumer-borrowed flat list into a progressively more capable, accessible, research-informed professional tool.
+          </p>
+        </div>
+        <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 0px; border-top: 1px solid var(--line);">
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span data-badge="" aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Gen 1 shipped to production</strong>: established the structural, visual, and accessibility foundation as a real B2B data interface</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span data-badge="" aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Gen 2 replaced it in production</strong>: a richer contextual panel view with accessibility built in from the start</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span data-badge="" aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Accessibility in every handoff</strong>: WCAG annotations delivered across all three generations, not as an afterthought</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span data-badge="" aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">A cross-project insight</strong> informed a platform-wide content decision, removing the map, validated across two studies</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--muted); color: var(--muted); display: flex; align-items: center; justify-content: center; font-size: 12px;">◷</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--muted);"><strong style="font-weight: 600; color: var(--ink);">Quantitative metrics</strong> being compiled, added once post-launch data is available</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    
+    <section data-sec-pad="" aria-label="Next case study" style="padding: 120px 0px 0px;">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px;">Next case study</div>
+      <a href="reach.html" data-next="" class="nextcard" style="display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 24px; padding: 56px; background: var(--card);">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+          <div>
+            <div style="font-family: var(--serif); font-size: 15px; color: var(--accent); margin-bottom: 12px;">03 · Reach (Contract) · 2019–2021</div>
+            <h3 style="font-size: clamp(28px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.015em; margin: 0px;">Reach: AI Booking Platform</h3>
+            <p style="margin: 16px 0px 0px; font-size: 17px; color: var(--muted); max-width: 52ch;">Designing both sides of a two-sided AI booking platform for beauty &amp; wellness, end to end, from the first wireframe to a live product.</p>
+          </div>
+          <span class="next-arrow" aria-hidden="true" style="font-family: var(--serif); font-size: 48px; color: var(--accent); flex: 0 0 auto;">↗</span>
+        </div>
+      </a>
+    </section>
+
+    <footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 120px; padding: 32px 0px 48px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);">
+      <span>© 2026 AJ Marksberry · Senior Product Designer</span>
+      <a href="mailto:hello@ajmarksberry.com" style="color: var(--muted); text-decoration: none; font-weight: 500;">hello@ajmarksberry.com</a>
+    </footer>
+  </main></div></div></div>
+
+
+
+<script src="assets/site.js"></script>
+</body></html>

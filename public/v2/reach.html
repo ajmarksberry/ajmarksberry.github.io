@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Reach: AI Booking Platform · AJ Marksberry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-dc-tpl="1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" data-dc-tpl="2">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" data-dc-tpl="3">
+<style data-dc-tpl="4">
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:"Inter",system-ui,sans-serif; -webkit-font-smoothing:antialiased; font-size:17px; line-height:1.6; }
+    :root { --paper:#FBFAF8; --ink:#1C1B19; --muted:#6B6862; --line:#E7E3DC; --card:#F4F1EB; --accent:#3454D1; }
+    h1,h2,h3 { font-family:"Fraunces",Georgia,serif; font-optical-sizing:auto; font-weight:500; }
+    ::selection { background:var(--accent); color:#fff; }
+    a { color:inherit; }
+    .skip { position:absolute; left:8px; top:-48px; background:var(--ink); color:var(--paper); padding:8px 16px; border-radius:8px; z-index:100; transition:top .2s; text-decoration:none; font-size:14px; }
+    .skip:focus { top:8px; }
+    .jump { position:relative; text-decoration:none; color:var(--muted); padding:8px 0; font-size:14px; font-weight:500; transition:color .25s; white-space:nowrap; }
+    .jump[aria-current="true"] { color:var(--ink); }
+    .jump::after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s cubic-bezier(.2,.7,.2,1); }
+    .jump[aria-current="true"]::after { transform:scaleX(1); }
+    .jump:hover { color:var(--ink); }
+    :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+    .backlink::before { content:"←"; display:inline-block; margin-right:8px; transition:transform .3s; }
+    .backlink:hover::before { transform:translateX(-4px); }
+    .nextcard { transition:transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s; }
+    .nextcard:hover { transform:translateY(-4px); border-color:var(--accent); }
+    .nextcard:hover .next-arrow { transform:translate(6px,-6px); }
+    .next-arrow { transition:transform .4s cubic-bezier(.2,.7,.2,1); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none !important; animation:none !important; } }
+  </style>
+<style>.img-placeholder{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font:500 14px/1.4 "Inter",system-ui,sans-serif;color:var(--muted,#767676);background:color-mix(in srgb,currentColor 5%,transparent);border:1px dashed color-mix(in srgb,currentColor 25%,transparent);}</style>
+</head>
+<body>
+<div id="page"><div class="page-host"><div style="--accent: #3454D1;">
+  <a href="#overview" class="skip">Skip to content</a>
+
+  <header style="position: sticky; top: 0px; z-index: 40; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);">
+    <div style="max-width: 1120px; margin: 0px auto; padding: 0px 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" class="backlink" style="text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: -0.01em;">AJ Marksberry</a>
+      <nav aria-label="Section navigation" style="display: flex; gap: 32px; overflow-x: auto; scrollbar-width: none;">
+        <a href="#overview" class="jump" data-sec="overview" aria-current="true">Overview</a>
+        <a href="#challenge" class="jump" data-sec="challenge">Challenge</a>
+        <a href="#solution" class="jump" data-sec="solution">Solution</a>
+        <a href="#results" class="jump" data-sec="results">Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" style="max-width: 1120px; margin: 0px auto; padding: 0px 32px;">
+
+    
+    <section id="overview" aria-labelledby="overview-h" style="padding: 96px 0px 0px; scroll-margin-top: 96px;">
+      <div style="font-family: Inter; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 16px; margin-bottom: 32px;">
+        <span style="width: 32px; height: 1px; background: var(--accent);"></span>Case Study 03
+      </div>
+      <h1 id="overview-h" style="font-size: clamp(40px, 6.5vw, 80px); line-height: 1.02; letter-spacing: -0.02em; margin: 0px; max-width: 15ch;">
+        <span style="font-style: italic; font-weight: 400; color: var(--accent);">Reach</span>: AI Booking Platform
+      </h1>
+      <p style="font-size: clamp(19px, 2.2vw, 24px); line-height: 1.45; color: var(--muted); max-width: 52ch; margin: 32px 0px 0px; font-weight: 400;">
+        Designing an entire dual-sided platform from the ground up, an AI-driven consumer booking experience and a business analytics dashboard for beauty &amp; wellness studios.
+      </p>
+
+      <dl style="display: flex; flex-wrap: wrap; gap: 0px; margin: 56px 0px 0px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div style="flex: 1 1 150px; padding: 24px 32px 24px 0px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Client</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Reach (Contract)</dd>
+        </div>
+        <div style="flex: 1 1 180px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Role</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Design Lead · End to end</dd>
+        </div>
+        <div style="flex: 1 1 190px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Platform</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">B2C &amp; B2B · Mobile &amp; Desktop</dd>
+        </div>
+        <div style="flex: 1 1 110px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Year</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">2019 – 2021</dd>
+        </div>
+        <div style="flex: 1 1 130px; padding: 24px 0px 24px 32px;">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Tools</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Figma, Sketch</dd>
+        </div>
+      </dl>
+
+      <div style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; margin: 64px 0px 0px;">
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6;">
+          Reach is an AI-powered platform that helps beauty &amp; wellness businesses re-engage clients, last-minute booking, targeted promotions, waitlist management, and client communication. But it's not just a booking tool: it's a two-sided platform.
+        </p>
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+          When I joined as Design Lead, neither side existed. Over the engagement I designed the entire product from the ground up, the consumer-facing AI booking flow and client portal, and the business-facing analytics dashboard and management tools, with a complete visual language and atomic component system built from scratch.
+        </p>
+      </div>
+    </section>
+
+    
+    <section id="challenge" aria-labelledby="challenge-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div style="display: grid; grid-template-columns: minmax(0px, 0.85fr) minmax(0px, 1.15fr); gap: 64px; align-items: start;">
+        <div style="position: sticky; top: 96px;">
+          <div style="font-family: Fraunces; font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">The Challenge</div>
+          <h2 id="challenge-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px;">
+            Two connected problems, one design language.
+          </h2>
+        </div>
+        <div>
+          <p style="margin: 0px 0px 24px; font-size: 19px; line-height: 1.6;">
+            Beauty &amp; wellness businesses face two interconnected problems. Last-minute cancellations leave revenue-generating slots unfilled, and the traditional response is slow and impersonal. And even when a platform promises AI-driven re-engagement, owners need to see the evidence: what revenue did the AI generate, and which campaigns drove it?
+          </p>
+          <p style="margin: 0px 0px 32px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+            The consumer experience had to feel human, spoken in the provider's voice, personalized by client history, graceful across dozens of edge cases. The business experience had to be clear, data-rich, and actionable. Both sides needed one coherent visual language, built from a completely blank canvas.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="padding: 24px; background: var(--card); border-radius: 16px;">
+              <div style="font-family: Fraunces; font-size: 15px; color: var(--accent); margin-bottom: 8px;">Consumer side</div>
+              <div style="font-size: 15px; line-height: 1.5; color: var(--muted);">Personal, trustworthy AI booking, voiced by the provider.</div>
+            </div>
+            <div style="padding: 24px; background: var(--card); border-radius: 16px;">
+              <div style="font-family: Fraunces; font-size: 15px; color: var(--accent); margin-bottom: 8px;">Business side</div>
+              <div style="font-size: 15px; line-height: 1.5; color: var(--muted);">Clear, data-rich proof of exactly what the AI earned.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="solution" aria-labelledby="solution-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div style="max-width: 52ch;">
+        <div style="font-family: Fraunces; font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">The Solution</div>
+        <h2 id="solution-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px 0px 24px;">
+          Design language first, then both sides at once.
+        </h2>
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+          I established the complete visual system from scratch, then built the consumer and business products simultaneously on top of it.
+        </p>
+      </div>
+
+      
+      <div style="margin: 64px 0px 0px; border: 1px solid var(--line); border-radius: 20px; padding: 40px; background: var(--paper);">
+        <div style="display: flex; align-items: baseline; gap: 18px; margin-bottom: 28px;">
+          <span style="font-family: Fraunces; font-size: 44px; line-height: 1; color: var(--accent);">00</span>
+          <h3 style="font-size: 26px; line-height: 1.12; margin: 0px; letter-spacing: -0.01em;">The design language &amp; atomic system</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 48px; align-items: start;">
+          <div>
+            <p style="margin: 0px 0px 24px; font-size: 16px; line-height: 1.6; color: var(--muted);">
+              A 3-level typographic system, a comprehensive Figma component library, expandable cards, date/time pickers, slot grids, provider avatar lists, price breakdowns, step indicators, data tables, bar charts, upload/crop flows, and full error &amp; empty states, designed across every breakpoint: 1200, 1024, 768, and 375px.
+            </p>
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px;">Color semantics</div>
+            <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 12px;">
+              <li style="display: flex; align-items: center; gap: 12px; font-size: 15px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: rgb(52, 84, 209); flex: 0 0 auto;"></span><strong style="font-weight: 600;">Blue</strong>: interactive elements &amp; primary CTAs</li>
+              <li style="display: flex; align-items: center; gap: 12px; font-size: 15px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: rgb(224, 138, 43); flex: 0 0 auto;"></span><strong style="font-weight: 600;">Amber</strong>: discounts &amp; positive financial highlights</li>
+              <li style="display: flex; align-items: center; gap: 12px; font-size: 15px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: rgb(47, 143, 99); flex: 0 0 auto;"></span><strong style="font-weight: 600;">Green</strong>: success &amp; additive actions</li>
+              <li style="display: flex; align-items: center; gap: 12px; font-size: 15px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: rgb(209, 74, 90); flex: 0 0 auto;"></span><strong style="font-weight: 600;">Pink / red</strong>: reserved exclusively for errors &amp; urgency</li>
+            </ul>
+          </div>
+          <img src="images/cs3-system.png" alt="Atomic design system, type, color, components" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: contain; border-radius: 12px;">
+        </div>
+      </div>
+
+      
+      <div style="margin: 80px 0px 0px; display: flex; align-items: center; gap: 16px;">
+        <span style="font-family: Fraunces; font-style: italic; font-size: 24px;">Consumer side</span>
+        <span style="height: 1px; background: var(--line); flex: 1 1 0%;"></span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);">B2C · Mobile &amp; Desktop</span>
+      </div>
+
+      <ol style="list-style: none; margin: 48px 0px 0px; padding: 0px; display: flex; flex-direction: column; gap: 80px;">
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 52px; line-height: 1; color: var(--accent); margin-bottom: 20px;">01</div>
+            <h3 style="font-size: 26px; line-height: 1.12; margin: 0px 0px 16px; letter-spacing: -0.01em;">AI-powered booking flow</h3>
+            <p style="margin: 0px 0px 20px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              A 3-step experience, Find → Review → Confirm, that surfaced differently for each client. 6+ personalized AI entry states covered returning clients with active offers, expired and redeemed offers, a departed provider, welcome-back, and brand-new clients.
+            </p>
+            <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Book by service (typeahead + accordion + tabs) or by provider</li>
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Date/time picker, AM/PM segmentation, 15-minute slot grid</li>
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Payment countdown timer in red, the sole use of that color</li>
+            </ul>
+          </div>
+          <img src="images/cs3-booking.png" alt="Consumer booking flow, Find → Review → Confirm" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: contain; border-radius: 12px;">
+        </li>
+
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <img src="images/cs3-portal.png" alt="Waitlist + client account portal" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; grid-row: 1; object-fit: contain; border-radius: 12px;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 52px; line-height: 1; color: var(--accent); margin-bottom: 20px;">02</div>
+            <h3 style="font-size: 26px; line-height: 1.12; margin: 0px 0px 16px; letter-spacing: -0.01em;">Waitlist &amp; client account portal</h3>
+            <p style="margin: 0px 0px 20px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              An unobtrusive “Add me to the waitlist” flow with Text or Email notification and a green CTA, semantically distinct from booking blue, signaling an additive action. Plus a full account portal: personalized home, My Appointments with a three-state refund pipeline, and granular email &amp; SMS preferences.
+            </p>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); font-style: italic;">
+              Dynamic Handlebars HTML email templates, personalized per client, offer, provider, and salon.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      
+      <div style="margin: 80px 0px 0px; display: flex; align-items: center; gap: 16px;">
+        <span style="font-family: Fraunces; font-style: italic; font-size: 24px;">Business side</span>
+        <span style="height: 1px; background: var(--line); flex: 1 1 0%;"></span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);">B2B · Desktop dashboard</span>
+      </div>
+
+      <ol style="list-style: none; margin: 48px 0px 0px; padding: 0px; display: flex; flex-direction: column; gap: 80px;">
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 52px; line-height: 1; color: var(--accent); margin-bottom: 20px;">03</div>
+            <h3 style="font-size: 26px; line-height: 1.12; margin: 0px 0px 16px; letter-spacing: -0.01em;">Results dashboard &amp; revenue analytics</h3>
+            <p style="margin: 0px 0px 20px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              A data-rich desktop dashboard giving owners visibility into exactly how the AI performed, top-level metric cards, a four-step Reach → Open → Click → Book funnel, and orange bar charts attributing revenue.
+            </p>
+            <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Reach-Driven Bookings vs. Service Upsells, clear revenue split</li>
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Revenue Details drill-downs, sortable transaction tables</li>
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.45;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Empty states and responsive down to a 200px widget</li>
+            </ul>
+          </div>
+          <img src="images/cs3-dashboard.png" alt="Results dashboard, funnel + revenue bar charts" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: contain; border-radius: 12px;">
+        </li>
+
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <img src="images/cs3-providers.png" alt="My Providers, profile + avatar upload/crop flow" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; grid-row: 1; object-fit: contain; border-radius: 12px;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 52px; line-height: 1; color: var(--accent); margin-bottom: 20px;">04</div>
+            <h3 style="font-size: 26px; line-height: 1.12; margin: 0px 0px 16px; letter-spacing: -0.01em;">Business &amp; provider management</h3>
+            <p style="margin: 0px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              My Business (info &amp; hours), My Profile (owner details, password with error states), and My Providers, a provider list with availability status indicators, individual profiles, and a complete avatar upload flow: initials preview, drag-and-drop upload, progress, crop tool, and error state. Fully responsive across every breakpoint.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    
+    <section id="results" aria-labelledby="results-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div style="display: grid; grid-template-columns: minmax(0px, 0.85fr) minmax(0px, 1.15fr); gap: 64px; align-items: start;">
+        <div>
+          <div style="font-family: Fraunces; font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">Results</div>
+          <h2 id="results-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px;">
+            A complete platform, shipped.
+          </h2>
+          <p style="margin: 24px 0px 0px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+            Both sides of the platform shipped and were used by real beauty &amp; wellness businesses and their clients, delivered with full responsive coverage, complete edge-case handling, and a single coherent design language built entirely from scratch.
+          </p>
+        </div>
+        <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 0px; border-top: 1px solid var(--line);">
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Both sides shipped to real users</strong>: consumer AI booking through to business revenue analytics</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Designed from a blank canvas</strong>: complete visual language and atomic system across all breakpoints</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Every edge, empty &amp; error state resolved</strong>: the full range of senior product design, consumer and business</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--muted); color: var(--muted); display: flex; align-items: center; justify-content: center; font-size: 12px;">◷</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--muted);"><strong style="font-weight: 600; color: var(--ink);">Conversion, waitlist &amp; revenue metrics</strong>: to be confirmed and added once available</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    
+    <section aria-label="Next case study" style="padding: 120px 0px 0px;">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px;">Back to the start</div>
+      <a href="taap-itinerary-builder.html" class="nextcard" style="display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 24px; padding: 56px; background: var(--card);">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 15px; color: var(--accent); margin-bottom: 12px;">01 · Expedia TAAP · 2026</div>
+            <h3 style="font-size: clamp(28px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.015em; margin: 0px;">TAAP Itinerary Builder</h3>
+            <p style="margin: 16px 0px 0px; font-size: 17px; color: var(--muted); max-width: 52ch;">A desktop and mobile tool for travel agents to build and share branded itineraries with their clients.</p>
+          </div>
+          <span class="next-arrow" aria-hidden="true" style="font-family: Fraunces; font-size: 48px; color: var(--accent); flex: 0 0 auto;">↗</span>
+        </div>
+      </a>
+    </section>
+
+    <footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 120px; padding: 32px 0px 48px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);">
+      <span>© 2026 AJ Marksberry · Senior Product Designer</span>
+      <a href="mailto:hello@ajmarksberry.com" style="color: var(--muted); text-decoration: none; font-weight: 500;">hello@ajmarksberry.com</a>
+    </footer>
+  </main></div></div></div>
+
+
+
+<script src="assets/site.js"></script>
+</body></html>

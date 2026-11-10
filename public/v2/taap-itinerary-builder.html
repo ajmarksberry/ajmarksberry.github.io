@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TAAP Itinerary Builder · AJ Marksberry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-dc-tpl="1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" data-dc-tpl="2">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" data-dc-tpl="3">
+<style data-dc-tpl="4">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    :root {
+      --paper:#FBFAF8; --ink:#1C1B19; --muted:#6B6862;
+      --line:#E7E3DC; --card:#F4F1EB; --accent:#3454D1;
+    }
+    h1,h2,h3 { font-family:"Fraunces", Georgia, serif; font-optical-sizing:auto; font-weight:500; }
+    ::selection { background: var(--accent); color:#fff; }
+    a { color: inherit; }
+    .skip { position:absolute; left:8px; top:-48px; background:var(--ink); color:var(--paper); padding:8px 16px; border-radius:8px; z-index:100; transition:top .2s; text-decoration:none; font-size:14px; }
+    .skip:focus { top:8px; }
+    .jump { position:relative; text-decoration:none; color:var(--muted); padding:8px 0; font-size:14px; font-weight:500; transition:color .25s; white-space:nowrap; }
+    .jump[aria-current="true"] { color:var(--ink); }
+    .jump::after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s cubic-bezier(.2,.7,.2,1); }
+    .jump[aria-current="true"]::after { transform:scaleX(1); }
+    .jump:hover { color:var(--ink); }
+    :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+    .backlink::before { content:"←"; display:inline-block; margin-right:8px; transition:transform .3s; }
+    .backlink:hover::before { transform:translateX(-4px); }
+    .nextcard { transition:transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s; }
+    .nextcard:hover { transform:translateY(-4px); border-color:var(--accent); }
+    .nextcard:hover .next-arrow { transform:translate(6px,-6px); }
+    .next-arrow { transition:transform .4s cubic-bezier(.2,.7,.2,1); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      * { transition:none !important; animation:none !important; }
+    }
+  </style>
+<style>.img-placeholder{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font:500 14px/1.4 "Inter",system-ui,sans-serif;color:var(--muted,#767676);background:color-mix(in srgb,currentColor 5%,transparent);border:1px dashed color-mix(in srgb,currentColor 25%,transparent);}</style>
+</head>
+<body>
+<div id="page"><div class="page-host"><div style="--accent: #3454D1;">
+  <a href="#overview" class="skip">Skip to content</a>
+
+  
+  <header style="position: sticky; top: 0px; z-index: 40; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);">
+    <div style="max-width: 1120px; margin: 0px auto; padding: 0px 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" class="backlink" style="text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: -0.01em;">AJ Marksberry</a>
+      <nav aria-label="Section navigation" style="display: flex; gap: 32px; overflow-x: auto; scrollbar-width: none;">
+        <a href="#overview" class="jump" data-sec="overview" aria-current="true">Overview</a>
+        <a href="#challenge" class="jump" data-sec="challenge">Challenge</a>
+        <a href="#solution" class="jump" data-sec="solution">Solution</a>
+        <a href="#results" class="jump" data-sec="results">Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" style="max-width: 1120px; margin: 0px auto; padding: 0px 32px;">
+
+    
+    <section id="overview" aria-labelledby="overview-h" style="padding: 96px 0px 0px; scroll-margin-top: 96px;">
+      <div style="font-family: Inter; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 16px; margin-bottom: 32px;">
+        <span style="width: 32px; height: 1px; background: var(--accent);"></span>Case Study 01
+      </div>
+      <h1 id="overview-h" style="font-size: clamp(40px, 6.5vw, 80px); line-height: 1.02; letter-spacing: -0.02em; margin: 0px; max-width: 15ch;">
+        TAAP Itinerary <span style="font-style: italic; font-weight: 400; color: var(--accent);">Builder</span>
+      </h1>
+      <p style="font-size: clamp(19px, 2.2vw, 24px); line-height: 1.45; color: var(--muted); max-width: 44ch; margin: 32px 0px 0px; font-weight: 400;">
+        Giving travel agents the power to curate and share personalized trip itineraries with their clients, across desktop and mobile.
+      </p>
+
+      
+      <dl style="display: flex; flex-wrap: wrap; gap: 0px; margin: 56px 0px 0px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div style="flex: 1 1 160px; padding: 24px 32px 24px 0px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Client</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Expedia TAAP</dd>
+        </div>
+        <div style="flex: 1 1 160px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Role</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Design Lead</dd>
+        </div>
+        <div style="flex: 1 1 160px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Platform</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">B2B Desktop &amp; Mobile</dd>
+        </div>
+        <div style="flex: 1 1 100px; padding: 24px 32px; border-right: 1px solid var(--line);">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Year</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">2026</dd>
+        </div>
+        <div style="flex: 1 1 200px; padding: 24px 0px 24px 32px;">
+          <dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0px 0px 8px;">Tools</dt>
+          <dd style="margin: 0px; font-size: 15px; font-weight: 500;">Figma, Figma Make, Miro, Zoom</dd>
+        </div>
+      </dl>
+
+      
+      <div style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; margin: 64px 0px 0px;">
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6;">
+          TAAP is Expedia's affiliate platform for travel agents, giving them access to Expedia's inventory to book trips on behalf of their clients. Despite powerful booking capabilities, agents had no way to bring those bookings together into a cohesive, shareable experience for their travelers.
+        </p>
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+          The Itinerary Builder closes that gap, a dedicated tool to curate, customize, and share branded itineraries across desktop and mobile, complete with hotel details, price breakdowns, notes, and agency information, all in one place. As Design Lead, I owned the look and feel of every screen, from first wireframes to production-ready UI.
+        </p>
+      </div>
+    </section>
+
+    
+    <section id="challenge" aria-labelledby="challenge-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div style="display: grid; grid-template-columns: minmax(0px, 0.85fr) minmax(0px, 1.15fr); gap: 64px; align-items: start;">
+        <div style="position: sticky; top: 96px;">
+          <div style="font-family: Fraunces; font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">The Challenge</div>
+          <h2 id="challenge-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px;">
+            Powerful booking tools, no way to share the result.
+          </h2>
+        </div>
+        <div>
+          <p style="margin: 0px 0px 24px; font-size: 19px; line-height: 1.6;">
+            Agents could book flights, hotels, and experiences through TAAP, but once bookings were made, there was no unified view for the agent or the traveler. Agents manually pieced together itinerary information outside the platform, creating extra work and an inconsistent client experience.
+          </p>
+          <p style="margin: 0px 0px 24px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+            This was also a retention and differentiation challenge. Travel agents are the core users of TAAP, and their satisfaction directly impacts platform loyalty. A branded, professional tool to share with clients, at the desk or on the go, would strengthen the agent–traveler relationship and reflect well on TAAP.
+          </p>
+          <div style="margin: 40px 0px 0px; padding: 24px; background: var(--card); border-radius: 16px;">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px;">Key constraints</div>
+            <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 12px;">
+              <li style="display: flex; gap: 12px; font-size: 16px;"><span style="color: var(--accent); font-weight: 700;">·</span>Saving itineraries mid-session was out of scope for the initial release</li>
+              <li style="display: flex; gap: 12px; font-size: 16px;"><span style="color: var(--accent); font-weight: 700;">·</span>Mobile designs were required from day one</li>
+              <li style="display: flex; gap: 12px; font-size: 16px;"><span style="color: var(--accent); font-weight: 700;">·</span>Accessibility standards had to be met across all screens</li>
+              <li style="display: flex; gap: 12px; font-size: 16px;"><span style="color: var(--accent); font-weight: 700;">·</span>Technical limitations shaped every proposed interaction pattern</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 48px 0px 0px;">
+        <img src="images/cs1-challenge-a.png" alt="Before: manual itinerary compiled outside TAAP" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: contain; border-radius: 12px;">
+        <img src="images/cs1-challenge-b.png" alt="TAAP Trips list, bookings with no shareable view" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: contain; border-radius: 12px;">
+      </div>
+    </section>
+
+    
+    <section id="solution" aria-labelledby="solution-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div style="max-width: 52ch;">
+        <div style="font-family: Fraunces; font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">The Solution</div>
+        <h2 id="solution-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px 0px 24px;">
+          Led end to end, from discovery through accessible handoff.
+        </h2>
+        <p style="margin: 0px; font-size: 19px; line-height: 1.6; color: var(--muted);">
+          I owned the design across desktop and mobile, moving from a competitive audit through a facilitated design sprint, an atomic design system, AI-assisted prototyping, and moderated research before a fully annotated dev handoff.
+        </p>
+      </div>
+
+      <ol style="list-style: none; margin: 72px 0px 0px; padding: 0px; display: flex; flex-direction: column; gap: 96px; counter-reset: step 0;">
+
+        
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 56px; line-height: 1; color: var(--accent); margin-bottom: 24px;">01</div>
+            <h3 style="font-size: 26px; line-height: 1.15; margin: 0px 0px 16px; letter-spacing: -0.01em;">Discovery &amp; competitive audit</h3>
+            <p style="margin: 0px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              I began with a competitive audit and discovery board, reviewing how other platforms handle itinerary sharing and identifying patterns and inspiration across both desktop and mobile form factors.
+            </p>
+          </div>
+          <img src="images/cs1-step1.png" alt="Miro discovery board, competitive audit" loading="lazy" style="width: 100%; aspect-ratio: 3 / 2; display: block; object-fit: contain; border-radius: 12px;">
+        </li>
+
+        
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <img src="images/cs1-step2.png" alt="Design sprint, 3 concepts + dot voting" loading="lazy" style="width: 100%; aspect-ratio: 3 / 2; display: block; grid-row: 1; object-fit: contain; border-radius: 12px;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 56px; line-height: 1; color: var(--accent); margin-bottom: 24px;">02</div>
+            <h3 style="font-size: 26px; line-height: 1.15; margin: 0px 0px 16px; letter-spacing: -0.01em;">A structured 2-day design sprint</h3>
+            <p style="margin: 0px 0px 24px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              I facilitated a sprint with UX, Research, and Content. Day one reviewed the current experience and presented three interaction concepts; day two was dot voting, discussion, and takeaways.
+            </p>
+            <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 12px;">
+              <li style="display: flex; gap: 16px; padding: 16px; background: var(--card); border-radius: 12px; font-size: 15px;"><span style="font-weight: 600; color: var(--muted); flex: 0 0 auto;">1</span><span><strong style="font-weight: 600;">Stay on the Trips List</strong>: builder opens as an overlay, keeping agents in context</span></li>
+              <li style="display: flex; gap: 16px; padding: 16px; background: var(--card); border-radius: 12px; font-size: 15px;"><span style="font-weight: 600; color: var(--muted); flex: 0 0 auto;">2</span><span><strong style="font-weight: 600;">Open in a new tab</strong>: keep the builder open while working elsewhere, mitigating the lack of auto-save</span></li>
+              <li style="display: flex; gap: 16px; padding: 16px; background: color-mix(in srgb, var(--accent) 8%, var(--paper)); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 12px; font-size: 15px;"><span style="font-weight: 600; color: var(--accent); flex: 0 0 auto;">3</span><span><strong style="font-weight: 600; color: var(--accent);">Inline editing with modals, chosen.</strong> Hover to reveal editable sections, click to open contextual modals. Rated the most intuitive.</span></li>
+            </ul>
+            <p style="margin: 20px 0px 0px; font-size: 15px; line-height: 1.6; color: var(--muted); font-style: italic;">
+              Concerns about hover discoverability on mobile and the accessibility of hover-only interactions directly shaped the final direction.
+            </p>
+          </div>
+        </li>
+
+        
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 56px; line-height: 1; color: var(--accent); margin-bottom: 24px;">03</div>
+            <h3 style="font-size: 26px; line-height: 1.15; margin: 0px 0px 16px; letter-spacing: -0.01em;">Wireframes &amp; an atomic design system</h3>
+            <p style="margin: 0px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              Multiple rounds of wireframes across desktop and mobile, then a comprehensive atomic design system in Figma, tokens for color, typography, spacing, and elevation, with a component library of full variant sets and interactive states. Every component was built to WCAG standards: contrast, focus states, touch targets, and screen-reader considerations, all documented for handoff.
+            </p>
+          </div>
+          <img src="images/cs1-step3.png" alt="Atomic design system, components, tokens, variants" loading="lazy" style="width: 100%; aspect-ratio: 3 / 2; display: block; object-fit: contain; border-radius: 12px;">
+        </li>
+
+        
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <img src="images/cs1-step4.png" alt="Figma Make, working interactive prototype" loading="lazy" style="width: 100%; aspect-ratio: 3 / 2; display: block; grid-row: 1; object-fit: contain; border-radius: 12px;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 56px; line-height: 1; color: var(--accent); margin-bottom: 24px;">04</div>
+            <h3 style="font-size: 26px; line-height: 1.15; margin: 0px 0px 16px; letter-spacing: -0.01em;">A working prototype with Figma Make</h3>
+            <p style="margin: 0px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              To enable realistic testing, I used Figma Make, Figma's AI-powered prototyping tool, to build a functional, interactive prototype of the builder, giving research participants a real product experience rather than a standard click-through.
+            </p>
+          </div>
+        </li>
+
+        
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 56px; line-height: 1; color: var(--accent); margin-bottom: 24px;">05</div>
+            <h3 style="font-size: 26px; line-height: 1.15; margin: 0px 0px 16px; letter-spacing: -0.01em;">Moderated usability research</h3>
+            <p style="margin: 0px 0px 24px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              A moderated study with 6 TAAP travel agents over Zoom, think-aloud protocol, 8 tasks across the full agent journey. Findings that shaped the final iterations:
+            </p>
+            <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 14px;">
+              <li style="display: flex; gap: 14px; font-size: 16px; line-height: 1.5;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>The map wasn't considered useful, replaced with a clickable link</li>
+              <li style="display: flex; gap: 14px; font-size: 16px; line-height: 1.5;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Participants wanted more imagery, room photos and destination images</li>
+              <li style="display: flex; gap: 14px; font-size: 16px; line-height: 1.5;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Pre-filled email content needed simplifying</li>
+              <li style="display: flex; gap: 14px; font-size: 16px; line-height: 1.5;"><span style="color: var(--accent); font-weight: 700; flex: 0 0 auto;">→</span>Pre-populated logos were wanted, with the ability to customize</li>
+            </ul>
+          </div>
+          <img src="images/cs1-step5.png" alt="Final builder UI, Preview &amp; Share, show/hide controls" loading="lazy" style="width: 100%; aspect-ratio: 3 / 2; display: block; object-fit: contain; border-radius: 12px;">
+        </li>
+
+        
+        <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 64px; align-items: start;">
+          <img src="images/cs1-step6.png" alt="Annotated dev handoff, accessibility annotations" loading="lazy" style="width: 100%; aspect-ratio: 3 / 2; display: block; grid-row: 1; object-fit: contain; border-radius: 12px;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 56px; line-height: 1; color: var(--accent); margin-bottom: 24px;">06</div>
+            <h3 style="font-size: 26px; line-height: 1.15; margin: 0px 0px 16px; letter-spacing: -0.01em;">Accessible, annotated dev handoff</h3>
+            <p style="margin: 0px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+              Final designs shipped as a fully annotated handoff across desktop and mobile, focus order, ARIA labels, color-contrast ratios, keyboard-navigation patterns, and conditional logic for every edge case and interactive state. I also contributed to Expedia Group's AI-consumable design system, helping define token structures and component architecture for rapid AI prototyping.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    
+    <section id="results" aria-labelledby="results-h" style="padding: 120px 0px 0px; scroll-margin-top: 80px;">
+      <div style="display: grid; grid-template-columns: minmax(0px, 0.85fr) minmax(0px, 1.15fr); gap: 64px; align-items: start;">
+        <div>
+          <div style="font-family: Fraunces; font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 16px;">Results</div>
+          <h2 id="results-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -0.015em; margin: 0px;">
+            The core interaction model, validated.
+          </h2>
+          <p style="margin: 24px 0px 0px; font-size: 17px; line-height: 1.6; color: var(--muted);">
+            Research validated the model, agents consistently discovered and completed the primary share flow, and the layout was received as clean and professional. Findings and accessibility refinements were incorporated before handoff.
+          </p>
+        </div>
+        <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 0px; border-top: 1px solid var(--line);">
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Primary Preview &amp; Share flow</strong> consistently discovered and completed by agents</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Layout rated clean and professional</strong>: positive reception across sessions</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Show/hide customization controls</strong>: a standout, high-value feature</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">✓</span>
+            <span style="font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Figma Make prototype</strong> surfaced richer, more nuanced feedback than a click-through</span>
+          </li>
+          <li style="display: flex; gap: 16px; align-items: flex-start; padding: 20px 0px; border-bottom: 1px solid var(--line);">
+            <span aria-hidden="true" style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--muted); color: var(--muted); display: flex; align-items: center; justify-content: center; font-size: 12px;">◷</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--muted);"><strong style="font-weight: 600; color: var(--ink);">Adoption, share &amp; export metrics</strong>: being gathered post-launch, added once available</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    
+    <section aria-label="Next case study" style="padding: 120px 0px 0px;">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px;">Next case study</div>
+      <a href="taap-trips.html" class="nextcard" style="display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 24px; padding: 56px; background: var(--card);">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+          <div>
+            <div style="font-family: Fraunces; font-size: 15px; color: var(--accent); margin-bottom: 12px;">02 · Expedia TAAP · 2023–2026</div>
+            <h3 style="font-size: clamp(28px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.015em; margin: 0px;">TAAP Trips: Three Generations</h3>
+            <p style="margin: 16px 0px 0px; font-size: 17px; color: var(--muted); max-width: 52ch;">Rebuilding the post-booking experience across three design generations, from a borrowed flat list to a research-driven panel view.</p>
+          </div>
+          <span class="next-arrow" aria-hidden="true" style="font-family: Fraunces; font-size: 48px; color: var(--accent); flex: 0 0 auto;">↗</span>
+        </div>
+      </a>
+    </section>
+
+    <footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 120px; padding: 32px 0px 48px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);">
+      <span>© 2026 AJ Marksberry · Senior Product Designer</span>
+      <a href="mailto:hello@ajmarksberry.com" style="color: var(--muted); text-decoration: none; font-weight: 500;">hello@ajmarksberry.com</a>
+    </footer>
+  </main></div></div></div>
+
+
+
+<script src="assets/site.js"></script>
+</body></html>
